@@ -43,11 +43,8 @@ using namespace intel::pfr;
 // List holds <ObjPath> <ImageType> <VersionPurpose>
 static std::vector<std::tuple<std::string, ImageType, std::string>>
     verComponentList = {
-        std::make_tuple("bmc_active", ImageType::bmcActive, versionPurposeBMC),
         std::make_tuple("bmc_recovery", ImageType::bmcRecovery,
                         versionPurposeBMC),
-        std::make_tuple("bios_active", ImageType::biosActive,
-                        versionPurposeHost),
         std::make_tuple("bios_recovery", ImageType::biosRecovery,
                         versionPurposeHost),
         std::make_tuple("cpld_active", ImageType::cpldActive,
