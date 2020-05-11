@@ -216,7 +216,7 @@ static void checkAndLogEvents()
     uint8_t majorErr = 0;
     uint8_t minorErr = 0;
     if ((0 == intel::pfr::readCpldReg(intel::pfr::ActionType::majorError,
-                                      majorErr)) ||
+                                      majorErr)) &&
         (0 ==
          intel::pfr::readCpldReg(intel::pfr::ActionType::minorError, minorErr)))
     {
