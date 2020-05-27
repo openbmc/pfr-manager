@@ -22,8 +22,6 @@
 #include "file.hpp"
 #include "spiDev.hpp"
 
-namespace intel
-{
 namespace pfr
 {
 // TODO: Dynamically pull these values from configuration
@@ -270,4 +268,3 @@ int setBMCBootCheckpoint(const uint8_t checkPoint)
 }
 
 } // namespace pfr
-} // namespace intel

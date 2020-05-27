@@ -20,6 +20,8 @@
 #include "pfr.hpp"
 #include <boost/asio.hpp>
 
+namespace pfr
+{
 // Caches the last Recovery/Panic Count to
 // identify any new Recovery/panic actions.
 /* TODO: When BMC Reset's, these values will be lost
@@ -36,10 +38,9 @@ static constexpr uint8_t bmcBootFinishedChkPoint = 0x09;
 std::unique_ptr<boost::asio::steady_timer> stateTimer = nullptr;
 std::unique_ptr<boost::asio::steady_timer> initTimer = nullptr;
 
-std::vector<std::unique_ptr<intel::pfr::PfrVersion>> pfrVersionObjects;
-std::unique_ptr<intel::pfr::PfrConfig> pfrConfigObject;
+std::vector<std::unique_ptr<pfr::PfrVersion>> pfrVersionObjects;
+std::unique_ptr<pfr::PfrConfig> pfrConfigObject;
 
-using namespace intel::pfr;
 // List holds <ObjPath> <ImageType> <VersionPurpose>
 static std::vector<std::tuple<std::string, ImageType, std::string>>
     verComponentList = {
@@ -126,8 +127,7 @@ static void updateDbusPropertiesCache()
 static void logLastRecoveryEvent()
 {
     uint8_t reason = 0;
-    if (0 !=
-        intel::pfr::readCpldReg(intel::pfr::ActionType::recoveryReason, reason))
+    if (0 != pfr::readCpldReg(pfr::ActionType::recoveryReason, reason))
     {
         return;
     }
@@ -148,8 +148,7 @@ static void logLastRecoveryEvent()
 static void logLastPanicEvent()
 {
     uint8_t reason = 0;
-    if (0 !=
-        intel::pfr::readCpldReg(intel::pfr::ActionType::panicReason, reason))
+    if (0 != pfr::readCpldReg(pfr::ActionType::panicReason, reason))
     {
         return;
     }
@@ -190,8 +189,7 @@ static void logResiliencyErrorEvent(const uint8_t majorErrorCode,
 static void checkAndLogEvents()
 {
     uint8_t currPanicCount = 0;
-    if (0 == intel::pfr::readCpldReg(intel::pfr::ActionType::panicCount,
-                                     currPanicCount))
+    if (0 == pfr::readCpldReg(pfr::ActionType::panicCount, currPanicCount))
     {
         if (lastPanicCount != currPanicCount)
         {
@@ -202,8 +200,8 @@ static void checkAndLogEvents()
     }
 
     uint8_t currRecoveryCount = 0;
-    if (0 == intel::pfr::readCpldReg(intel::pfr::ActionType::recoveryCount,
-                                     currRecoveryCount))
+    if (0 ==
+        pfr::readCpldReg(pfr::ActionType::recoveryCount, currRecoveryCount))
     {
         if (lastRecoveryCount != currRecoveryCount)
         {
@@ -215,10 +213,8 @@ static void checkAndLogEvents()
 
     uint8_t majorErr = 0;
     uint8_t minorErr = 0;
-    if ((0 == intel::pfr::readCpldReg(intel::pfr::ActionType::majorError,
-                                      majorErr)) &&
-        (0 ==
-         intel::pfr::readCpldReg(intel::pfr::ActionType::minorError, minorErr)))
+    if ((0 == pfr::readCpldReg(pfr::ActionType::majorError, majorErr)) &&
+        (0 == pfr::readCpldReg(pfr::ActionType::minorError, minorErr)))
     {
         if ((lastMajorErr != majorErr) || (lastMinorErr != minorErr))
         {
@@ -269,8 +265,7 @@ void checkAndSetCheckpoint(sdbusplus::asio::object_server& server,
                     if (!finishedSettingChkPoint)
                     {
                         finishedSettingChkPoint = true;
-                        intel::pfr::setBMCBootCheckpoint(
-                            bmcBootFinishedChkPoint);
+                        pfr::setBMCBootCheckpoint(bmcBootFinishedChkPoint);
                     }
                     return;
                 }
@@ -329,7 +324,7 @@ void monitorSignals(sdbusplus::asio::object_server& server,
                     "PFR: BMC boot completed(StartupFinished). Setting "
                     "checkpoint 9.");
                 finishedSettingChkPoint = true;
-                intel::pfr::setBMCBootCheckpoint(bmcBootFinishedChkPoint);
+                pfr::setBMCBootCheckpoint(bmcBootFinishedChkPoint);
             }
         });
     checkAndSetCheckpoint(server, conn);
@@ -464,27 +459,29 @@ void monitorSignals(sdbusplus::asio::object_server& server,
     checkAndLogEvents();
 }
 
+} // namespace pfr
+
 int main()
 {
     // setup connection to dbus
     boost::asio::io_service io;
     auto conn = std::make_shared<sdbusplus::asio::connection>(io);
-    stateTimer = std::make_unique<boost::asio::steady_timer>(io);
-    initTimer = std::make_unique<boost::asio::steady_timer>(io);
+    pfr::stateTimer = std::make_unique<boost::asio::steady_timer>(io);
+    pfr::initTimer = std::make_unique<boost::asio::steady_timer>(io);
     auto server = sdbusplus::asio::object_server(conn, true);
-    monitorSignals(server, conn);
+    pfr::monitorSignals(server, conn);
 
     auto rootInterface = server.add_interface("/xyz/openbmc_project/pfr", "");
     rootInterface->initialize();
     server.add_manager("/xyz/openbmc_project/pfr");
 
     // Create PFR attributes object and interface
-    pfrConfigObject = std::make_unique<intel::pfr::PfrConfig>(server, conn);
+    pfr::pfrConfigObject = std::make_unique<pfr::PfrConfig>(server, conn);
 
     // Create Software objects using Versions interface
-    for (const auto& entry : verComponentList)
+    for (const auto& entry : pfr::verComponentList)
     {
-        pfrVersionObjects.emplace_back(std::make_unique<intel::pfr::PfrVersion>(
+        pfr::pfrVersionObjects.emplace_back(std::make_unique<pfr::PfrVersion>(
             server, conn, std::get<0>(entry), std::get<1>(entry),
             std::get<2>(entry)));
     }
