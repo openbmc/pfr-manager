@@ -24,8 +24,6 @@
 
 #include <string>
 
-namespace intel
-{
 namespace pfr
 {
 
@@ -85,4 +83,3 @@ class PfrConfig
 };
 
 } // namespace pfr
-} // namespace intel
