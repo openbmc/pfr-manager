@@ -17,8 +17,6 @@
 
 #include <string>
 
-namespace intel
-{
 namespace pfr
 {
 
@@ -49,4 +47,3 @@ int readCpldReg(const ActionType &action, uint8_t &value);
 int setBMCBootCheckpoint(const uint8_t checkPoint);
 
 } // namespace pfr
-} // namespace intel

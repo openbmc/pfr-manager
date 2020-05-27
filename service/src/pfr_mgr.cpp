@@ -16,8 +16,6 @@
 
 #include "pfr_mgr.hpp"
 
-namespace intel
-{
 namespace pfr
 {
 
@@ -175,4 +173,3 @@ void PfrConfig::updateProvisioningStatus()
 }
 
 } // namespace pfr
-} // namespace intel

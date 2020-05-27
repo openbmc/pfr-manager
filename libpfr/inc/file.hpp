@@ -28,8 +28,6 @@ extern "C" {
 #include <linux/i2c-dev.h>
 }
 
-namespace intel
-{
 namespace pfr
 {
 
@@ -126,4 +124,3 @@ class I2CFile
 };
 
 } // namespace pfr
-} // namespace intel
