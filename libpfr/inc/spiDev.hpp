@@ -21,8 +21,6 @@
 #include <cstring>
 #include <experimental/filesystem>
 
-namespace intel
-{
 namespace pfr
 {
 
@@ -93,4 +91,3 @@ class SPIDev
 };
 
 } // namespace pfr
-} // namespace intel

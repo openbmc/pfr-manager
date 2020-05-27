@@ -20,6 +20,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <sys/ioctl.h>
+#include <unistd.h>
 
 #include <phosphor-logging/log.hpp>
 
@@ -31,8 +32,6 @@ extern "C"
 #include <linux/i2c-dev.h>
 }
 
-namespace intel
-{
 namespace pfr
 {
 
@@ -129,4 +128,3 @@ class I2CFile
 };
 
 } // namespace pfr
-} // namespace intel
