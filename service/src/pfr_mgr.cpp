@@ -27,10 +27,10 @@ static constexpr uint8_t recoveryImage = 1;
 std::shared_ptr<sdbusplus::asio::dbus_interface> associationIface;
 std::set<std::tuple<std::string, std::string, std::string>> associations;
 
-PfrVersion::PfrVersion(sdbusplus::asio::object_server &srv_,
-                       std::shared_ptr<sdbusplus::asio::connection> &conn_,
-                       const std::string &path_, const ImageType &imgType_,
-                       const std::string &purpose_) :
+PfrVersion::PfrVersion(sdbusplus::asio::object_server& srv_,
+                       std::shared_ptr<sdbusplus::asio::connection>& conn_,
+                       const std::string& path_, const ImageType& imgType_,
+                       const std::string& purpose_) :
     server(srv_),
     conn(conn_), path(path_), imgType(imgType_), purpose(purpose_)
 {
@@ -43,7 +43,7 @@ PfrVersion::PfrVersion(sdbusplus::asio::object_server &srv_,
     versionIface->register_property(
         versionStr, version,
         // Override set
-        [this](const std::string &req, std::string &propertyValue) {
+        [this](const std::string& req, std::string& propertyValue) {
             if (internalSet)
             {
                 if (req != propertyValue)
@@ -110,8 +110,8 @@ void PfrVersion::updateVersion()
     return;
 }
 
-PfrConfig::PfrConfig(sdbusplus::asio::object_server &srv_,
-                     std::shared_ptr<sdbusplus::asio::connection> &conn_) :
+PfrConfig::PfrConfig(sdbusplus::asio::object_server& srv_,
+                     std::shared_ptr<sdbusplus::asio::connection>& conn_) :
     server(srv_),
     conn(conn_)
 {

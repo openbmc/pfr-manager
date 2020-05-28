@@ -14,10 +14,11 @@
 // limitations under the License.
 */
 
+#include "pfr.hpp"
+#include "pfr_mgr.hpp"
+
 #include <systemd/sd-journal.h>
 
-#include "pfr_mgr.hpp"
-#include "pfr.hpp"
 #include <boost/asio.hpp>
 
 // Caches the last Recovery/Panic Count to

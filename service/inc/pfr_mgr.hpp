@@ -16,36 +16,37 @@
 
 #pragma once
 
-#include <string>
-#include <sdbusplus/asio/object_server.hpp>
-#include <phosphor-logging/log.hpp>
-#include <boost/asio.hpp>
-
 #include "pfr.hpp"
+
+#include <boost/asio.hpp>
+#include <phosphor-logging/log.hpp>
+#include <sdbusplus/asio/object_server.hpp>
+
+#include <string>
 
 namespace intel
 {
 namespace pfr
 {
 
-static constexpr const char *versionPurposeBMC =
+static constexpr const char* versionPurposeBMC =
     "xyz.openbmc_project.Software.Version.VersionPurpose.BMC";
-static constexpr const char *versionPurposeHost =
+static constexpr const char* versionPurposeHost =
     "xyz.openbmc_project.Software.Version.VersionPurpose.Host";
-static constexpr const char *versionPurposeOther =
+static constexpr const char* versionPurposeOther =
     "xyz.openbmc_project.Software.Version.VersionPurpose.Other";
 
-static constexpr const char *versionStr = "Version";
-static constexpr const char *ufmProvisionedStr = "UfmProvisioned";
-static constexpr const char *ufmLockedStr = "UfmLocked";
+static constexpr const char* versionStr = "Version";
+static constexpr const char* ufmProvisionedStr = "UfmProvisioned";
+static constexpr const char* ufmLockedStr = "UfmLocked";
 
 class PfrVersion
 {
   public:
-    PfrVersion(sdbusplus::asio::object_server &srv_,
-               std::shared_ptr<sdbusplus::asio::connection> &conn_,
-               const std::string &path_, const ImageType &imgType_,
-               const std::string &purpose_);
+    PfrVersion(sdbusplus::asio::object_server& srv_,
+               std::shared_ptr<sdbusplus::asio::connection>& conn_,
+               const std::string& path_, const ImageType& imgType_,
+               const std::string& purpose_);
     ~PfrVersion() = default;
 
     std::shared_ptr<sdbusplus::asio::connection> conn;
@@ -53,7 +54,7 @@ class PfrVersion
     void updateVersion();
 
   private:
-    sdbusplus::asio::object_server &server;
+    sdbusplus::asio::object_server& server;
     std::shared_ptr<sdbusplus::asio::dbus_interface> versionIface;
     bool internalSet = false;
 
@@ -66,8 +67,8 @@ class PfrVersion
 class PfrConfig
 {
   public:
-    PfrConfig(sdbusplus::asio::object_server &srv_,
-              std::shared_ptr<sdbusplus::asio::connection> &conn_);
+    PfrConfig(sdbusplus::asio::object_server& srv_,
+              std::shared_ptr<sdbusplus::asio::connection>& conn_);
     ~PfrConfig() = default;
 
     std::shared_ptr<sdbusplus::asio::connection> conn;
@@ -75,7 +76,7 @@ class PfrConfig
     void updateProvisioningStatus();
 
   private:
-    sdbusplus::asio::object_server &server;
+    sdbusplus::asio::object_server& server;
     std::shared_ptr<sdbusplus::asio::dbus_interface> pfrCfgIface;
     bool internalSet = false;
 
