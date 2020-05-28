@@ -14,13 +14,16 @@
 // limitations under the License.
 */
 
-#include <unistd.h>
-#include <iostream>
-#include <sstream>
-#include <iomanip>
 #include "pfr.hpp"
+
 #include "file.hpp"
 #include "spiDev.hpp"
+
+#include <unistd.h>
+
+#include <iomanip>
+#include <iostream>
+#include <sstream>
 
 namespace intel
 {

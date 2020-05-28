@@ -18,12 +18,15 @@
 
 #include <errno.h>
 #include <fcntl.h>
-#include <sys/ioctl.h>
 #include <stdio.h>
-#include <experimental/filesystem>
+#include <sys/ioctl.h>
+
 #include <phosphor-logging/log.hpp>
 
-extern "C" {
+#include <experimental/filesystem>
+
+extern "C"
+{
 #include <i2c/smbus.h>
 #include <linux/i2c-dev.h>
 }
