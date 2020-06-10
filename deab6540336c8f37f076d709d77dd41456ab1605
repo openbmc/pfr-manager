@@ -1,0 +1,9 @@
+Code-Review+1: Richard Marian Thomaiyar <richard.marian.thomaiyar@linux.intel.com>
+Code-Review+2: AppaRao Puli <apparao.puli@linux.intel.com>
+Ok-To-Test+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Verified+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Submitted-by: Vikram B <vikram.bodireddy@linux.intel.com>
+Submitted-at: Wed, 10 Jun 2020 02:00:26 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/pfr-manager/+/31819
+Project: openbmc/pfr-manager
+Branch: refs/heads/master
