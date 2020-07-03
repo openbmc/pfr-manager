@@ -34,6 +34,8 @@ static constexpr int i2cSlaveAddress = 0x38;
 // CPLD mailbox registers
 static constexpr uint8_t cpldROTVersion = 0x01;
 static constexpr uint8_t cpldROTSvn = 0x02;
+static constexpr uint8_t CPLDRegStart = 0x20;
+static constexpr uint8_t CPLDRegEnd = 0x3F;
 static constexpr uint8_t platformState = 0x03;
 static constexpr uint8_t recoveryCount = 0x04;
 static constexpr uint8_t lastRecoveryReason = 0x05;
@@ -69,6 +71,28 @@ std::string toHexString(const uint8_t val)
     stream << std::setfill('0') << std::setw(2) << std::hex
            << static_cast<int>(val);
     return stream.str();
+}
+
+static std::string readCPLDHash(const uint8_t CPLDRegStart,
+                                const uint8_t CPLDRedEnd)
+{
+    try
+    {
+        std::string hash = "";
+        I2CFile cpldDev(i2cBusNumber, i2cSlaveAddress, O_RDWR | O_CLOEXEC);
+        for (uint8_t iter = CPLDRegStart; iter <= CPLDRedEnd; iter++)
+        {
+            hash += toHexString(cpldDev.i2cReadByteData(iter));
+        }
+        return hash;
+    }
+    catch (const std::exception& e)
+    {
+        phosphor::logging::log<phosphor::logging::level::ERR>(
+            "Exception caught in readVersionFromCPLD.",
+            phosphor::logging::entry("MSG=%s", e.what()));
+        return "";
+    }
 }
 
 static std::string readVersionFromCPLD(const uint8_t majorReg,
@@ -158,6 +182,12 @@ std::string getFirmwareVersion(const ImageType& imgType)
     switch (imgType)
     {
         case (ImageType::cpldActive):
+        {
+            std::string cpldVer =
+                readVersionFromCPLD(cpldROTVersion, cpldROTSvn);
+            std::string cpldHash = readCPLDHash(CPLDRegStart, CPLDRegEnd);
+            return cpldVer + cpldHash;
+        }
         case (ImageType::cpldRecovery):
         {
             // TO-DO: Need to update once CPLD supported Firmware is available

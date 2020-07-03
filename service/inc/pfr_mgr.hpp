@@ -35,6 +35,7 @@ static constexpr const char* versionPurposeOther =
     "xyz.openbmc_project.Software.Version.VersionPurpose.Other";
 
 static constexpr const char* versionStr = "Version";
+static constexpr const char* cpldfwHashStr = "cpldfwHash";
 static constexpr const char* ufmProvisionedStr = "UfmProvisioned";
 static constexpr const char* ufmLockedStr = "UfmLocked";
 

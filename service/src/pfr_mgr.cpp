@@ -16,6 +16,8 @@
 
 #include "pfr_mgr.hpp"
 
+#include <string>
+
 namespace pfr
 {
 
@@ -38,21 +40,44 @@ PfrVersion::PfrVersion(sdbusplus::asio::object_server& srv_,
     versionIface =
         server.add_interface(objPath, "xyz.openbmc_project.Software.Version");
     versionIface->register_property("Purpose", purpose);
-    versionIface->register_property(
-        versionStr, version,
-        // Override set
-        [this](const std::string& req, std::string& propertyValue) {
-            if (internalSet)
-            {
-                if (req != propertyValue)
+    if (path == "cpld_active")
+    {
+        versionIface->register_property(
+            versionStr, version.substr(0, 3),
+            // Override set
+            [this](const std::string& req, std::string& propertyValue) {
+                if (internalSet)
                 {
-                    version = req;
-                    propertyValue = req;
-                    return 1;
+                    if (req != propertyValue)
+                    {
+                        version = req;
+                        propertyValue = req;
+                        return 1;
+                    }
                 }
-            }
-            return 0;
-        });
+                return 0;
+            });
+        versionIface->register_property("cpldfwHash",
+                                        version.substr(3, std::string::npos));
+    }
+    else
+    {
+        versionIface->register_property(
+            versionStr, version,
+            // Override set
+            [this](const std::string& req, std::string& propertyValue) {
+                if (internalSet)
+                {
+                    if (req != propertyValue)
+                    {
+                        version = req;
+                        propertyValue = req;
+                        return 1;
+                    }
+                }
+                return 0;
+            });
+    }
 
     versionIface->initialize();
 
@@ -102,8 +127,18 @@ void PfrVersion::updateVersion()
     {
         std::string ver = getFirmwareVersion(imgType);
         internalSet = true;
-        versionIface->set_property(versionStr, ver);
-        internalSet = false;
+        if (imgType == ImageType::cpldActive)
+        {
+            versionIface->set_property(versionStr, ver.substr(0, 3));
+            versionIface->set_property(cpldfwHashStr,
+                                       ver.substr(3, std::string::npos));
+            internalSet = false;
+        }
+        else
+        {
+            versionIface->set_property(versionStr, ver);
+            internalSet = false;
+        }
     }
     return;
 }
