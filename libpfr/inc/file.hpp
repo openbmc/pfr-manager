@@ -91,6 +91,26 @@ class I2CFile
         return value;
     }
 
+    /** @brief Reads the block of data from I2C dev
+     *
+     *  @param[in] Offset       -  Offset value
+     *  @param[in] length       -  length value
+     *  @param[out] value       -  data pointer
+     *  @param[out] bool        -  true or false
+     */
+    bool i2cReadBlockData(const uint8_t& offset, uint8_t length, uint8_t* value)
+    {
+        int ret;
+        ret = i2c_smbus_read_i2c_block_data(fd, offset, length, value);
+
+        if (ret < 0)
+        {
+            throw std::runtime_error("i2c_smbus_read_i2c_block_data() failed");
+            return false;
+        }
+        return true;
+    }
+
     /** @brief Writes the byte data to I2C dev
      *
      *  @param[in] Offset       -  Offset value
