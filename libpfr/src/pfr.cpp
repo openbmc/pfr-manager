@@ -19,10 +19,10 @@
 #include "file.hpp"
 #include "spiDev.hpp"
 
+#include <gpiod.hpp>
 #include <iomanip>
 #include <iostream>
 #include <sstream>
-
 namespace pfr
 {
 // TODO: Dynamically pull these values from configuration
@@ -47,6 +47,7 @@ static constexpr uint8_t pchActiveMajorVersion = 0x15;
 static constexpr uint8_t pchActiveMinorVersion = 0x16;
 static constexpr uint8_t pchRecoveryMajorVersion = 0x1B;
 static constexpr uint8_t pchRecoveryMinorVersion = 0x1C;
+static constexpr uint8_t CPLDHashRegStart = 0x20;
 
 static constexpr uint8_t ufmLockedMask = (0x1 << 0x04);
 static constexpr uint8_t ufmProvisionedMask = (0x1 << 0x05);
@@ -63,12 +64,56 @@ static constexpr const uint32_t verOffsetInPFM = 0x406;
 static constexpr const uint32_t buildNumOffsetInPFM = 0x40C;
 static constexpr const uint32_t buildHashOffsetInPFM = 0x40D;
 
+static const std::array<std::string, 8> mainCPLDGpioLines = {
+    "MAIN_PLD_MAJOR_REV_BIT3", "MAIN_PLD_MAJOR_REV_BIT2",
+    "MAIN_PLD_MAJOR_REV_BIT1", "MAIN_PLD_MAJOR_REV_BIT0",
+    "MAIN_PLD_MINOR_REV_BIT3", "MAIN_PLD_MINOR_REV_BIT2",
+    "MAIN_PLD_MINOR_REV_BIT1", "MAIN_PLD_MINOR_REV_BIT0"};
+
+static const std::array<std::string, 8> pldGpioLines = {
+    "SGPIO_PLD_MAJOR_REV_BIT3", "SGPIO_PLD_MAJOR_REV_BIT2",
+    "SGPIO_PLD_MAJOR_REV_BIT1", "SGPIO_PLD_MAJOR_REV_BIT0",
+    "SGPIO_PLD_MINOR_REV_BIT3", "SGPIO_PLD_MINOR_REV_BIT2",
+    "SGPIO_PLD_MINOR_REV_BIT1", "SGPIO_PLD_MINOR_REV_BIT0"};
+
 std::string toHexString(const uint8_t val)
 {
     std::stringstream stream;
     stream << std::setfill('0') << std::setw(2) << std::hex
            << static_cast<int>(val);
     return stream.str();
+}
+
+static std::string readCPLDHash()
+{
+    std::string hash = "";
+    uint8_t hashLength = 32;
+    uint8_t hashValue[hashLength];
+    try
+    {
+        I2CFile cpldDev(i2cBusNumber, i2cSlaveAddress, O_RDWR | O_CLOEXEC);
+        if (cpldDev.i2cReadBlockData(CPLDHashRegStart, hashLength, hashValue))
+        {
+            for (int i = 0; i < hashLength; i++)
+            {
+                hash += toHexString(hashValue[i]);
+            }
+        }
+        else
+        {
+            // read failed
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                "Failed to read CPLD Hash string");
+        }
+    }
+    catch (const std::exception& e)
+    {
+        phosphor::logging::log<phosphor::logging::level::ERR>(
+            "Exception caught in readCPLDHash.",
+            phosphor::logging::entry("MSG=%s", e.what()));
+        return "";
+    }
+    return hash;
 }
 
 static std::string readVersionFromCPLD(const uint8_t majorReg,
@@ -153,11 +198,118 @@ static std::string readBMCVersionFromSPI(const ImageType& imgType)
     return version;
 }
 
+static bool getGPIOInput(const std::string& name, gpiod::line& gpioLine,
+                         uint8_t* value)
+{
+    // Find the GPIO line
+    gpioLine = gpiod::find_line(name);
+    if (!gpioLine)
+    {
+        phosphor::logging::log<phosphor::logging::level::ERR>(
+            "Failed to find the GPIO line: ",
+            phosphor::logging::entry("MSG=%s", name.c_str()));
+        return false;
+    }
+    try
+    {
+        gpioLine.request({__FUNCTION__, gpiod::line_request::DIRECTION_INPUT});
+    }
+    catch (std::exception& e)
+    {
+        phosphor::logging::log<phosphor::logging::level::ERR>(
+            "Failed to request the GPIO line",
+            phosphor::logging::entry("MSG=%s", e.what()));
+        gpioLine.release();
+        return false;
+    }
+    try
+    {
+        *value = gpioLine.get_value();
+    }
+    catch (std::exception& e)
+    {
+        phosphor::logging::log<phosphor::logging::level::ERR>(
+            "Failed to get the value of GPIO line",
+            phosphor::logging::entry("MSG=%s", e.what()));
+        gpioLine.release();
+        return false;
+    }
+    gpioLine.release();
+    return true;
+}
+
+static std::string readCPLDVersion()
+{
+    // CPLD SGPIO lines
+    gpiod::line mainCPLDLine;
+    gpiod::line pldLine;
+    // read main pld and pld version
+    uint8_t mainCPLDVer = 0;
+    uint8_t pldVer = 0;
+    // main CPLD
+    for (const auto& gLine : mainCPLDGpioLines)
+    {
+        uint8_t value = 0;
+        if (getGPIOInput(gLine, mainCPLDLine, &value))
+        {
+            mainCPLDVer <<= 1;
+            mainCPLDVer = mainCPLDVer | value;
+        }
+        else
+        {
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                "Failed to read GPIO line: ",
+                phosphor::logging::entry("MSG=%s", gLine.c_str()));
+            mainCPLDVer = 0;
+            break;
+        }
+    }
+
+    // pld lines
+    for (const auto& gLine : pldGpioLines)
+    {
+        uint8_t value = 0;
+        if (getGPIOInput(gLine, pldLine, &value))
+        {
+            pldVer <<= 1;
+            pldVer = pldVer | value;
+        }
+        else
+        {
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                "Failed to read GPIO line: ",
+                phosphor::logging::entry("MSG=%s", gLine.c_str()));
+            pldVer = 0;
+            break;
+        }
+    }
+
+    std::string svnRoTHash = "";
+
+    // read SVN and RoT version
+    std::string svnRoTver = readVersionFromCPLD(cpldROTVersion, cpldROTSvn);
+
+    // read CPLD hash
+    std::string cpldHash = readCPLDHash();
+    svnRoTHash = "-" + svnRoTver + "-" + cpldHash;
+
+    // CPLD version format:
+    // <MainPLDMajorMinor.PLDMajorMinor>-<SVN.RoT>-<CPLD-Hash>
+    // Example: 2.7-1.1-<Hash string>
+
+    std::string version =
+        std::to_string(mainCPLDVer) + "." + std::to_string(pldVer) + svnRoTHash;
+    return version;
+}
+
 std::string getFirmwareVersion(const ImageType& imgType)
 {
     switch (imgType)
     {
         case (ImageType::cpldActive):
+        {
+            return readCPLDVersion();
+        }
         case (ImageType::cpldRecovery):
         {
             // TO-DO: Need to update once CPLD supported Firmware is available
