@@ -46,5 +46,6 @@ target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES})
 target_link_libraries(${PROJECT_NAME} phosphor_logging)
 target_link_libraries(${PROJECT_NAME} pfr)
 target_link_libraries(${PROJECT_NAME} i2c)
+target_link_libraries(${PROJECT_NAME} gpiodcxx)
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)

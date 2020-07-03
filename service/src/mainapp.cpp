@@ -466,7 +466,15 @@ int main()
     pfr::stateTimer = std::make_unique<boost::asio::steady_timer>(io);
     pfr::initTimer = std::make_unique<boost::asio::steady_timer>(io);
     auto server = sdbusplus::asio::object_server(conn, true);
-    pfr::monitorSignals(server, conn);
+    bool locked = 0;
+    bool provisioned = 0;
+    if (0 == pfr::getProvisioningStatus(locked, provisioned))
+    {
+        if (provisioned)
+        {
+            pfr::monitorSignals(server, conn);
+        }
+    }
 
     auto rootInterface = server.add_interface("/xyz/openbmc_project/pfr", "");
     rootInterface->initialize();
