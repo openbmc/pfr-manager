@@ -35,7 +35,7 @@ done
 if pfr_active_mode
 then
     echo "Starting PFR manager service"
-    /usr/bin/intel-pfr-manager
+    /usr/bin/pfr-manager
     exit
 else
     echo "PFR not supported on this platforms and so not starting PFR manager service."
