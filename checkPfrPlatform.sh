@@ -16,13 +16,14 @@ pfr_active_mode() {
     return 1
 }
 
+
 #Read board name
 counter=0
-board=$(busctl call xyz.openbmc_project.ObjectMapper /xyz/openbmc_project/object_mapper xyz.openbmc_project.ObjectMapper  GetSubTreePaths sias "/xyz/openbmc_project/inventory" 0 2 "xyz.openbmc_project.Inventory.Item.Board" "xyz.openbmc_project.Inventory.Item.Chassis" | cut -b 7- | sed 's/.$//')
+board=$(busctl call xyz.openbmc_project.ObjectMapper /xyz/openbmc_project/object_mapper xyz.openbmc_project.ObjectMapper  GetSubTreePaths sias "/xyz/openbmc_project/inventory" 0 1 "xyz.openbmc_project.Inventory.Item.Board.Motherboard" | cut -b 7- | sed 's/.$//')
 
-while [ -z $board ]
+while [ -z "$board" ]
 do
-   board=$(busctl call xyz.openbmc_project.ObjectMapper /xyz/openbmc_project/object_mapper xyz.openbmc_project.ObjectMapper  GetSubTreePaths sias "/xyz/openbmc_project/inventory" 0 2 "xyz.openbmc_project.Inventory.Item.Board" "xyz.openbmc_project.Inventory.Item.Chassis" | cut -b 7- | sed 's/.$//')
+   board=$(busctl call xyz.openbmc_project.ObjectMapper /xyz/openbmc_project/object_mapper xyz.openbmc_project.ObjectMapper  GetSubTreePaths sias "/xyz/openbmc_project/inventory" 0 1 "xyz.openbmc_project.Inventory.Item.Board.Motherboard" | cut -b 7- | sed 's/.$//')
    if [ $counter -eq 5 ]
    then
        echo "Unable to get board name"
@@ -31,6 +32,8 @@ do
    counter=`expr $counter + 1`
    sleep 10
 done
+
+echo "Baseboard is=$board"
 
 if pfr_active_mode
 then
