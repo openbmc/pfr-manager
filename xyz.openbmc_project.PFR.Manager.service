@@ -4,6 +4,7 @@ After=xyz.openbmc_project.EntityManager.service
 After=xyz.openbmc_project.ObjectMapper.service
 
 [Service]
+ExecStartPre=/bin/sleep 30
 Restart=on-failure
 ExecStart=/usr/bin/checkPfrPlatform.sh
 RestartSec=5
