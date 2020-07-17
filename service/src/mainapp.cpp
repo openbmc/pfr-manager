@@ -468,7 +468,8 @@ int main()
     auto server = sdbusplus::asio::object_server(conn, true);
     pfr::monitorSignals(server, conn);
 
-    auto rootInterface = server.add_interface("/xyz/openbmc_project/pfr", "");
+    auto rootInterface = server.add_interface(
+        "/xyz/openbmc_project/pfr", "xyz.openbmc_project.PFR.Manager");
     rootInterface->initialize();
     server.add_manager("/xyz/openbmc_project/pfr");
 
