@@ -10,6 +10,3 @@ add_subdirectory(service)
 
 set(SERVICE_FILES ${PROJECT_SOURCE_DIR}/xyz.openbmc_project.PFR.Manager.service)
 install(FILES ${SERVICE_FILES} DESTINATION /lib/systemd/system/)
-
-set(SCRIPT_FILES ${PROJECT_SOURCE_DIR}/checkPfrPlatform.sh)
-install(PROGRAMS ${SCRIPT_FILES} DESTINATION /usr/bin/)
