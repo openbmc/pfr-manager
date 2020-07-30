@@ -82,13 +82,13 @@ class I2CFile
      */
     uint8_t i2cReadByteData(const uint8_t& offset)
     {
-        uint8_t value = i2c_smbus_read_byte_data(fd, offset);
+        int value = i2c_smbus_read_byte_data(fd, offset);
 
         if (value < 0)
         {
             throw std::runtime_error("i2c_smbus_read_byte_data() failed");
         }
-        return value;
+        return static_cast<uint8_t>(value);
     }
 
     /** @brief Writes the byte data to I2C dev
