@@ -295,8 +295,17 @@ static std::string readCPLDVersion()
 
     // check if reg 0x00 read 0xde
     uint8_t cpldRoTValue = 0;
-    I2CFile cpldDev(i2cBusNumber, i2cSlaveAddress, O_RDWR | O_CLOEXEC);
-    cpldRoTValue = cpldDev.i2cReadByteData(pfrROTId);
+    try
+    {
+        I2CFile cpldDev(i2cBusNumber, i2cSlaveAddress, O_RDWR | O_CLOEXEC);
+        cpldRoTValue = cpldDev.i2cReadByteData(pfrROTId);
+    }
+    catch (const std::exception& e)
+    {
+        phosphor::logging::log<phosphor::logging::level::ERR>(
+            "Exception caught in readCPLDVersion.",
+            phosphor::logging::entry("MSG=%s", e.what()));
+    }
 
     if (cpldRoTValue == pfrRoTValue)
     {
