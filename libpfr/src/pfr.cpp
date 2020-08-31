@@ -45,7 +45,8 @@ static constexpr uint8_t panicEventReason = 0x07;
 static constexpr uint8_t majorErrorCode = 0x08;
 static constexpr uint8_t minorErrorCode = 0x09;
 static constexpr uint8_t provisioningStatus = 0x0A;
-static constexpr uint8_t bmcBootCheckpoint = 0x0F;
+static constexpr uint8_t bmcBootCheckpoint_1 = 0x0F;
+static constexpr uint8_t bmcBootCheckpoint_2 = 0x60;
 static constexpr uint8_t pchActiveMajorVersion = 0x15;
 static constexpr uint8_t pchActiveMinorVersion = 0x16;
 static constexpr uint8_t pchRecoveryMajorVersion = 0x1B;
@@ -436,6 +437,28 @@ int readCpldReg(const ActionType& action, uint8_t& value)
 
 int setBMCBootCheckpoint(const uint8_t checkPoint)
 {
+    uint8_t bmcBootCheckpoint = bmcBootCheckpoint_1;
+
+    // check if reg 0x01(RoTRev) is 1 or 2.
+    // checkpoint register changes for 1 and 2
+    uint8_t cpldRoTRev = 0;
+    try
+    {
+        I2CFile cpldDev(i2cBusNumber, i2cSlaveAddress, O_RDWR | O_CLOEXEC);
+        cpldRoTRev = cpldDev.i2cReadByteData(cpldROTVersion);
+    }
+    catch (const std::exception& e)
+    {
+        phosphor::logging::log<phosphor::logging::level::ERR>(
+            "Exception caught in reading RoT rev.",
+            phosphor::logging::entry("MSG=%s", e.what()));
+        return -1;
+    }
+
+    // latest PFR has different check point register
+    if (cpldRoTRev == 2)
+        bmcBootCheckpoint = bmcBootCheckpoint_2;
+
     try
     {
         I2CFile cpldDev(i2cBusNumber, i2cSlaveAddress, O_RDWR | O_CLOEXEC);
