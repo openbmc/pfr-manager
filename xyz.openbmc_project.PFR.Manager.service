@@ -2,9 +2,11 @@
 Description=Daemon manages PFR dbus properties and Event logs
 Wants=rsyslog.service
 After=rsyslog.service
+Requires=xyz.openbmc_project.EntityManager.service
+After=xyz.openbmc_project.EntityManager.service
 
 [Service]
-Restart=always
+Restart=on-failure
 ExecStart=/usr/bin/pfr-manager
 RestartSec=5
 StartLimitInterval=0
