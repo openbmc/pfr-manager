@@ -27,11 +27,8 @@
 
 namespace pfr
 {
-// TODO: Dynamically pull these values from configuration
-// entity-manager, when needed
-static constexpr int i2cBusNumber = 4;
-// below given is 7bit address. Its 8bit addr is 0x70
-static constexpr int i2cSlaveAddress = 0x38;
+int i2cBusNumber;
+int i2cSlaveAddress;
 
 // CPLD mailbox registers
 static constexpr uint8_t pfrROTId = 0x00;

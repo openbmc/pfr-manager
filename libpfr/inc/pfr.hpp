@@ -20,6 +20,9 @@
 namespace pfr
 {
 
+extern int i2cBusNumber;
+extern int i2cSlaveAddress;
+
 enum class ImageType
 {
     cpldActive,
