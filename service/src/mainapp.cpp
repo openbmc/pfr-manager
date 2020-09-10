@@ -18,11 +18,18 @@
 #include "pfr_mgr.hpp"
 
 #include <systemd/sd-journal.h>
+#include <unistd.h>
 
+#include <boost/algorithm/string/predicate.hpp>
 #include <boost/asio.hpp>
 
 namespace pfr
 {
+
+using GetSubTreeType = std::vector<
+    std::pair<std::string,
+              std::vector<std::pair<std::string, std::vector<std::string>>>>>;
+
 // Caches the last Recovery/Panic Count to
 // identify any new Recovery/panic actions.
 /* TODO: When BMC Reset's, these values will be lost
@@ -455,7 +462,92 @@ void monitorSignals(sdbusplus::asio::object_server& server,
     // First time, check and log events if any.
     checkAndLogEvents();
 }
+bool stopService(std::shared_ptr<sdbusplus::asio::connection>& conn)
+{
+    conn->async_method_call(
+        [](boost::system::error_code ec) {
+            if (ec)
+            {
+                phosphor::logging::log<phosphor::logging::level::ERR>(
+                    "PFR: failed to stop service",
+                    phosphor::logging::entry("MSG=%s", ec.message().c_str()));
+                return false;
+            }
 
+            phosphor::logging::log<phosphor::logging::level::INFO>(
+                "PFR Service stopped successfully.");
+            exit(0);
+        },
+        "org.freedesktop.systemd1", "/org/freedesktop/systemd1",
+        "org.freedesktop.systemd1.Manager", "StopUnit",
+        "xyz.openbmc_project.PFR.Manager.service", "replace");
+    return true;
+}
+
+void checkPfrInterface(std::shared_ptr<sdbusplus::asio::connection>& conn)
+{
+    conn->async_method_call(
+        [&conn](const boost::system::error_code ec,
+                const GetSubTreeType& resp) {
+            if (ec)
+            {
+                phosphor::logging::log<phosphor::logging::level::ERR>(
+                    "PFR: Error in querying GetSubTree for PFR Object.",
+                    phosphor::logging::entry("MSG=%s", ec.message().c_str()));
+                return;
+            }
+
+            if (resp.size() != 1)
+            {
+                // Platform doesnot contain pfr object. Stop the service.
+                phosphor::logging::log<phosphor::logging::level::INFO>(
+                    "PFR: Platform doesnot support PFR, hence stop the "
+                    "service.");
+                if (!stopService(conn))
+                {
+                    phosphor::logging::log<phosphor::logging::level::ERR>(
+                        "Unable to stop the PFR service");
+                    return;
+                }
+                return;
+            }
+
+            const std::string& objPath = resp[0].first;
+            const std::string match = "Baseboard/PFR";
+            if (boost::ends_with(objPath, match))
+            {
+                // PFR object found.. check for PFR support
+                bool locked = false;
+                bool prov = false;
+                bool support = false;
+                if (0 == pfr::getProvisioningStatus(locked, prov, support))
+                {
+                    if (support)
+                    {
+                        // pfr provisioned.
+                        phosphor::logging::log<phosphor::logging::level::INFO>(
+                            "PFR Supported.");
+                        return;
+                    }
+                    else
+                    {
+                        if (!stopService(conn))
+                        {
+                            phosphor::logging::log<
+                                phosphor::logging::level::ERR>(
+                                "Unable to stop the PFR service");
+                            return;
+                        }
+                    }
+                }
+            }
+        },
+        "xyz.openbmc_project.ObjectMapper",
+        "/xyz/openbmc_project/object_mapper",
+        "xyz.openbmc_project.ObjectMapper", "GetSubTree",
+        "/xyz/openbmc_project/inventory/system", 0,
+        std::array<const char*, 1>{"xyz.openbmc_project.Configuration.PFR"});
+}
 } // namespace pfr
 
 int main()
@@ -469,6 +561,8 @@ int main()
     pfr::monitorSignals(server, conn);
 
     server.add_manager("/xyz/openbmc_project/pfr");
+
+    pfr::checkPfrInterface(conn);
 
     // Create PFR attributes object and interface
     pfr::pfrConfigObject = std::make_unique<pfr::PfrConfig>(server, conn);
