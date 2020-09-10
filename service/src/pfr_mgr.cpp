@@ -116,7 +116,10 @@ PfrConfig::PfrConfig(sdbusplus::asio::object_server& srv_,
     pfrCfgIface = server.add_interface("/xyz/openbmc_project/pfr",
                                        "xyz.openbmc_project.PFR.Attributes");
 
-    getProvisioningStatus(ufmLocked, ufmProvisioned);
+    ufmLocked = false;
+    ufmProvisioned = false;
+    ufmSupport = false;
+    getProvisioningStatus(ufmLocked, ufmProvisioned, ufmSupport);
 
     pfrCfgIface->register_property(ufmProvisionedStr, ufmProvisioned,
                                    // Override set
@@ -147,6 +150,20 @@ PfrConfig::PfrConfig(sdbusplus::asio::object_server& srv_,
                                        }
                                        return 0;
                                    });
+    pfrCfgIface->register_property(ufmSupportStr, ufmSupport,
+                                   // Override set
+                                   [this](const bool req, bool propertyValue) {
+                                       if (internalSet)
+                                       {
+                                           if (req != propertyValue)
+                                           {
+                                               ufmSupport = req;
+                                               propertyValue = req;
+                                               return 1;
+                                           }
+                                       }
+                                       return 0;
+                                   });
 
     pfrCfgIface->initialize();
 
@@ -163,10 +180,12 @@ void PfrConfig::updateProvisioningStatus()
     {
         bool lockVal = false;
         bool provVal = false;
-        getProvisioningStatus(lockVal, provVal);
+        bool supportVal = false;
+        getProvisioningStatus(lockVal, provVal, supportVal);
         internalSet = true;
         pfrCfgIface->set_property(ufmProvisionedStr, provVal);
         pfrCfgIface->set_property(ufmLockedStr, lockVal);
+        pfrCfgIface->set_property(ufmSupportStr, supportVal);
         internalSet = false;
     }
     return;
