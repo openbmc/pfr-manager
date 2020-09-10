@@ -2,7 +2,10 @@ cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 project(pfr-manager CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-rtti")
+
+# Temporarily disable rtti
+# See https://github.com/chriskohlhoff/asio/issues/533
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-rtti")
 
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
