@@ -18,11 +18,18 @@
 #include "pfr_mgr.hpp"
 
 #include <systemd/sd-journal.h>
+#include <unistd.h>
 
+#include <boost/algorithm/string/predicate.hpp>
 #include <boost/asio.hpp>
 
 namespace pfr
 {
+
+using GetSubTreeType = std::vector<
+    std::pair<std::string,
+              std::vector<std::pair<std::string, std::vector<std::string>>>>>;
+
 // Caches the last Recovery/Panic Count to
 // identify any new Recovery/panic actions.
 /* TODO: When BMC Reset's, these values will be lost
@@ -32,13 +39,16 @@ static uint8_t lastPanicCount = 0;
 static uint8_t lastMajorErr = 0;
 static uint8_t lastMinorErr = 0;
 
+int i2cBusNumber;
+int i2cSlaveAddress;
+
 static bool stateTimerRunning = false;
 bool finishedSettingChkPoint = false;
 static constexpr uint8_t bmcBootFinishedChkPoint = 0x09;
 
 std::unique_ptr<boost::asio::steady_timer> stateTimer = nullptr;
 std::unique_ptr<boost::asio::steady_timer> initTimer = nullptr;
-
+std::unique_ptr<boost::asio::steady_timer> asyncCallTimer = nullptr;
 std::vector<std::unique_ptr<PfrVersion>> pfrVersionObjects;
 std::unique_ptr<PfrConfig> pfrConfigObject;
 
@@ -49,8 +59,6 @@ static std::vector<std::tuple<std::string, ImageType, std::string>>
                         versionPurposeBMC),
         std::make_tuple("bios_recovery", ImageType::biosRecovery,
                         versionPurposeHost),
-        std::make_tuple("cpld_active", ImageType::cpldActive,
-                        versionPurposeOther),
         std::make_tuple("cpld_recovery", ImageType::cpldRecovery,
                         versionPurposeOther),
 };
@@ -258,7 +266,7 @@ void checkAndSetCheckpoint(sdbusplus::asio::object_server& server,
                 if (std::get<uint64_t>(value))
                 {
                     phosphor::logging::log<phosphor::logging::level::INFO>(
-                        "PFR: BMC boot completed. Setting checkpoint 9.");
+                        "BMC boot completed. Setting checkpoint 9.");
                     if (!finishedSettingChkPoint)
                     {
                         finishedSettingChkPoint = true;
@@ -272,7 +280,7 @@ void checkAndSetCheckpoint(sdbusplus::asio::object_server& server,
                 // Failed to get data from systemd. System might not
                 // be ready yet. Attempt again for data.
                 phosphor::logging::log<phosphor::logging::level::ERR>(
-                    "PFR: aync call failed to get FinishTimestamp.",
+                    "aync call failed to get FinishTimestamp.",
                     phosphor::logging::entry("MSG=%s", ec.message().c_str()));
             }
             // FIX-ME: Latest up-stream sync caused issue in receiving
@@ -281,23 +289,23 @@ void checkAndSetCheckpoint(sdbusplus::asio::object_server& server,
             // properly.
             constexpr size_t pollTimeout = 10; // seconds
             initTimer->expires_after(std::chrono::seconds(pollTimeout));
-            initTimer->async_wait([&server,
-                                   &conn](const boost::system::error_code& ec) {
-                if (ec == boost::asio::error::operation_aborted)
-                {
-                    // Timer reset.
-                    phosphor::logging::log<phosphor::logging::level::INFO>(
-                        "PFR: Set boot Checkpoint - Timer aborted or stopped.");
-                    return;
-                }
-                if (ec)
-                {
-                    phosphor::logging::log<phosphor::logging::level::ERR>(
-                        "PFR: Set boot Checkpoint - async wait error.");
-                    return;
-                }
-                checkAndSetCheckpoint(server, conn);
-            });
+            initTimer->async_wait(
+                [&server, &conn](const boost::system::error_code& ec) {
+                    if (ec == boost::asio::error::operation_aborted)
+                    {
+                        // Timer reset.
+                        phosphor::logging::log<phosphor::logging::level::INFO>(
+                            "Set boot Checkpoint - Timer aborted or stopped.");
+                        return;
+                    }
+                    if (ec)
+                    {
+                        phosphor::logging::log<phosphor::logging::level::ERR>(
+                            "Set boot Checkpoint - async wait error.");
+                        return;
+                    }
+                    checkAndSetCheckpoint(server, conn);
+                });
         },
         "org.freedesktop.systemd1", "/org/freedesktop/systemd1",
         "org.freedesktop.DBus.Properties", "Get",
@@ -318,7 +326,7 @@ void monitorSignals(sdbusplus::asio::object_server& server,
             if (!finishedSettingChkPoint)
             {
                 phosphor::logging::log<phosphor::logging::level::INFO>(
-                    "PFR: BMC boot completed(StartupFinished). Setting "
+                    "BMC boot completed(StartupFinished). Setting "
                     "checkpoint 9.");
                 finishedSettingChkPoint = true;
                 setBMCBootCheckpoint(bmcBootFinishedChkPoint);
@@ -456,6 +464,173 @@ void monitorSignals(sdbusplus::asio::object_server& server,
     checkAndLogEvents();
 }
 
+static void updateCPLDversion(std::shared_ptr<sdbusplus::asio::connection> conn)
+{
+    std::string cpldVersion = pfr::readCPLDVersion();
+    std::string activation =
+        "xyz.openbmc_project.Software.Activation.Activations.Active";
+    conn->async_method_call(
+        [cpldVersion](const boost::system::error_code ec) {
+            if (ec)
+            {
+                phosphor::logging::log<phosphor::logging::level::ERR>(
+                    "Unable to update cpld_active version",
+                    phosphor::logging::entry("MSG=%s", ec.message().c_str()));
+                return;
+            }
+        },
+        "xyz.openbmc_project.Settings",
+        "/xyz/openbmc_project/software/cpld_active",
+        "org.freedesktop.DBus.Properties", "Set",
+        "xyz.openbmc_project.Software.Version", "Version",
+        std::variant<std::string>(cpldVersion));
+
+    // set activation to active
+    conn->async_method_call(
+        [activation](const boost::system::error_code ec) {
+            if (ec)
+            {
+                phosphor::logging::log<phosphor::logging::level::ERR>(
+                    "Unable to update cpld_active Activatio Status",
+                    phosphor::logging::entry("MSG=%s", ec.message().c_str()));
+                return;
+            }
+        },
+        "xyz.openbmc_project.Settings",
+        "/xyz/openbmc_project/software/cpld_active",
+        "org.freedesktop.DBus.Properties", "Set",
+        "xyz.openbmc_project.Software.Activation", "Activation",
+        std::variant<std::string>(activation));
+
+    return;
+}
+
+void stopService(std::shared_ptr<sdbusplus::asio::connection> conn)
+{
+    conn->async_method_call(
+        [](boost::system::error_code ec) {
+            if (ec)
+            {
+                phosphor::logging::log<phosphor::logging::level::ERR>(
+                    "failed to stop PFR service",
+                    phosphor::logging::entry("MSG=%s", ec.message().c_str()));
+                return;
+            }
+        },
+        "org.freedesktop.systemd1", "/org/freedesktop/systemd1",
+        "org.freedesktop.systemd1.Manager", "StopUnit",
+        "xyz.openbmc_project.PFR.Manager.service", "replace");
+    return;
+}
+
+void checkPfrInterface(std::shared_ptr<sdbusplus::asio::connection> conn)
+{
+    conn->async_method_call(
+        [conn](const boost::system::error_code ec, const GetSubTreeType& resp) {
+            if (ec)
+            {
+                phosphor::logging::log<phosphor::logging::level::ERR>(
+                    "Error in querying GetSubTree for PFR Object.",
+                    phosphor::logging::entry("MSG=%s", ec.message().c_str()));
+                return;
+            }
+
+            if (resp.size() != 1)
+            {
+                // Platform does not contain pfr object. Stop the service.
+                phosphor::logging::log<phosphor::logging::level::INFO>(
+                    "Platform does not support PFR, hence stop the "
+                    "service.");
+                stopService(conn);
+                return;
+            }
+
+            const std::string& objPath = resp[0].first;
+            const std::string& serviceName = resp[0].second.begin()->first;
+            const std::string match = "Baseboard/PFR";
+            if (boost::ends_with(objPath, match))
+            {
+                // PFR object found.. check for PFR support
+                conn->async_method_call(
+                    [&objPath, &serviceName, conn](
+                        boost::system::error_code ec,
+                        const std::vector<std::pair<
+                            std::string, std::variant<std::string, uint64_t>>>&
+                            propertiesList) {
+                        if (ec)
+                        {
+                            phosphor::logging::log<
+                                phosphor::logging::level::ERR>(
+                                "Error to Get PFR properties.",
+                                phosphor::logging::entry("MSG=%s",
+                                                         ec.message().c_str()));
+                            return;
+                        }
+
+                        const uint64_t* i2cBus;
+                        const uint64_t* address;
+
+                        for (const std::pair<std::string,
+                                             std::variant<std::string,
+                                                          uint64_t>>& property :
+                             propertiesList)
+                        {
+
+                            if (property.first == "Address")
+                            {
+                                address =
+                                    std::get_if<uint64_t>(&property.second);
+                            }
+                            else if (property.first == "Bus")
+                            {
+                                i2cBus =
+                                    std::get_if<uint64_t>(&property.second);
+                            }
+                        }
+
+                        if ((address == nullptr) || (i2cBus == nullptr))
+                        {
+                            phosphor::logging::log<
+                                phosphor::logging::level::ERR>(
+                                "Unable to read the pfr properties");
+                            return;
+                        }
+                        i2cBusNumber = static_cast<int>(*i2cBus);
+                        i2cSlaveAddress = static_cast<int>(*address);
+
+                        asyncCallTimer->cancel();
+
+                        // Update CPLD Version to cpld_active object in
+                        // settings.
+                        updateCPLDversion(conn);
+
+                        bool locked = false;
+                        bool prov = false;
+                        bool support = false;
+                        pfr::getProvisioningStatus(locked, prov, support);
+                        if (support)
+                        {
+                            // pfr provisioned.
+                            phosphor::logging::log<
+                                phosphor::logging::level::INFO>(
+                                "PFR Supported.");
+                            return;
+                        }
+                        else
+                        {
+                            stopService(conn);
+                        }
+                    },
+                    serviceName, objPath, "org.freedesktop.DBus.Properties",
+                    "GetAll", "xyz.openbmc_project.Configuration.PFR");
+            }
+        },
+        "xyz.openbmc_project.ObjectMapper",
+        "/xyz/openbmc_project/object_mapper",
+        "xyz.openbmc_project.ObjectMapper", "GetSubTree",
+        "/xyz/openbmc_project/inventory/system", 0,
+        std::array<const char*, 1>{"xyz.openbmc_project.Configuration.PFR"});
+}
 } // namespace pfr
 
 int main()
@@ -466,20 +641,41 @@ int main()
     pfr::stateTimer = std::make_unique<boost::asio::steady_timer>(io);
     pfr::initTimer = std::make_unique<boost::asio::steady_timer>(io);
     auto server = sdbusplus::asio::object_server(conn, true);
-    pfr::monitorSignals(server, conn);
 
-    server.add_manager("/xyz/openbmc_project/pfr");
+    pfr::checkPfrInterface(conn);
 
-    // Create PFR attributes object and interface
-    pfr::pfrConfigObject = std::make_unique<pfr::PfrConfig>(server, conn);
+    pfr::asyncCallTimer = std::make_unique<boost::asio::steady_timer>(io);
+    constexpr size_t timeout = 2; // seconds
+    pfr::asyncCallTimer->expires_after(std::chrono::seconds(timeout));
+    pfr::asyncCallTimer->async_wait([&conn, &server](
+                                        const boost::system::error_code& ec) {
+        if (ec == boost::asio::error::operation_aborted)
+        {
+            // Timer reset.
+            phosphor::logging::log<phosphor::logging::level::INFO>(
+                "async call Timer aborted or stopped.");
+        }
+        if (ec)
+        {
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                "async call wait error.");
+        }
+        pfr::monitorSignals(server, conn);
 
-    // Create Software objects using Versions interface
-    for (const auto& entry : pfr::verComponentList)
-    {
-        pfr::pfrVersionObjects.emplace_back(std::make_unique<pfr::PfrVersion>(
-            server, conn, std::get<0>(entry), std::get<1>(entry),
-            std::get<2>(entry)));
-    }
+        server.add_manager("/xyz/openbmc_project/pfr");
+
+        // Create PFR attributes object and interface
+        pfr::pfrConfigObject = std::make_unique<pfr::PfrConfig>(server, conn);
+
+        // Create Software objects using Versions interface
+        for (const auto& entry : pfr::verComponentList)
+        {
+            pfr::pfrVersionObjects.emplace_back(
+                std::make_unique<pfr::PfrVersion>(
+                    server, conn, std::get<0>(entry), std::get<1>(entry),
+                    std::get<2>(entry)));
+        }
+    });
 
     conn->request_name("xyz.openbmc_project.PFR.Manager");
     phosphor::logging::log<phosphor::logging::level::INFO>(
