@@ -18,9 +18,11 @@
 #include "pfr_mgr.hpp"
 
 #include <systemd/sd-journal.h>
+#include <unistd.h>
 
+#include <boost/algorithm/string/predicate.hpp>
 #include <boost/asio.hpp>
-
+#include <boost/process/child.hpp>
 namespace pfr
 {
 // Caches the last Recovery/Panic Count to
@@ -456,6 +458,120 @@ void monitorSignals(sdbusplus::asio::object_server& server,
     checkAndLogEvents();
 }
 
+void checkPfrInterface(sdbusplus::asio::object_server& server,
+                       std::shared_ptr<sdbusplus::asio::connection>& conn,
+                       const std::string& baseboardObjPath)
+{
+    // check pfr interface
+    conn->async_method_call(
+        [&conn, &server](boost::system::error_code ec,
+                         const std::string& introspect_xml) {
+            if (ec)
+            {
+                phosphor::logging::log<phosphor::logging::level::ERR>(
+                    "PFR: failed to read PFR object",
+                    phosphor::logging::entry("MSG=%s", ec.message().c_str()));
+                if (ec.message() == "Invalid request descriptor")
+                {
+                    boost::process::child execProg(
+                        "systemctl stop "
+                        "xyz.openbmc_project.PFR.Manager.service");
+                    execProg.wait();
+                    if (execProg.exit_code())
+                    {
+                        phosphor::logging::log<phosphor::logging::level::ERR>(
+                            "Unable to stop the PFR service");
+                        return;
+                    }
+                    else
+                    {
+                        exit(0);
+                    }
+                }
+                return;
+            }
+
+            // read pfr properties
+            bool locked = false;
+            bool prov = false;
+            bool support = false;
+            if (0 == pfr::getProvisioningStatus(locked, prov, support))
+            {
+                if (prov && support)
+                {
+                    // pfr provisioned.
+                    phosphor::logging::log<phosphor::logging::level::INFO>(
+                        "PFR Supported and provisioned.");
+                    return;
+                }
+                else
+                {
+                    phosphor::logging::log<phosphor::logging::level::ERR>(
+                        "PFR not supported, hence stop the PFR service");
+
+                    boost::process::child execProg(
+                        "systemctl stop "
+                        "xyz.openbmc_project.PFR.Manager.service");
+                    execProg.wait();
+                    if (execProg.exit_code())
+                    {
+                        phosphor::logging::log<phosphor::logging::level::ERR>(
+                            "Unable to stop the PFR service");
+                        return;
+                    }
+                    else
+                    {
+                        exit(0);
+                    }
+                }
+            }
+            else
+            {
+                phosphor::logging::log<phosphor::logging::level::ERR>(
+                    "Unable to get PFR properties");
+                return;
+            }
+        },
+        "xyz.openbmc_project.EntityManager", baseboardObjPath + "/PFR",
+        "org.freedesktop.DBus.Introspectable", "Introspect");
+    return;
+}
+
+void checkBaseBoard(sdbusplus::asio::object_server& server,
+                    std::shared_ptr<sdbusplus::asio::connection>& conn)
+{
+    // find baseboard
+    conn->async_method_call(
+        [&conn, &server](boost::system::error_code ec,
+                         const std::vector<std::string>& subtree) {
+            if (ec)
+            {
+                phosphor::logging::log<phosphor::logging::level::ERR>(
+                    "PFR: failed to get board name",
+                    phosphor::logging::entry("MSG=%s", ec.message().c_str()));
+                return;
+            }
+
+            const std::string match = "Baseboard";
+
+            for (const std::string& objpath : subtree)
+            {
+                // iterate over all board objects
+                if (boost::ends_with(objpath, match))
+                {
+                    checkPfrInterface(server, conn, objpath);
+                }
+            }
+        },
+        "xyz.openbmc_project.ObjectMapper",
+        "/xyz/openbmc_project/object_mapper",
+        "xyz.openbmc_project.ObjectMapper", "GetSubTreePaths",
+        "/xyz/openbmc_project/inventory", 0,
+        std::array<const char*, 1>{
+            "xyz.openbmc_project.Inventory.Item.Board.Motherboard"});
+    return;
+}
+
 } // namespace pfr
 
 int main()
@@ -480,6 +596,8 @@ int main()
             server, conn, std::get<0>(entry), std::get<1>(entry),
             std::get<2>(entry)));
     }
+
+    pfr::checkBaseBoard(server, conn);
 
     conn->request_name("xyz.openbmc_project.PFR.Manager");
     phosphor::logging::log<phosphor::logging::level::INFO>(
