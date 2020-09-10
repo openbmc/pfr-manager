@@ -1,8 +1,12 @@
 [Unit]
 Description=Daemon manages PFR dbus properties and Event logs
+Wants=mapper-wait@-xyz-openbmc_project.EntityManager.service
+After=mapper-wait@-xyz-openbmc_project.EntityManager.service
+Wants=mapper-wait@-xyz-openbmc_project.ObjectMapper.service
+After=mapper-wait@-xyz-openbmc_project.ObjectMapper.service
 
 [Service]
-Restart=always
+Restart=on-failure
 ExecStart=/usr/bin/pfr-manager
 RestartSec=5
 StartLimitInterval=0
