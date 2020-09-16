@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdeccd4a_46d6ed3c",
+        "filename": "xyz.openbmc_project.PFR.Manager.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000164
+      },
+      "writtenOn": "2020-09-16T17:13:48Z",
+      "side": 1,
+      "message": "Think this needs to be changed to on failure to not have it restart automatically",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "5e7582b37c6aa3a33e7a051fe7ed3655fa065932",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
