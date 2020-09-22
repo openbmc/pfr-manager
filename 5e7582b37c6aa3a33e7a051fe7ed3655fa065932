@@ -22,6 +22,30 @@
       "revId": "5e7582b37c6aa3a33e7a051fe7ed3655fa065932",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50ba0ae7_1a1c5d84",
+        "filename": "xyz.openbmc_project.PFR.Manager.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-09-22T05:56:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdeccd4a_46d6ed3c",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "5e7582b37c6aa3a33e7a051fe7ed3655fa065932",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
