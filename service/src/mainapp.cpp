@@ -20,17 +20,11 @@
 #include <systemd/sd-journal.h>
 
 #include <boost/asio.hpp>
+#include <sdbusplus/asio/property.hpp>
+#include <sdbusplus/unpack_properties.hpp>
 
 namespace pfr
 {
-// Caches the last Recovery/Panic Count to
-// identify any new Recovery/panic actions.
-/* TODO: When BMC Reset's, these values will be lost
- * Persist this info using settingsd */
-static uint8_t lastRecoveryCount = 0;
-static uint8_t lastPanicCount = 0;
-static uint8_t lastMajorErr = 0;
-static uint8_t lastMinorErr = 0;
 
 static bool stateTimerRunning = false;
 bool finishedSettingChkPoint = false;
@@ -182,43 +176,117 @@ static void logResiliencyErrorEvent(const uint8_t majorErrorCode,
         "REDFISH_MESSAGE_ARGS=%s", errorStr.c_str(), NULL);
 }
 
-static void checkAndLogEvents()
+static void
+    handleLastCountChange(std::shared_ptr<sdbusplus::asio::connection>& conn,
+                          std::string eventName, uint8_t currentCount)
 {
-    uint8_t currPanicCount = 0;
-    if (0 == readCpldReg(ActionType::panicCount, currPanicCount))
-    {
-        if (lastPanicCount != currPanicCount)
-        {
-            // Update cached data and log redfish event by reading reason.
-            lastPanicCount = currPanicCount;
-            logLastPanicEvent();
-        }
-    }
+    // set async call
+    conn->async_method_call(
+        [](const boost::system::error_code ec) {
+            if (ec)
+            {
+                phosphor::logging::log<phosphor::logging::level::ERR>(
+                    "PFR: Unable to update currentCount",
+                    phosphor::logging::entry("MSG=%s", ec.message().c_str()));
+                return;
+            }
+        },
+        "xyz.openbmc_project.Settings", "/xyz/openbmc_project/pfr/last_events",
+        "org.freedesktop.DBus.Properties", "Set",
+        "xyz.openbmc_project.PFR.LastEvents", eventName,
+        std::variant<uint8_t>(currentCount));
+    return;
+}
 
-    uint8_t currRecoveryCount = 0;
-    if (0 == readCpldReg(ActionType::recoveryCount, currRecoveryCount))
-    {
-        if (lastRecoveryCount != currRecoveryCount)
-        {
-            // Update cached data and log redfish event by reading reason.
-            lastRecoveryCount = currRecoveryCount;
-            logLastRecoveryEvent();
-        }
-    }
+static void
+    checkAndLogEvents(std::shared_ptr<sdbusplus::asio::connection>& conn)
+{
+    sdbusplus::asio::getAllProperties(
+        *conn, "xyz.openbmc_project.Settings",
+        "/xyz/openbmc_project/pfr/last_events",
+        "xyz.openbmc_project.PFR.LastEvents",
+        [&conn](
+            boost::system::error_code ec,
+            std::vector<
+                std::pair<std::string, std::variant<std::monostate, uint8_t>>>&
+                properties) {
+            if (ec)
+            {
+                phosphor::logging::log<phosphor::logging::level::ERR>(
+                    "PFR: Unable get PFR last events",
+                    phosphor::logging::entry("MSG=%s", ec.message().c_str()));
+                return;
+            }
+            uint8_t lastRecoveryCount = 0;
+            uint8_t lastPanicCount = 0;
+            uint8_t lastMajorErr = 0;
+            uint8_t lastMinorErr = 0;
 
-    uint8_t majorErr = 0;
-    uint8_t minorErr = 0;
-    if ((0 == readCpldReg(ActionType::majorError, majorErr)) &&
-        (0 == readCpldReg(ActionType::minorError, minorErr)))
-    {
-        if ((lastMajorErr != majorErr) || (lastMinorErr != minorErr))
-        {
-            lastMajorErr = majorErr;
-            lastMinorErr = minorErr;
+            try
+            {
+                sdbusplus::unpackProperties(
+                    properties, "lastRecoveryCount", lastRecoveryCount,
+                    "lastPanicCount", lastPanicCount, "lastMajorErr",
+                    lastMajorErr, "lastMinorErr", lastMinorErr);
+            }
+            catch (const sdbusplus::exception::UnpackPropertyError& error)
+            {
+                phosphor::logging::log<phosphor::logging::level::ERR>(
+                    "PFR: Unpack error",
+                    phosphor::logging::entry("MSG=%s", error.what()));
+                return;
+            }
 
-            logResiliencyErrorEvent(majorErr, minorErr);
-        }
-    }
+            uint8_t currPanicCount = 0;
+            if (0 == readCpldReg(ActionType::panicCount, currPanicCount))
+            {
+                if (lastPanicCount != currPanicCount)
+                {
+                    // Update cached data to dbus and log redfish
+                    // event by reading reason.
+                    handleLastCountChange(conn, "lastPanicCount",
+                                          currPanicCount);
+                    if (currPanicCount)
+                    {
+                        logLastPanicEvent();
+                    }
+                }
+            }
+
+            uint8_t currRecoveryCount = 0;
+            if (0 == readCpldReg(ActionType::recoveryCount, currRecoveryCount))
+            {
+                if (lastRecoveryCount != currRecoveryCount)
+                {
+                    // Update cached data to dbus and log redfish
+                    // event by reading reason.
+                    handleLastCountChange(conn, "lastRecoveryCount",
+                                          currRecoveryCount);
+                    if (currRecoveryCount)
+                    {
+                        logLastRecoveryEvent();
+                    }
+                }
+            }
+
+            uint8_t majorErr = 0;
+            uint8_t minorErr = 0;
+            if ((0 == readCpldReg(ActionType::majorError, majorErr)) &&
+                (0 == readCpldReg(ActionType::minorError, minorErr)))
+            {
+                if ((lastMajorErr != majorErr) || (lastMinorErr != minorErr))
+                {
+                    // Update cached data to dbus and log redfish event by
+                    // reading reason.
+                    handleLastCountChange(conn, "lastMajorErr", majorErr);
+                    handleLastCountChange(conn, "lastMinorErr", minorErr);
+                    if (majorErr && minorErr)
+                    {
+                        logResiliencyErrorEvent(majorErr, minorErr);
+                    }
+                }
+            }
+        });
 }
 
 static void monitorPlatformStateChange(
@@ -239,7 +307,7 @@ static void monitorPlatformStateChange(
                 // Platform State Monitor - Timer cancelled.
                 return;
             }
-            checkAndLogEvents();
+            checkAndLogEvents(conn);
             monitorPlatformStateChange(server, conn);
         });
 }
@@ -357,7 +425,7 @@ void monitorSignals(sdbusplus::asio::object_server& server,
                              (stateTimerRunning))
                     {
                         stateTimer->cancel();
-                        checkAndLogEvents();
+                        checkAndLogEvents(conn);
                         stateTimerRunning = false;
                     }
                 }
@@ -402,7 +470,7 @@ void monitorSignals(sdbusplus::asio::object_server& server,
                              (stateTimerRunning))
                     {
                         stateTimer->cancel();
-                        checkAndLogEvents();
+                        checkAndLogEvents(conn);
                         stateTimerRunning = false;
                     }
                 }
@@ -438,7 +506,7 @@ void monitorSignals(sdbusplus::asio::object_server& server,
                         (stateTimerRunning))
                     {
                         stateTimer->cancel();
-                        checkAndLogEvents();
+                        checkAndLogEvents(conn);
                         stateTimerRunning = false;
                     }
                     else if (!stateTimerRunning)
@@ -451,7 +519,7 @@ void monitorSignals(sdbusplus::asio::object_server& server,
         });
 
     // First time, check and log events if any.
-    checkAndLogEvents();
+    checkAndLogEvents(conn);
 }
 
 static void updateCPLDversion(std::shared_ptr<sdbusplus::asio::connection> conn)
