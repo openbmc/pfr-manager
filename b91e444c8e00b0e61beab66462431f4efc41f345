@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "acc52e51_47c763c0",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000678
+      },
+      "writtenOn": "2020-10-15T08:08:33Z",
+      "side": 1,
+      "message": "nit: there are new helpers in sdbusplus\n\nsdbusplus::asio::getAllProperties, sdbusplus::unpackProperties\n\nOne is wrapper for async_method_call, second can be used to extract values from propertiesList.\n\nExample can be found here: https://gerrit.openbmc-project.xyz/c/openbmc/sdbusplus/+/36172/20/example/get-all-properties.cpp#105",
+      "range": {
+        "startLine": 204,
+        "startChar": 4,
+        "endLine": 204,
+        "endChar": 27
+      },
+      "revId": "b91e444c8e00b0e61beab66462431f4efc41f345",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b9be12c_8dbb9794",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000678
+      },
+      "writtenOn": "2020-10-15T08:08:33Z",
+      "side": 1,
+      "message": "Was it intended?",
+      "range": {
+        "startLine": 350,
+        "startChar": 12,
+        "endLine": 350,
+        "endChar": 16
+      },
+      "revId": "b91e444c8e00b0e61beab66462431f4efc41f345",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
