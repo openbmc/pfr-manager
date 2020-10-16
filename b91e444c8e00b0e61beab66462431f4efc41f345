@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f5b3d647_53c06687",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-10-16T01:27:51Z",
+      "side": 1,
+      "message": "Updated. Thank You",
+      "parentUuid": "ff9d2fe3_04fcf18e",
+      "revId": "b91e444c8e00b0e61beab66462431f4efc41f345",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "acc52e51_47c763c0",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "d091e75d_7d82e4c4",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-10-16T01:27:51Z",
+      "side": 1,
+      "message": "Ack. Thank You",
+      "parentUuid": "acc52e51_47c763c0",
+      "range": {
+        "startLine": 204,
+        "startChar": 4,
+        "endLine": 204,
+        "endChar": 27
+      },
+      "revId": "b91e444c8e00b0e61beab66462431f4efc41f345",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0b9be12c_8dbb9794",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2020-10-15T08:08:33Z",
       "side": 1,
       "message": "Was it intended?",
+      "range": {
+        "startLine": 350,
+        "startChar": 12,
+        "endLine": 350,
+        "endChar": 16
+      },
+      "revId": "b91e444c8e00b0e61beab66462431f4efc41f345",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bb35a76_2a743c79",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-10-16T01:27:51Z",
+      "side": 1,
+      "message": "Not intended, removed. Thank You",
+      "parentUuid": "0b9be12c_8dbb9794",
       "range": {
         "startLine": 350,
         "startChar": 12,
