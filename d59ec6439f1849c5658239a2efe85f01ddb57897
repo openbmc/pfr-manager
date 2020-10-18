@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ddbf8a9_75026718",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1000418
+      },
+      "writtenOn": "2020-10-18T16:53:53Z",
+      "side": 1,
+      "message": "Is there any systemd API alternative available instead of system() ?  I also don\u0027t know available or not.",
+      "revId": "d59ec6439f1849c5658239a2efe85f01ddb57897",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c77272e9_f4a53d2e",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1000418
+      },
+      "writtenOn": "2020-10-18T16:53:53Z",
+      "side": 1,
+      "message": "Do you need to return from here ?",
+      "revId": "d59ec6439f1849c5658239a2efe85f01ddb57897",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3603a132_ccd6f8a2",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000418
+      },
+      "writtenOn": "2020-10-18T16:53:53Z",
+      "side": 1,
+      "message": "Why there is no check to stop the service here ?",
+      "revId": "d59ec6439f1849c5658239a2efe85f01ddb57897",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0694d709_d074b9eb",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000418
+      },
+      "writtenOn": "2020-10-18T16:53:53Z",
+      "side": 1,
+      "message": "Do we need to add check here also to stop the service ? Or system has to be rebooted whenever the provisioning status changed ?",
+      "revId": "d59ec6439f1849c5658239a2efe85f01ddb57897",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    }
+  ]
+}
