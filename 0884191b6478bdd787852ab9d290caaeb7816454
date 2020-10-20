@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b1ca3e3_6493e50b",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2020-10-20T16:40:03Z",
+      "side": 0,
+      "message": "why is this removed?",
+      "range": {
+        "startLine": 456,
+        "startChar": 4,
+        "endLine": 456,
+        "endChar": 24
+      },
+      "revId": "0884191b6478bdd787852ab9d290caaeb7816454",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}

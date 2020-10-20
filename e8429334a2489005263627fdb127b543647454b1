@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21d5782f_3dfe0942",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2020-10-20T16:40:03Z",
+      "side": 1,
+      "message": "is this logic ok? even if one param is null we just return. Can retry would be good way to try?",
+      "range": {
+        "startLine": 243,
+        "startChar": 12,
+        "endLine": 249,
+        "endChar": 13
+      },
+      "revId": "e8429334a2489005263627fdb127b543647454b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31291435_6d2441d4",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2020-10-20T16:40:03Z",
+      "side": 1,
+      "message": "did you test this logic with some errors injected and with AC power cycle?",
+      "range": {
+        "startLine": 254,
+        "startChar": 16,
+        "endLine": 254,
+        "endChar": 54
+      },
+      "revId": "e8429334a2489005263627fdb127b543647454b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
