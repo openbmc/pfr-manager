@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7a7430c8_fcfec2cc",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-10-22T08:50:14Z",
+      "side": 1,
+      "message": "checkAndLogEvents() is executed more than once after the PFR manager starts... in that case last events are read again and again.",
+      "parentUuid": "21d5782f_3dfe0942",
+      "range": {
+        "startLine": 243,
+        "startChar": 12,
+        "endLine": 249,
+        "endChar": 13
+      },
+      "revId": "e8429334a2489005263627fdb127b543647454b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "31291435_6d2441d4",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2020-10-20T16:40:03Z",
       "side": 1,
       "message": "did you test this logic with some errors injected and with AC power cycle?",
+      "range": {
+        "startLine": 254,
+        "startChar": 16,
+        "endLine": 254,
+        "endChar": 54
+      },
+      "revId": "e8429334a2489005263627fdb127b543647454b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17abe3f3_c931a7b2",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-10-22T08:50:14Z",
+      "side": 1,
+      "message": "Yes, received panic events in redfish event log.",
+      "parentUuid": "31291435_6d2441d4",
       "range": {
         "startLine": 254,
         "startChar": 16,
