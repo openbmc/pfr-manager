@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b88eba78_62c338dc",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-10-22T09:20:06Z",
+      "side": 1,
+      "message": "Ack. checking for alternative.",
+      "parentUuid": "9ddbf8a9_75026718",
+      "revId": "d59ec6439f1849c5658239a2efe85f01ddb57897",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c77272e9_f4a53d2e",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2020-10-18T16:53:53Z",
       "side": 1,
       "message": "Do you need to return from here ?",
+      "revId": "d59ec6439f1849c5658239a2efe85f01ddb57897",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1286bdac_e3de23b9",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-10-22T09:20:06Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "c77272e9_f4a53d2e",
       "revId": "d59ec6439f1849c5658239a2efe85f01ddb57897",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "aedf6212_80c7af39",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-10-22T09:20:06Z",
+      "side": 1,
+      "message": "Ack. checking regarding this.",
+      "parentUuid": "3603a132_ccd6f8a2",
+      "revId": "d59ec6439f1849c5658239a2efe85f01ddb57897",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0694d709_d074b9eb",
         "filename": "service/src/pfr_mgr.cpp",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2020-10-18T16:53:53Z",
       "side": 1,
       "message": "Do we need to add check here also to stop the service ? Or system has to be rebooted whenever the provisioning status changed ?",
+      "revId": "d59ec6439f1849c5658239a2efe85f01ddb57897",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67842d1d_12c7828e",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-10-22T09:20:06Z",
+      "side": 1,
+      "message": "checking for provisioning status is done when the host or chassis changes its state. PFR service check is done as soon as the service starts/restarts.",
+      "parentUuid": "0694d709_d074b9eb",
       "revId": "d59ec6439f1849c5658239a2efe85f01ddb57897",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
