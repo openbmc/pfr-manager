@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "a95f9c11_67dfdbb0",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-11-25T01:30:04Z",
+      "side": 1,
+      "message": "Implemented. Thank You",
+      "parentUuid": "b88eba78_62c338dc",
+      "revId": "d59ec6439f1849c5658239a2efe85f01ddb57897",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c77272e9_f4a53d2e",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 2
@@ -72,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "36079198_112ab821",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-11-25T01:30:04Z",
+      "side": 1,
+      "message": "included return. Thank You",
+      "parentUuid": "1286bdac_e3de23b9",
+      "revId": "d59ec6439f1849c5658239a2efe85f01ddb57897",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3603a132_ccd6f8a2",
         "filename": "service/src/pfr_mgr.cpp",
         "patchSetId": 2
@@ -101,6 +137,24 @@
       "side": 1,
       "message": "Ack. checking regarding this.",
       "parentUuid": "3603a132_ccd6f8a2",
+      "revId": "d59ec6439f1849c5658239a2efe85f01ddb57897",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2db8010a_7d3dec86",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-11-25T01:30:04Z",
+      "side": 1,
+      "message": "These properties are updated during the service creation. We stop the service after by checking PFR support and PFR object in Entity Manager. Thank You",
+      "parentUuid": "aedf6212_80c7af39",
       "revId": "d59ec6439f1849c5658239a2efe85f01ddb57897",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
