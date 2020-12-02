@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1328a301_43212d56",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-02T13:06:33Z",
+      "side": 1,
+      "message": "Implemented. Thank You",
+      "parentUuid": "0308c755_4cf96c2e",
+      "revId": "e8429334a2489005263627fdb127b543647454b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21d5782f_3dfe0942",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 2
@@ -78,6 +96,30 @@
       "side": 1,
       "message": "This error checking logic can be removed if you address my comment @ line number 239.",
       "parentUuid": "7a7430c8_fcfec2cc",
+      "range": {
+        "startLine": 243,
+        "startChar": 12,
+        "endLine": 249,
+        "endChar": 13
+      },
+      "revId": "e8429334a2489005263627fdb127b543647454b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d80c85ee_6b5f9d55",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-02T13:06:33Z",
+      "side": 1,
+      "message": "Implemented. Thank You",
+      "parentUuid": "fcb7b6c5_8e68317e",
       "range": {
         "startLine": 243,
         "startChar": 12,
