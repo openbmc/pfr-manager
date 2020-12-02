@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "023b0c11_08207184",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2020-12-02T22:02:51Z",
+      "side": 1,
+      "message": "There is a systemd D-Bus method to stop a service. I would think that would be preferable to starting a new systemctl process.\n\nBut, this seems unnecessary - why can\u0027t you just exit(0)? I briefly tested it and saw no bad effects from just exiting. Systemd does not restart the program (since we have Restart\u003don-failure), and it just shows it as \"inactive (dead)\"",
+      "range": {
+        "startLine": 477,
+        "startChar": 20,
+        "endLine": 479,
+        "endChar": 67
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a8c7755_dbeb9339",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2020-12-02T22:02:51Z",
+      "side": 1,
+      "message": "Need to exit in this case also? When I tested this patch, pfr::getProvisioningStatus returns -1 because the CPLD does not respond at all. PFR is certainly not supported in that case, right?",
+      "range": {
+        "startLine": 531,
+        "startChar": 0,
+        "endLine": 533,
+        "endChar": 23
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afe9c7fc_6caa6a85",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2020-12-02T22:02:51Z",
+      "side": 1,
+      "message": "Why do you need to find the baseboard at all? Why not just call GetSubTree for xyz.openbmc_project.Configuration.PFR interface to find the PFR object?",
+      "range": {
+        "startLine": 541,
+        "startChar": 5,
+        "endLine": 541,
+        "endChar": 19
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16385d43_d48a6883",
+        "filename": "xyz.openbmc_project.PFR.Manager.service",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2020-12-02T22:02:51Z",
+      "side": 1,
+      "message": "The argument for the mapper-wait instantiated service is supposed to be a D-Bus object path. So you probably want:\n\n mapper-wait@-xyz-openbmc_project-EntityManager.service\n mapper-wait@-xyz-openbmc_project-object_mapper.service\n\nWhen I tested this patch, pfr-manager never started because the dependencies could never be satisfied (invalid object paths).",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 59
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
