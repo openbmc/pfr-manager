@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5023e0a_51da5765",
+        "filename": "service/CMakeLists.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-12-09T09:02:48Z",
+      "side": 1,
+      "message": "Looks like there is already patch for this available. We can attempt take this patch on current boost version? Anyway that is out of scope of this change though. Good for now.",
+      "range": {
+        "startLine": 7,
+        "startChar": 6,
+        "endLine": 7,
+        "endChar": 54
+      },
+      "revId": "0e38016d0b312f3452dfe3a057435271cb449cc8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98186a11_84bb1eaf",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-12-09T09:02:48Z",
+      "side": 1,
+      "message": "nit: You can rename this function such that this function you can use for both logging event as well as setting value( Like handleLastCountChange())",
+      "range": {
+        "startLine": 179,
+        "startChar": 12,
+        "endLine": 179,
+        "endChar": 27
+      },
+      "revId": "0e38016d0b312f3452dfe3a057435271cb449cc8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "241cddc8_18389ecc",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-12-09T09:02:48Z",
+      "side": 1,
+      "message": "Is this interface defined in phosphor-dbus-interfaces?",
+      "range": {
+        "startLine": 195,
+        "startChar": 9,
+        "endLine": 195,
+        "endChar": 43
+      },
+      "revId": "0e38016d0b312f3452dfe3a057435271cb449cc8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aedfddc1_d33381bf",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-12-09T09:02:48Z",
+      "side": 1,
+      "message": "This is not correct logic when you persist the previous state?\n\nUse case: If Recovery event is occurred, BMC log the \"recovery event\" as expected and with current logic it also saves the count(Say:1) in persistent store.\n\nAt this stage, If AC cycle is performed, CPLD will clear all there count registers. So currRecoveryCount becomes zero. Since lastRecoveryEvent is persistent(which is \"1\"), Now it will not match and log the Recovery Event which is not expected. \n\nWrap this around currRecoveryCount not zero.\nif(currPanicCount)\n{\n    logLastPanicEvent();\n}",
+      "range": {
+        "startLine": 248,
+        "startChar": 32,
+        "endLine": 248,
+        "endChar": 49
+      },
+      "revId": "0e38016d0b312f3452dfe3a057435271cb449cc8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfd2ea6c_fee32e52",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-12-09T09:02:48Z",
+      "side": 1,
+      "message": "nit: I think you can keep the event logging logic separate. I see multiple things clubbed together in his function.",
+      "range": {
+        "startLine": 238,
+        "startChar": 23,
+        "endLine": 250,
+        "endChar": 25
+      },
+      "revId": "0e38016d0b312f3452dfe3a057435271cb449cc8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac98478_d4539656",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-12-09T09:02:48Z",
+      "side": 1,
+      "message": "Wrap this around currRecoveryCount not zero.\nif(currRecoveryCount)\n{\n    logLastRecoveryEvent();\n}",
+      "range": {
+        "startLine": 268,
+        "startChar": 32,
+        "endLine": 268,
+        "endChar": 55
+      },
+      "revId": "0e38016d0b312f3452dfe3a057435271cb449cc8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c64d1f2_06cc6807",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-12-09T09:02:48Z",
+      "side": 1,
+      "message": "same here wrap is around lastMajorError \u0026 lastMinorError.",
+      "range": {
+        "startLine": 289,
+        "startChar": 24,
+        "endLine": 289,
+        "endChar": 68
+      },
+      "revId": "0e38016d0b312f3452dfe3a057435271cb449cc8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    }
+  ]
+}
