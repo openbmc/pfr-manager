@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a4e099d9_195bfeb1",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-16T06:11:13Z",
+      "side": 1,
+      "message": "Ack, Verified that exit(0) alone not serving the purpose, systemd is restarting the service with status as Active: activating (auto-restart).",
+      "parentUuid": "023b0c11_08207184",
+      "range": {
+        "startLine": 477,
+        "startChar": 20,
+        "endLine": 479,
+        "endChar": 67
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5a8c7755_dbeb9339",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2020-12-02T22:02:51Z",
       "side": 1,
       "message": "Need to exit in this case also? When I tested this patch, pfr::getProvisioningStatus returns -1 because the CPLD does not respond at all. PFR is certainly not supported in that case, right?",
+      "range": {
+        "startLine": 531,
+        "startChar": 0,
+        "endLine": 533,
+        "endChar": 23
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3b785bc_d9c86424",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-16T06:11:13Z",
+      "side": 1,
+      "message": "if i2c operation failed due to some other reason other than CPLD not responding then stopping the service is not recommended. Thank You",
+      "parentUuid": "5a8c7755_dbeb9339",
       "range": {
         "startLine": 531,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4ea6fea8_8f50d236",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-16T06:11:13Z",
+      "side": 1,
+      "message": "Ack. Thank You",
+      "parentUuid": "afe9c7fc_6caa6a85",
+      "range": {
+        "startLine": 541,
+        "startChar": 5,
+        "endLine": 541,
+        "endChar": 19
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "16385d43_d48a6883",
         "filename": "xyz.openbmc_project.PFR.Manager.service",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2020-12-02T22:02:51Z",
       "side": 1,
       "message": "The argument for the mapper-wait instantiated service is supposed to be a D-Bus object path. So you probably want:\n\n mapper-wait@-xyz-openbmc_project-EntityManager.service\n mapper-wait@-xyz-openbmc_project-object_mapper.service\n\nWhen I tested this patch, pfr-manager never started because the dependencies could never be satisfied (invalid object paths).",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 59
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af2b0eca_9e82e05e",
+        "filename": "xyz.openbmc_project.PFR.Manager.service",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-16T06:11:13Z",
+      "side": 1,
+      "message": "Ack. Checking on this. Thank You",
+      "parentUuid": "16385d43_d48a6883",
       "range": {
         "startLine": 3,
         "startChar": 0,
