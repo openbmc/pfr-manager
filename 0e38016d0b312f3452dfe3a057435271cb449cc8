@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "ac9186ff_45012cc9",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-16T05:57:12Z",
+      "side": 1,
+      "message": "Modified. Logging is not handled here as we need to check again for different event categories. Thank You",
+      "parentUuid": "98186a11_84bb1eaf",
+      "range": {
+        "startLine": 179,
+        "startChar": 12,
+        "endLine": 179,
+        "endChar": 27
+      },
+      "revId": "0e38016d0b312f3452dfe3a057435271cb449cc8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "241cddc8_18389ecc",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 5
@@ -59,6 +83,30 @@
       "writtenOn": "2020-12-09T09:02:48Z",
       "side": 1,
       "message": "Is this interface defined in phosphor-dbus-interfaces?",
+      "range": {
+        "startLine": 195,
+        "startChar": 9,
+        "endLine": 195,
+        "endChar": 43
+      },
+      "revId": "0e38016d0b312f3452dfe3a057435271cb449cc8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f00e0f6f_9dc3323b",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-16T05:57:12Z",
+      "side": 1,
+      "message": "This is only defined in Settings service. Thank You",
+      "parentUuid": "241cddc8_18389ecc",
       "range": {
         "startLine": 195,
         "startChar": 9,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "4ec8240e_e441a3d8",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-16T05:57:12Z",
+      "side": 1,
+      "message": "Modified. Thank You",
+      "parentUuid": "aedfddc1_d33381bf",
+      "range": {
+        "startLine": 248,
+        "startChar": 32,
+        "endLine": 248,
+        "endChar": 49
+      },
+      "revId": "0e38016d0b312f3452dfe3a057435271cb449cc8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cfd2ea6c_fee32e52",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 5
@@ -105,6 +177,30 @@
       "writtenOn": "2020-12-09T09:02:48Z",
       "side": 1,
       "message": "nit: I think you can keep the event logging logic separate. I see multiple things clubbed together in his function.",
+      "range": {
+        "startLine": 238,
+        "startChar": 23,
+        "endLine": 250,
+        "endChar": 25
+      },
+      "revId": "0e38016d0b312f3452dfe3a057435271cb449cc8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "947aae05_945d83e0",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-16T05:57:12Z",
+      "side": 1,
+      "message": "Ack. Formulating the logic to minimize the code in this block.",
+      "parentUuid": "cfd2ea6c_fee32e52",
       "range": {
         "startLine": 238,
         "startChar": 23,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "e44a742e_6e1d1665",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-16T05:57:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ac98478_d4539656",
+      "range": {
+        "startLine": 268,
+        "startChar": 32,
+        "endLine": 268,
+        "endChar": 55
+      },
+      "revId": "0e38016d0b312f3452dfe3a057435271cb449cc8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c64d1f2_06cc6807",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 5
@@ -151,6 +271,30 @@
       "writtenOn": "2020-12-09T09:02:48Z",
       "side": 1,
       "message": "same here wrap is around lastMajorError \u0026 lastMinorError.",
+      "range": {
+        "startLine": 289,
+        "startChar": 24,
+        "endLine": 289,
+        "endChar": 68
+      },
+      "revId": "0e38016d0b312f3452dfe3a057435271cb449cc8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f854406d_839e310b",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-16T05:57:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c64d1f2_06cc6807",
       "range": {
         "startLine": 289,
         "startChar": 24,
