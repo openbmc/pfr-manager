@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "eb8b4505_1c0e4f43",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-12-17T11:14:50Z",
+      "side": 1,
+      "message": "Why do you want to stop service if PFR is not provisioned?\n\nDid you checked external interfaces(Redfish) for reporting the PFR \"Not provisioned\" state correctly in this case?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f39d5938_79ffcc39",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-12-17T11:14:50Z",
+      "side": 1,
+      "message": "3. PFR Supported platform but \"PFR unProvisioned\"",
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d60bb465_d796db05",
+        "filename": "service/CMakeLists.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-12-17T11:14:50Z",
+      "side": 1,
+      "message": "I think this is fixed now.  Can you attempt to pull that patch(as separate patch though)?",
+      "range": {
+        "startLine": 7,
+        "startChar": 6,
+        "endLine": 7,
+        "endChar": 54
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "023b0c11_08207184",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 5
@@ -46,6 +109,53 @@
       "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c72f485_57eb44d2",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-12-17T11:14:50Z",
+      "side": 1,
+      "message": "You can use D-Bus method call to perform the stop service.\n\nbusctl call org.freedesktop.systemd1 /org/freedesktop/systemd1 org.freedesktop.systemd1.Manager StartUnit ss \u003cservice file\u003e \"replace\";",
+      "parentUuid": "a4e099d9_195bfeb1",
+      "range": {
+        "startLine": 477,
+        "startChar": 20,
+        "endLine": 479,
+        "endChar": 67
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc9053d3_cd37ecd5",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-12-17T11:14:50Z",
+      "side": 1,
+      "message": "duplciate code. Write a common API to stop the service. \n\nIn fact you can use the systemd call which is provided above.",
+      "range": {
+        "startLine": 513,
+        "startChar": 20,
+        "endLine": 526,
+        "endChar": 21
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -143,6 +253,53 @@
     },
     {
       "key": {
+        "uuid": "2cd937f5_ce62c97b",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-12-17T11:14:50Z",
+      "side": 1,
+      "message": "+1, Please do modify code to reflect this.",
+      "parentUuid": "afe9c7fc_6caa6a85",
+      "range": {
+        "startLine": 541,
+        "startChar": 5,
+        "endLine": 541,
+        "endChar": 19
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbe42242_680becb0",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-12-17T11:14:50Z",
+      "side": 1,
+      "message": "Not the ideal way of Adding D-Bus object/interfaces first then checking PFR supported platforms. \n\nCreating of version object can be scheduled after checking the PFR supported platforms first.",
+      "range": {
+        "startLine": 593,
+        "startChar": 3,
+        "endLine": 601,
+        "endChar": 38
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16385d43_d48a6883",
         "filename": "xyz.openbmc_project.PFR.Manager.service",
         "patchSetId": 5
@@ -177,6 +334,30 @@
       "writtenOn": "2020-12-16T06:11:13Z",
       "side": 1,
       "message": "Ack. Checking on this. Thank You",
+      "parentUuid": "16385d43_d48a6883",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 59
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73d86cc3_1744e10b",
+        "filename": "xyz.openbmc_project.PFR.Manager.service",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2020-12-17T11:14:50Z",
+      "side": 1,
+      "message": "+1, These are invalid objects.",
       "parentUuid": "16385d43_d48a6883",
       "range": {
         "startLine": 3,
