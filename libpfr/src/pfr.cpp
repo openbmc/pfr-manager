@@ -81,6 +81,8 @@ static const std::array<std::string, 8> pldGpioLines = {
     "SGPIO_PLD_MINOR_REV_BIT3", "SGPIO_PLD_MINOR_REV_BIT2",
     "SGPIO_PLD_MINOR_REV_BIT1", "SGPIO_PLD_MINOR_REV_BIT0"};
 
+bool exceptionFlag = true;
+
 std::string toHexString(const uint8_t val)
 {
     std::stringstream stream;
@@ -431,9 +433,13 @@ int readCpldReg(const ActionType& action, uint8_t& value)
     }
     catch (const std::exception& e)
     {
-        phosphor::logging::log<phosphor::logging::level::ERR>(
-            "Exception caught in readCpldReg.",
-            phosphor::logging::entry("MSG=%s", e.what()));
+        if (exceptionFlag)
+        {
+            exceptionFlag = false;
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                "Exception caught in readCpldReg.",
+                phosphor::logging::entry("MSG=%s", e.what()));
+        }
         return -1;
     }
 }
