@@ -428,9 +428,14 @@ int readCpldReg(const ActionType& action, uint8_t& value)
     }
     catch (const std::exception& e)
     {
-        phosphor::logging::log<phosphor::logging::level::ERR>(
-            "Exception caught in readCpldReg.",
-            phosphor::logging::entry("MSG=%s", e.what()));
+        static uint8_t exceptionCount = 0;
+        if (exceptionCount % 20 == 0)
+        {
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                "Exception caught in readCpldReg.",
+                phosphor::logging::entry("MSG=%s", e.what()));
+        }
+        exceptionCount++;
         return -1;
     }
 }
