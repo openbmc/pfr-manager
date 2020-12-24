@@ -56,6 +56,7 @@ static constexpr uint8_t pfrRoTValue = 0xDE;
 
 static constexpr uint8_t ufmLockedMask = (0x1 << 0x04);
 static constexpr uint8_t ufmProvisionedMask = (0x1 << 0x05);
+static constexpr uint8_t exceptionRatio = 20;
 
 // PFR MTD devices
 static constexpr const char* bmcActiveImgPfmMTDDev = "/dev/mtd/pfm";
@@ -428,9 +429,15 @@ int readCpldReg(const ActionType& action, uint8_t& value)
     }
     catch (const std::exception& e)
     {
-        phosphor::logging::log<phosphor::logging::level::ERR>(
-            "Exception caught in readCpldReg.",
-            phosphor::logging::entry("MSG=%s", e.what()));
+        static uint8_t exceptionCount = 0;
+        if (exceptionCount % exceptionRatio == 0)
+        {
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                "Exception caught in readCpldReg.",
+                phosphor::logging::entry("MSG=%s", e.what()));
+            exceptionCount = 0;
+        }
+        exceptionCount++;
         return -1;
     }
 }
