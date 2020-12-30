@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1722b3c1_8bf133cd",
+        "filename": "service/CMakeLists.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2020-12-30T10:39:08Z",
+      "side": 1,
+      "message": "you can completely remove it, if it\u0027s no longer needed.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 52
+      },
+      "revId": "db55a4684a53b52d3d9c2ec0f11318c914d46538",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
