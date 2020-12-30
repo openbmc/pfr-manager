@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "347e54c6_8dc74baa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-30T04:38:41Z",
+      "side": 1,
+      "message": "Updated. PFR service is stopped when PFR not supported. PFR provisioning status is reported in /Systems/system in redfish. Updated the commit message. Thank You.",
+      "parentUuid": "eb8b4505_1c0e4f43",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f39d5938_79ffcc39",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -36,6 +60,24 @@
       "writtenOn": "2020-12-17T11:14:50Z",
       "side": 1,
       "message": "3. PFR Supported platform but \"PFR unProvisioned\"",
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "375bef8f_3f519ea2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-30T04:38:41Z",
+      "side": 1,
+      "message": "Updated this test case. Thank You",
+      "parentUuid": "f39d5938_79ffcc39",
       "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
@@ -136,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "367525d6_d05b07dc",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-30T04:38:41Z",
+      "side": 1,
+      "message": "Implemented. Thank You",
+      "parentUuid": "9c72f485_57eb44d2",
+      "range": {
+        "startLine": 477,
+        "startChar": 20,
+        "endLine": 479,
+        "endChar": 67
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bc9053d3_cd37ecd5",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 5
@@ -147,6 +213,30 @@
       "writtenOn": "2020-12-17T11:14:50Z",
       "side": 1,
       "message": "duplciate code. Write a common API to stop the service. \n\nIn fact you can use the systemd call which is provided above.",
+      "range": {
+        "startLine": 513,
+        "startChar": 20,
+        "endLine": 526,
+        "endChar": 21
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7eae35e4_63eea500",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-30T04:38:41Z",
+      "side": 1,
+      "message": "Updated. Thank You",
+      "parentUuid": "bc9053d3_cd37ecd5",
       "range": {
         "startLine": 513,
         "startChar": 20,
@@ -277,6 +367,30 @@
     },
     {
       "key": {
+        "uuid": "b2d4dec9_3a944b1b",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-30T04:38:41Z",
+      "side": 1,
+      "message": "Implemented. Thank You",
+      "parentUuid": "2cd937f5_ce62c97b",
+      "range": {
+        "startLine": 541,
+        "startChar": 5,
+        "endLine": 541,
+        "endChar": 19
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fbe42242_680becb0",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 5
@@ -288,6 +402,30 @@
       "writtenOn": "2020-12-17T11:14:50Z",
       "side": 1,
       "message": "Not the ideal way of Adding D-Bus object/interfaces first then checking PFR supported platforms. \n\nCreating of version object can be scheduled after checking the PFR supported platforms first.",
+      "range": {
+        "startLine": 593,
+        "startChar": 3,
+        "endLine": 601,
+        "endChar": 38
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfca73a4_fac24ab7",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-30T04:38:41Z",
+      "side": 1,
+      "message": "Updated. Thank You",
+      "parentUuid": "fbe42242_680becb0",
       "range": {
         "startLine": 593,
         "startChar": 3,
@@ -359,6 +497,30 @@
       "side": 1,
       "message": "+1, These are invalid objects.",
       "parentUuid": "16385d43_d48a6883",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 59
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55c49b0c_80a6a819",
+        "filename": "xyz.openbmc_project.PFR.Manager.service",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2020-12-30T04:38:41Z",
+      "side": 1,
+      "message": "Updated. Thank You",
+      "parentUuid": "73d86cc3_1744e10b",
       "range": {
         "startLine": 3,
         "startChar": 0,
