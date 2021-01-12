@@ -226,6 +226,30 @@
     },
     {
       "key": {
+        "uuid": "472b69de_4398219c",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-12T14:10:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "91770258_3b71102e",
+      "range": {
+        "startLine": 477,
+        "startChar": 20,
+        "endLine": 479,
+        "endChar": 67
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc9053d3_cd37ecd5",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 5
@@ -332,6 +356,30 @@
       "side": 1,
       "message": "If the CPLD does not respond, then getProvisioningStatus returns -1. So we should stop the program right?",
       "parentUuid": "f3b785bc_d9c86424",
+      "range": {
+        "startLine": 531,
+        "startChar": 0,
+        "endLine": 533,
+        "endChar": 23
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5da0631_0d20c22b",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-12T14:10:32Z",
+      "side": 1,
+      "message": "Stopping the service if getProvisioningStatus returns -1. Thank You",
+      "parentUuid": "3fb23eee_da8947fe",
       "range": {
         "startLine": 531,
         "startChar": 0,

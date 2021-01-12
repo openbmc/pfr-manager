@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b6421ba4_c5121810",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-12T14:10:32Z",
+      "side": 1,
+      "message": "Modified. Thank You",
+      "parentUuid": "4fe85a21_bae05352",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 61
+      },
+      "revId": "73588aed17aa8ae73718dafbcc434d7a82150ed5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "01f24659_1b9c5ad6",
         "filename": "service/CMakeLists.txt",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2020-12-30T10:20:20Z",
       "side": 1,
       "message": "please remove this if not needed.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 0
+      },
+      "revId": "73588aed17aa8ae73718dafbcc434d7a82150ed5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7210423_5fb4499f",
+        "filename": "service/CMakeLists.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-12T14:10:32Z",
+      "side": 1,
+      "message": "Build is failing still because of this issue. Hence retained. Thank You",
+      "parentUuid": "01f24659_1b9c5ad6",
       "range": {
         "startLine": 6,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5a4fb4f8_306e2284",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-12T14:10:32Z",
+      "side": 1,
+      "message": "Removed this part. Thank You.",
+      "parentUuid": "922508e6_60fa6926",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 478,
+        "endChar": 53
+      },
+      "revId": "73588aed17aa8ae73718dafbcc434d7a82150ed5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a90396b1_b72083ba",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 6
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "7d72ead1_4becc1d9",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-12T14:10:32Z",
+      "side": 1,
+      "message": "Done. Thank You",
+      "parentUuid": "a90396b1_b72083ba",
+      "range": {
+        "startLine": 479,
+        "startChar": 12,
+        "endLine": 479,
+        "endChar": 20
+      },
+      "revId": "73588aed17aa8ae73718dafbcc434d7a82150ed5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ff738e3_5120fc70",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 6
@@ -105,6 +201,30 @@
       "writtenOn": "2021-01-05T20:49:25Z",
       "side": 1,
       "message": "nit: slightly better to capture conn by value so we don\u0027t have to analyze the lifetime of the reference.",
+      "range": {
+        "startLine": 490,
+        "startChar": 9,
+        "endLine": 490,
+        "endChar": 14
+      },
+      "revId": "73588aed17aa8ae73718dafbcc434d7a82150ed5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fca3523_3ebf13ae",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-12T14:10:32Z",
+      "side": 1,
+      "message": "Modified. Thank You",
+      "parentUuid": "8ff738e3_5120fc70",
       "range": {
         "startLine": 490,
         "startChar": 9,
@@ -163,6 +283,54 @@
     },
     {
       "key": {
+        "uuid": "2ac5b1f8_f3a15aa6",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-12T14:10:32Z",
+      "side": 1,
+      "message": "Corrected. Thank You",
+      "parentUuid": "b5fb766e_103dd47d",
+      "range": {
+        "startLine": 504,
+        "startChar": 35,
+        "endLine": 504,
+        "endChar": 42
+      },
+      "revId": "73588aed17aa8ae73718dafbcc434d7a82150ed5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d64745a2_bb79bd14",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-12T14:10:32Z",
+      "side": 1,
+      "message": "removed the PFR prefix. Thank You",
+      "parentUuid": "0f612265_db2abaff",
+      "range": {
+        "startLine": 504,
+        "startChar": 21,
+        "endLine": 504,
+        "endChar": 26
+      },
+      "revId": "73588aed17aa8ae73718dafbcc434d7a82150ed5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6c4bad73_427e342c",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 6
@@ -174,6 +342,30 @@
       "writtenOn": "2021-01-05T20:49:25Z",
       "side": 1,
       "message": "stopService cannot return false as written, so it\u0027s dead code. Probably simpler to make stopService use synchronous D-Bus calls so that you can actually return true/false.",
+      "range": {
+        "startLine": 506,
+        "startChar": 21,
+        "endLine": 506,
+        "endChar": 38
+      },
+      "revId": "73588aed17aa8ae73718dafbcc434d7a82150ed5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ed32ae2_3e9c93e5",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-12T14:10:32Z",
+      "side": 1,
+      "message": "Modified the return type of stopService as it need not return true/false. Thank You.",
+      "parentUuid": "6c4bad73_427e342c",
       "range": {
         "startLine": 506,
         "startChar": 21,
