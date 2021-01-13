@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4beb71a6_3f31dd62",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-13T06:27:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2497738d_8b44c2a9",
+      "revId": "db55a4684a53b52d3d9c2ec0f11318c914d46538",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1722b3c1_8bf133cd",
         "filename": "service/CMakeLists.txt",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2020-12-30T10:39:08Z",
       "side": 1,
       "message": "you can completely remove it, if it\u0027s no longer needed.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 52
+      },
+      "revId": "db55a4684a53b52d3d9c2ec0f11318c914d46538",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50341357_7204fd3c",
+        "filename": "service/CMakeLists.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-13T06:27:45Z",
+      "side": 1,
+      "message": "Build is failing again, hence retained. Thank You.",
+      "parentUuid": "1722b3c1_8bf133cd",
       "range": {
         "startLine": 6,
         "startChar": 0,
