@@ -250,6 +250,30 @@
     },
     {
       "key": {
+        "uuid": "012d5d37_025765e1",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-13T04:32:34Z",
+      "side": 1,
+      "message": "Tested several times with std::exit (EXIT_SUCCESS), and Restart\u003don-failure, on-abnormal, on-watchdog, Service restarted with below service status after exit(0).\nsystemctl status xyz.openbmc_project.PFR.Manager.service\n\n     Active: activating (auto-restart)\n    Process: 4434 ExecStart\u003d \u003cprocess_location\u003e (code\u003dexited, status\u003d0/SUCCESS)\n   Main PID: 4434 (code\u003dexited, status\u003d0/SUCCESS)\n\nI would like know your implementation and testing procedure and environment. Thank You.",
+      "parentUuid": "472b69de_4398219c",
+      "range": {
+        "startLine": 477,
+        "startChar": 20,
+        "endLine": 479,
+        "endChar": 67
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bc9053d3_cd37ecd5",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 5
