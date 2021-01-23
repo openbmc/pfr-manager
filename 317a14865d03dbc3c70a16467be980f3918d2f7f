@@ -274,6 +274,30 @@
     },
     {
       "key": {
+        "uuid": "abd13c09_c785ee7c",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-01-23T03:46:42Z",
+      "side": 1,
+      "message": "I have been meaning to test it again and reply with the steps, but haven\u0027t had time. Sorry :) will try to do it next week if this is not urgent, otherwise, don\u0027t wait for me.",
+      "parentUuid": "012d5d37_025765e1",
+      "range": {
+        "startLine": 477,
+        "startChar": 20,
+        "endLine": 479,
+        "endChar": 67
+      },
+      "revId": "317a14865d03dbc3c70a16467be980f3918d2f7f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bc9053d3_cd37ecd5",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 5
