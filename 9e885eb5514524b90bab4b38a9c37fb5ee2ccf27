@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2288a02a_98652150",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-27T11:52:08Z",
+      "side": 1,
+      "message": "Modified. Thank You",
+      "parentUuid": "2b9b8f7b_0159ad92",
+      "range": {
+        "startLine": 475,
+        "startChar": 9,
+        "endLine": 475,
+        "endChar": 20
+      },
+      "revId": "9e885eb5514524b90bab4b38a9c37fb5ee2ccf27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7020b750_06dc16a8",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2021-01-26T02:47:50Z",
       "side": 1,
       "message": "No need to capture this.",
+      "range": {
+        "startLine": 492,
+        "startChar": 9,
+        "endLine": 492,
+        "endChar": 19
+      },
+      "revId": "9e885eb5514524b90bab4b38a9c37fb5ee2ccf27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df437f07_309f1489",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-27T11:52:08Z",
+      "side": 1,
+      "message": "Modified. Thank You",
+      "parentUuid": "7020b750_06dc16a8",
       "range": {
         "startLine": 492,
         "startChar": 9,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c9439677_8dc3b328",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-27T11:52:08Z",
+      "side": 1,
+      "message": "Modified. Thank You",
+      "parentUuid": "8de738f4_f44d2ca7",
+      "range": {
+        "startLine": 575,
+        "startChar": 21,
+        "endLine": 575,
+        "endChar": 43
+      },
+      "revId": "9e885eb5514524b90bab4b38a9c37fb5ee2ccf27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0b8479b5_8716e973",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 11
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "87ecfe75_2479fd41",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-27T11:52:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b8479b5_8716e973",
+      "range": {
+        "startLine": 590,
+        "startChar": 24,
+        "endLine": 591,
+        "endChar": 48
+      },
+      "revId": "9e885eb5514524b90bab4b38a9c37fb5ee2ccf27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a7c28e3_2237f15c",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 11
@@ -105,6 +201,30 @@
       "writtenOn": "2021-01-26T02:47:50Z",
       "side": 1,
       "message": "Recommend using a structured binding here:\n\n   for (const auto\u0026 [propName, propVariant] : propertiesList)",
+      "range": {
+        "startLine": 593,
+        "startChar": 29,
+        "endLine": 595,
+        "endChar": 78
+      },
+      "revId": "9e885eb5514524b90bab4b38a9c37fb5ee2ccf27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f72c4f4_fc983e46",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-27T11:52:08Z",
+      "side": 1,
+      "message": "Modified. Thank You.",
+      "parentUuid": "5a7c28e3_2237f15c",
       "range": {
         "startLine": 593,
         "startChar": 29,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "bcb7aa5e_7aefede2",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-27T11:52:08Z",
+      "side": 1,
+      "message": "Modified. We need to read the MainPLD and PLD values from gpio lines even when we have non-PFR CPLD which is been taken care in main(). Thank You",
+      "parentUuid": "9d9c6a1a_914e1e5c",
+      "range": {
+        "startLine": 625,
+        "startChar": 24,
+        "endLine": 625,
+        "endChar": 48
+      },
+      "revId": "9e885eb5514524b90bab4b38a9c37fb5ee2ccf27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5cb85e84_71088135",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 11
@@ -151,6 +295,30 @@
       "writtenOn": "2021-01-26T02:47:50Z",
       "side": 1,
       "message": "These will both be logged in the \"happy path\" where the PFR bus details are found and then the timer is cancelled on line 621. Can the logic be reorganized to avoid logging errors when there are none?",
+      "range": {
+        "startLine": 663,
+        "startChar": 12,
+        "endLine": 672,
+        "endChar": 46
+      },
+      "revId": "9e885eb5514524b90bab4b38a9c37fb5ee2ccf27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6cab828_bd2d2677",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-01-27T11:52:08Z",
+      "side": 1,
+      "message": "Reorganized the logic. Thank You",
+      "parentUuid": "5cb85e84_71088135",
       "range": {
         "startLine": 663,
         "startChar": 12,
