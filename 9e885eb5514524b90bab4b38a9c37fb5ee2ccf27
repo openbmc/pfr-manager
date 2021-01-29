@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d9ea23e7_389a60f5",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-01-29T22:56:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2288a02a_98652150",
+      "range": {
+        "startLine": 475,
+        "startChar": 9,
+        "endLine": 475,
+        "endChar": 20
+      },
+      "revId": "9e885eb5514524b90bab4b38a9c37fb5ee2ccf27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7020b750_06dc16a8",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 11
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "10490dad_1a817cb5",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-01-29T22:56:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df437f07_309f1489",
+      "range": {
+        "startLine": 492,
+        "startChar": 9,
+        "endLine": 492,
+        "endChar": 19
+      },
+      "revId": "9e885eb5514524b90bab4b38a9c37fb5ee2ccf27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8de738f4_f44d2ca7",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 11
@@ -140,6 +188,30 @@
       "revId": "9e885eb5514524b90bab4b38a9c37fb5ee2ccf27",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64046484_491c082e",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-01-29T22:56:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9439677_8dc3b328",
+      "range": {
+        "startLine": 575,
+        "startChar": 21,
+        "endLine": 575,
+        "endChar": 43
+      },
+      "revId": "9e885eb5514524b90bab4b38a9c37fb5ee2ccf27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -237,6 +309,30 @@
     },
     {
       "key": {
+        "uuid": "0f2567d2_42706eba",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-01-29T22:56:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f72c4f4_fc983e46",
+      "range": {
+        "startLine": 593,
+        "startChar": 29,
+        "endLine": 595,
+        "endChar": 78
+      },
+      "revId": "9e885eb5514524b90bab4b38a9c37fb5ee2ccf27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d9c6a1a_914e1e5c",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 11
@@ -272,6 +368,30 @@
       "side": 1,
       "message": "Modified. We need to read the MainPLD and PLD values from gpio lines even when we have non-PFR CPLD which is been taken care in main(). Thank You",
       "parentUuid": "9d9c6a1a_914e1e5c",
+      "range": {
+        "startLine": 625,
+        "startChar": 24,
+        "endLine": 625,
+        "endChar": 48
+      },
+      "revId": "9e885eb5514524b90bab4b38a9c37fb5ee2ccf27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09ee3911_a29c3c21",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-01-29T22:56:36Z",
+      "side": 1,
+      "message": "OK, I see. But there\u0027s no need to call it twice, right? In PS 12, you added another call which I think can be removed since the one in main will cover it.",
+      "parentUuid": "bcb7aa5e_7aefede2",
       "range": {
         "startLine": 625,
         "startChar": 24,
@@ -328,6 +448,30 @@
       "revId": "9e885eb5514524b90bab4b38a9c37fb5ee2ccf27",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "782ac0c2_9dd868ab",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-01-29T22:56:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6cab828_bd2d2677",
+      "range": {
+        "startLine": 663,
+        "startChar": 12,
+        "endLine": 672,
+        "endChar": 46
+      },
+      "revId": "9e885eb5514524b90bab4b38a9c37fb5ee2ccf27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }

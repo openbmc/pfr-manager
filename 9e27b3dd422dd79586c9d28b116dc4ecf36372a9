@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e4153bf_eddbd9db",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-01-29T22:56:36Z",
+      "side": 1,
+      "message": "check if these things can be reordered to avoid the error from phosphor-mapper",
+      "range": {
+        "startLine": 693,
+        "startChar": 0,
+        "endLine": 697,
+        "endChar": 33
+      },
+      "revId": "9e27b3dd422dd79586c9d28b116dc4ecf36372a9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
