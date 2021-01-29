@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8bf54e6_7575cf6e",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000678
+      },
+      "writtenOn": "2021-01-29T11:37:14Z",
+      "side": 1,
+      "message": "Variant always have holds value. In this case variant\u003cuint8_t\u003e{} holds uint8_t with value 0, so currently this get_if will always success. To make it corrent please change your variant type to std::variant\u003cstd::monostate, uint8_t\u003e this way empty variant will have std::monostate inside instead of uint8_t",
+      "range": {
+        "startLine": 228,
+        "startChar": 35,
+        "endLine": 228,
+        "endChar": 73
+      },
+      "revId": "510ffdbe3cceb4bdfbdfccde1d4f8261111988b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61ddebcc_90176cf8",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000678
+      },
+      "writtenOn": "2021-01-29T11:37:14Z",
+      "side": 1,
+      "message": "nit: There is sdbusplus::unpackProperties for something like this:\n\nExample:\ntry\n{\n  std::string x;\n  std::string y;\n  sdbusplus::unpackProperties(properties, \"X\", x, \"Y\", y);\n\n  std::cout \u003c\u003c \"value of x: \" \u003c\u003c x \u003c\u003c \"\\n\";\n  std::cout \u003c\u003c \"value of y: \" \u003c\u003c y \u003c\u003c \"\\n\";\n}\ncatch (const sdbusplus::exception::UnpackPropertyError\u0026)\n{\n  // Exception is thrown when there is at least one property missing or type of the property doesn\u0027t match\n}\n\nSource: https://github.com/openbmc/sdbusplus/blob/master/example/get-all-properties.cpp",
+      "range": {
+        "startLine": 218,
+        "startChar": 12,
+        "endLine": 242,
+        "endChar": 13
+      },
+      "revId": "510ffdbe3cceb4bdfbdfccde1d4f8261111988b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
