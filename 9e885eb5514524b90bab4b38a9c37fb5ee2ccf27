@@ -452,6 +452,30 @@
     },
     {
       "key": {
+        "uuid": "c6ae5df3_1647b15a",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-02-02T10:47:03Z",
+      "side": 1,
+      "message": "On PFR CPLD, I have observed an exception while reading the cpld version from main() as i2cBus and i2cAddress are zero. Hence during second time, RoT, SVN and Hash are updated. Thank You",
+      "parentUuid": "74618421_c4e80d8f",
+      "range": {
+        "startLine": 625,
+        "startChar": 24,
+        "endLine": 625,
+        "endChar": 48
+      },
+      "revId": "9e885eb5514524b90bab4b38a9c37fb5ee2ccf27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5cb85e84_71088135",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 11
