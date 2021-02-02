@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "14180264_75ddb533",
+        "filename": "service/CMakeLists.txt",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-02-02T11:55:58Z",
+      "side": 1,
+      "message": "Commit this one as separate. So when actual issue is fixed, We can revert it directly. \n\nThis is diluting the scope of change.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 52
+      },
+      "revId": "510ffdbe3cceb4bdfbdfccde1d4f8261111988b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e8bf54e6_7575cf6e",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 7
@@ -40,6 +63,76 @@
         "startLine": 218,
         "startChar": 12,
         "endLine": 242,
+        "endChar": 13
+      },
+      "revId": "510ffdbe3cceb4bdfbdfccde1d4f8261111988b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45b3a03d_06afd50f",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-02-02T11:55:58Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "61ddebcc_90176cf8",
+      "range": {
+        "startLine": 218,
+        "startChar": 12,
+        "endLine": 242,
+        "endChar": 13
+      },
+      "revId": "510ffdbe3cceb4bdfbdfccde1d4f8261111988b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dff20d5a_e22e221b",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-02-02T11:55:58Z",
+      "side": 1,
+      "message": "Irrespective the lastPanicCount fetched from Settings service, If current PanicCount it non zero we should log event. This check should move to down.",
+      "range": {
+        "startLine": 244,
+        "startChar": 12,
+        "endLine": 244,
+        "endChar": 42
+      },
+      "revId": "510ffdbe3cceb4bdfbdfccde1d4f8261111988b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02d698d7_d5febeaa",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-02-02T11:55:58Z",
+      "side": 1,
+      "message": "Same as above. In major/minor error case too.",
+      "range": {
+        "startLine": 263,
+        "startChar": 11,
+        "endLine": 264,
         "endChar": 13
       },
       "revId": "510ffdbe3cceb4bdfbdfccde1d4f8261111988b0",
