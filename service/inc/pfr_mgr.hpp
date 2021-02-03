@@ -37,6 +37,7 @@ static constexpr const char* versionPurposeOther =
 static constexpr const char* versionStr = "Version";
 static constexpr const char* ufmProvisionedStr = "UfmProvisioned";
 static constexpr const char* ufmLockedStr = "UfmLocked";
+static constexpr const char* ufmSupportStr = "UfmSupport";
 
 class PfrVersion
 {
@@ -80,6 +81,7 @@ class PfrConfig
 
     bool ufmProvisioned;
     bool ufmLocked;
+    bool ufmSupport;
 };
 
 } // namespace pfr

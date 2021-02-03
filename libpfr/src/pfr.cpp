@@ -370,14 +370,17 @@ std::string getFirmwareVersion(const ImageType& imgType)
     }
 }
 
-int getProvisioningStatus(bool& ufmLocked, bool& ufmProvisioned)
+int getProvisioningStatus(bool& ufmLocked, bool& ufmProvisioned,
+                          bool& ufmSupport)
 {
     try
     {
         I2CFile cpldDev(i2cBusNumber, i2cSlaveAddress, O_RDWR | O_CLOEXEC);
         uint8_t provStatus = cpldDev.i2cReadByteData(provisioningStatus);
+        uint8_t pfrRoT = cpldDev.i2cReadByteData(pfrROTId);
         ufmLocked = (provStatus & ufmLockedMask);
         ufmProvisioned = (provStatus & ufmProvisionedMask);
+        ufmSupport = (pfrRoT & pfrRoTValue);
         return 0;
     }
     catch (const std::exception& e)
