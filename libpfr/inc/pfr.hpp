@@ -45,6 +45,7 @@ std::string getFirmwareVersion(const ImageType& imgType);
 int getProvisioningStatus(bool& ufmLocked, bool& ufmProvisioned,
                           bool& ufmSupport);
 int readCpldReg(const ActionType& action, uint8_t& value);
+std::string readCPLDVersion();
 int setBMCBootCheckpoint(const uint8_t checkPoint);
 
 } // namespace pfr

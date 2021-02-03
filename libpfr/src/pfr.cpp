@@ -248,7 +248,7 @@ static bool getGPIOInput(const std::string& name, gpiod::line& gpioLine,
     return true;
 }
 
-static std::string readCPLDVersion()
+std::string readCPLDVersion()
 {
     // CPLD SGPIO lines
     gpiod::line mainCPLDLine;

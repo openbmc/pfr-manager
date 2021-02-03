@@ -49,8 +49,6 @@ static std::vector<std::tuple<std::string, ImageType, std::string>>
                         versionPurposeBMC),
         std::make_tuple("bios_recovery", ImageType::biosRecovery,
                         versionPurposeHost),
-        std::make_tuple("cpld_active", ImageType::cpldActive,
-                        versionPurposeOther),
         std::make_tuple("cpld_recovery", ImageType::cpldRecovery,
                         versionPurposeOther),
 };
@@ -456,6 +454,27 @@ void monitorSignals(sdbusplus::asio::object_server& server,
     checkAndLogEvents();
 }
 
+static void updateCPLDversion(std::shared_ptr<sdbusplus::asio::connection> conn)
+{
+    std::string cpldVersion = pfr::readCPLDVersion();
+    conn->async_method_call(
+        [](const boost::system::error_code ec) {
+            if (ec)
+            {
+                phosphor::logging::log<phosphor::logging::level::ERR>(
+                    "Unable to update cpld_active version",
+                    phosphor::logging::entry("MSG=%s", ec.message().c_str()));
+                return;
+            }
+        },
+        "xyz.openbmc_project.Settings",
+        "/xyz/openbmc_project/software/cpld_active",
+        "org.freedesktop.DBus.Properties", "Set",
+        "xyz.openbmc_project.Software.Version", "Version",
+        std::variant<std::string>(cpldVersion));
+    return;
+}
+
 } // namespace pfr
 
 int main()
@@ -467,6 +486,9 @@ int main()
     pfr::initTimer = std::make_unique<boost::asio::steady_timer>(io);
     auto server = sdbusplus::asio::object_server(conn, true);
     pfr::monitorSignals(server, conn);
+
+    // Update CPLD Version to cpld_active object in settings.
+    pfr::updateCPLDversion(conn);
 
     server.add_manager("/xyz/openbmc_project/pfr");
 
