@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "b074d964_bce2e6a1",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-02-05T15:57:09Z",
+      "side": 1,
+      "message": "No, Even if we can\u0027t read CPLD or failure in reading CPLD, Wil not make this DBUS object change its property. This is cpld_active object, it will be active.",
+      "parentUuid": "eb746a74_48d6317d",
+      "range": {
+        "startLine": 486,
+        "startChar": 7,
+        "endLine": 505,
+        "endChar": 47
+      },
+      "revId": "55d628cb619249ffd4844e4ea4f893aaa6c70829",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d44fd49c_2b2c053b",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 13
