@@ -135,6 +135,24 @@
     },
     {
       "key": {
+        "uuid": "d1b402c6_016f3dc3",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-02-05T07:42:23Z",
+      "side": 1,
+      "message": "when the timer is cancelled, loop counter is made zero.. which will break the loop. Thank You",
+      "parentUuid": "c39e27f4_ec060a6f",
+      "revId": "55d628cb619249ffd4844e4ea4f893aaa6c70829",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ceafca53_47b12378",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 13
