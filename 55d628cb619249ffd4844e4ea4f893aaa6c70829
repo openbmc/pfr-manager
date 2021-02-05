@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "eb746a74_48d6317d",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-02-05T00:59:35Z",
+      "side": 1,
+      "message": "If we can\u0027t read any CPLD version (perhaps GPIO failure?) then this should not be hardcoded active.",
+      "parentUuid": "7f89c6d1_696295e3",
+      "range": {
+        "startLine": 486,
+        "startChar": 7,
+        "endLine": 505,
+        "endChar": 47
+      },
+      "revId": "55d628cb619249ffd4844e4ea4f893aaa6c70829",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d44fd49c_2b2c053b",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 13
