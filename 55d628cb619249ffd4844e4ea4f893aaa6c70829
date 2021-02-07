@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "40e484b0_c7c2b332",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-02-07T16:43:05Z",
+      "side": 1,
+      "message": "Yes, The object has been created in settings service. Thank You",
+      "parentUuid": "4d4e5d81_6fb7bd25",
+      "range": {
+        "startLine": 485,
+        "startChar": 10,
+        "endLine": 485,
+        "endChar": 50
+      },
+      "revId": "55d628cb619249ffd4844e4ea4f893aaa6c70829",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f89c6d1_696295e3",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 13
@@ -107,6 +131,30 @@
       "side": 1,
       "message": "No, Even if we can\u0027t read CPLD or failure in reading CPLD, Wil not make this DBUS object change its property. This is cpld_active object, it will be active.",
       "parentUuid": "eb746a74_48d6317d",
+      "range": {
+        "startLine": 486,
+        "startChar": 7,
+        "endLine": 505,
+        "endChar": 47
+      },
+      "revId": "55d628cb619249ffd4844e4ea4f893aaa6c70829",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5d32b99_60c06343",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-02-07T16:43:05Z",
+      "side": 1,
+      "message": "Activation status to Active has been updated in settings service itself. Thank You",
+      "parentUuid": "b074d964_bce2e6a1",
       "range": {
         "startLine": 486,
         "startChar": 7,
@@ -188,6 +236,30 @@
       "writtenOn": "2021-02-02T11:33:44Z",
       "side": 1,
       "message": "Setting PFR CPLD version and checking for PFR CPLD to stop service are async operations. Its not guaranteed to be setting CPLD version executes before force stoping PFR service. So this need to serialized.",
+      "range": {
+        "startLine": 665,
+        "startChar": 0,
+        "endLine": 668,
+        "endChar": 33
+      },
+      "revId": "55d628cb619249ffd4844e4ea4f893aaa6c70829",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85cf268f_ffcabfd3",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-02-07T16:43:05Z",
+      "side": 1,
+      "message": "Re ordered. CPLD version is updated before checkPFRandAddObjects() completes. Thank You",
+      "parentUuid": "ceafca53_47b12378",
       "range": {
         "startLine": 665,
         "startChar": 0,
