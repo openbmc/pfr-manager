@@ -46,6 +46,30 @@
       "revId": "f88197083c3372cfb9167347b3cf9cc26d488a4d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8388f831_356f3cb9",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-02-09T10:05:53Z",
+      "side": 1,
+      "message": "pfrRoTValue is the mask, when PFR supported, ufmSupport will be true.",
+      "parentUuid": "ef1fc025_2ea5b2b6",
+      "range": {
+        "startLine": 383,
+        "startChar": 31,
+        "endLine": 383,
+        "endChar": 42
+      },
+      "revId": "f88197083c3372cfb9167347b3cf9cc26d488a4d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
