@@ -81,6 +81,24 @@
       "revId": "c5bdf24b6c86dbac5b19b4df0c6b8d1920b7c0d5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73e400e7_ff99d11a",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-02-17T02:59:41Z",
+      "side": 1,
+      "message": "I don\u0027t fully understand why the Activation interface exists if it only provides constant data, but OK, I guess there\u0027s no change needed in this patch.",
+      "parentUuid": "6ae2996a_8374dae5",
+      "revId": "c5bdf24b6c86dbac5b19b4df0c6b8d1920b7c0d5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
