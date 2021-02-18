@@ -46,6 +46,30 @@
       "revId": "e6f0f0761c3896c1ea8a12669641eee0c322534f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a1c1ca2_76f8659a",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-02-18T21:30:16Z",
+      "side": 1,
+      "message": "Now that I think about it a little more, if libpfr is meant to be used by multiple applications, then this won\u0027t work well. Every application linking with libpfr would have to implement the same entity-manager search to find the I2C configuration, or else it won\u0027t be able to talk to the PFR PLD. I don\u0027t know what was the vision for libpfr so someone else will have to decide how to resolve this.",
+      "parentUuid": "eb109f29_c46a7142",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 20
+      },
+      "revId": "e6f0f0761c3896c1ea8a12669641eee0c322534f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
