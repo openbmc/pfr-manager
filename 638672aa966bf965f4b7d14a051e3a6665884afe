@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46de7bf9_ee1f9f69",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000678
+      },
+      "writtenOn": "2021-03-22T13:14:17Z",
+      "side": 1,
+      "message": "In meantime there was API change:\nhttps://gerrit.openbmc-project.xyz/c/openbmc/sdbusplus/+/40749\n\nYou can take a look at change below to see how to adopt to new API:\nhttps://gerrit.openbmc-project.xyz/c/openbmc/telemetry/+/40878\n\nTo make it short, instead of two callbacks there is one, so your code would look like this:\n[\u0026conn](boost::system::error_code ec, std::vector\u003c\n                std::pair\u003cstd::string, std::variant\u003cstd::monostate, uint8_t\u003e\u003e\u003e\u0026\n                    properties) {\n   if (ec) {\n     logSystemErrorCode(ec); // needs to be changed from function producing lambda to be regular function\n     return;\n   }\n\n   // rest of the code is unchanged\n}",
+      "range": {
+        "startLine": 218,
+        "startChar": 46,
+        "endLine": 221,
+        "endChar": 30
+      },
+      "revId": "638672aa966bf965f4b7d14a051e3a6665884afe",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
