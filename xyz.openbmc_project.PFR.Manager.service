@@ -1,5 +1,7 @@
 [Unit]
 Description=Daemon manages PFR dbus properties and Event logs
+Wants=rsyslog.service
+After=rsyslog.service
 
 [Service]
 Restart=always
