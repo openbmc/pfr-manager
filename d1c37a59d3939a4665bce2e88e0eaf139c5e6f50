@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72b7552a_77416855",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000418
+      },
+      "writtenOn": "2021-03-28T13:43:55Z",
+      "side": 1,
+      "message": "nit: May be rewritten:\n\"\nIssue: Some pfr-manager events during BMC bootup were missed in journal logs as rsyslog.service was not started by then.\n\"",
+      "revId": "d1c37a59d3939a4665bce2e88e0eaf139c5e6f50",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
