@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1e65dc5_3aef43db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-03-29T04:53:11Z",
+      "side": 1,
+      "message": "Its not general logs, There is no dependency of journal logs on rsyslog. This should be \"Redfish event logs\".\nThe rsyslog will filter journal logs for REDFISH_MESSAGE_ID and logs then to redfish event logs.\n\nModify commit message accordingly.",
+      "range": {
+        "startLine": 9,
+        "startChar": 64,
+        "endLine": 10,
+        "endChar": 4
+      },
+      "revId": "1ae28f67b1778869e9128375bd25dcef3633ced0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df77345c_12ab8769",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-03-29T04:53:11Z",
+      "side": 1,
+      "message": "Confirmation: Before this change, Are you able to consistently reproduce the issue?\nJust want to make sure, this change addresses the actual issue.",
+      "range": {
+        "startLine": 15,
+        "startChar": 3,
+        "endLine": 15,
+        "endChar": 53
+      },
+      "revId": "1ae28f67b1778869e9128375bd25dcef3633ced0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
