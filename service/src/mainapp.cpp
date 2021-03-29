@@ -466,6 +466,7 @@ int main()
     pfr::stateTimer = std::make_unique<boost::asio::steady_timer>(io);
     pfr::initTimer = std::make_unique<boost::asio::steady_timer>(io);
     auto server = sdbusplus::asio::object_server(conn, true);
+    pfr::init(conn);
     pfr::monitorSignals(server, conn);
 
     server.add_manager("/xyz/openbmc_project/pfr");

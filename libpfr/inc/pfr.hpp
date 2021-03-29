@@ -17,6 +17,10 @@
 
 #include <string>
 
+#include <boost/algorithm/string/predicate.hpp>
+#include <boost/asio.hpp>
+#include <sdbusplus/asio/object_server.hpp>
+
 namespace pfr
 {
 
@@ -46,5 +50,6 @@ int getProvisioningStatus(bool& ufmLocked, bool& ufmProvisioned,
                           bool& ufmSupport);
 int readCpldReg(const ActionType& action, uint8_t& value);
 int setBMCBootCheckpoint(const uint8_t checkPoint);
+void init(std::shared_ptr<sdbusplus::asio::connection> conn);
 
 } // namespace pfr
