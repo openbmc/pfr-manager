@@ -94,6 +94,30 @@
       "revId": "e6f0f0761c3896c1ea8a12669641eee0c322534f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e044129e_f7ff0f71",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-03-29T09:39:09Z",
+      "side": 1,
+      "message": "Implementation of entity-manager search for I2C Configuration is moved to libpfr on a separate patch(https://gerrit.openbmc-project.xyz/c/openbmc/pfr-manager/+/41663) and does not depend on application. \n\nThis patch checks for PFR support and stops a PFR manager when PFR is not supported. Thank You",
+      "parentUuid": "c328df4e_714c3d81",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 20
+      },
+      "revId": "e6f0f0761c3896c1ea8a12669641eee0c322534f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
