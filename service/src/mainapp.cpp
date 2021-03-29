@@ -32,6 +32,8 @@ static uint8_t lastPanicCount = 0;
 static uint8_t lastMajorErr = 0;
 static uint8_t lastMinorErr = 0;
 
+static bool i2cConfigLoaded = false;
+
 static bool stateTimerRunning = false;
 bool finishedSettingChkPoint = false;
 static constexpr uint8_t bmcBootFinishedChkPoint = 0x09;
@@ -485,6 +487,7 @@ int main()
     pfr::stateTimer = std::make_unique<boost::asio::steady_timer>(io);
     pfr::initTimer = std::make_unique<boost::asio::steady_timer>(io);
     auto server = sdbusplus::asio::object_server(conn, true);
+    pfr::init(conn, pfr::i2cConfigLoaded);
     pfr::monitorSignals(server, conn);
 
     // Update CPLD Version to cpld_active object in settings.
