@@ -15,6 +15,10 @@
 */
 #pragma once
 
+#include <boost/algorithm/string/predicate.hpp>
+#include <boost/asio.hpp>
+#include <sdbusplus/asio/object_server.hpp>
+
 #include <string>
 
 namespace pfr
@@ -49,5 +53,7 @@ int getProvisioningStatus(bool& ufmLocked, bool& ufmProvisioned,
 int readCpldReg(const ActionType& action, uint8_t& value);
 std::string readCPLDVersion();
 int setBMCBootCheckpoint(const uint8_t checkPoint);
+void init(std::shared_ptr<sdbusplus::asio::connection> conn,
+          bool& i2cConfigLoaded);
 
 } // namespace pfr

@@ -27,11 +27,13 @@
 
 namespace pfr
 {
-// TODO: Dynamically pull these values from configuration
-// entity-manager, when needed
-static constexpr int i2cBusNumber = 4;
-// below given is 7bit address. Its 8bit addr is 0x70
-static constexpr int i2cSlaveAddress = 0x38;
+
+using GetSubTreeType = std::vector<
+    std::pair<std::string,
+              std::vector<std::pair<std::string, std::vector<std::string>>>>>;
+
+static int i2cBusNumber = 4;
+static int i2cSlaveAddress = 56;
 
 // CPLD mailbox registers
 static constexpr uint8_t pfrROTId = 0x00;
@@ -86,6 +88,79 @@ static const std::array<std::string, 8> pldGpioLines = {
     "SGPIO_PLD_MINOR_REV_BIT1", "SGPIO_PLD_MINOR_REV_BIT0"};
 
 bool exceptionFlag = true;
+
+void init(std::shared_ptr<sdbusplus::asio::connection> conn,
+          bool& i2cConfigLoaded)
+{
+    conn->async_method_call(
+        [conn, &i2cConfigLoaded](const boost::system::error_code ec,
+                                 const GetSubTreeType& resp) {
+            if (ec || resp.size() != 1)
+            {
+                return;
+            }
+
+            const std::string& objPath = resp[0].first;
+            const std::string& serviceName = resp[0].second.begin()->first;
+            const std::string match = "Baseboard/PFR";
+            if (boost::ends_with(objPath, match))
+            {
+                // PFR object found.. check for PFR support
+                conn->async_method_call(
+                    [objPath, serviceName, conn, &i2cConfigLoaded](
+                        boost::system::error_code ec,
+                        const std::vector<std::pair<
+                            std::string, std::variant<std::string, uint64_t>>>&
+                            propertiesList) {
+                        if (ec)
+                        {
+                            phosphor::logging::log<
+                                phosphor::logging::level::ERR>(
+                                "Error to Get PFR properties.",
+                                phosphor::logging::entry("MSG=%s",
+                                                         ec.message().c_str()));
+                            return;
+                        }
+
+                        const uint64_t* i2cBus = nullptr;
+                        const uint64_t* address = nullptr;
+
+                        for (const auto& [propName, propVariant] :
+                             propertiesList)
+                        {
+                            if (propName == "Address")
+                            {
+                                address = std::get_if<uint64_t>(&propVariant);
+                            }
+                            else if (propName == "Bus")
+                            {
+                                i2cBus = std::get_if<uint64_t>(&propVariant);
+                            }
+                        }
+
+                        if ((address == nullptr) || (i2cBus == nullptr))
+                        {
+                            phosphor::logging::log<
+                                phosphor::logging::level::ERR>(
+                                "Unable to read the pfr properties");
+                            return;
+                        }
+
+                        i2cBusNumber = static_cast<int>(*i2cBus);
+                        i2cSlaveAddress = static_cast<int>(*address);
+                        i2cConfigLoaded = true;
+                    },
+                    serviceName, objPath, "org.freedesktop.DBus.Properties",
+                    "GetAll", "xyz.openbmc_project.Configuration.PFR");
+            }
+        },
+        "xyz.openbmc_project.ObjectMapper",
+        "/xyz/openbmc_project/object_mapper",
+        "xyz.openbmc_project.ObjectMapper", "GetSubTree",
+        "/xyz/openbmc_project/inventory/system", 0,
+        std::array<const char*, 1>{"xyz.openbmc_project.Configuration.PFR"});
+    return;
+}
 
 std::string toHexString(const uint8_t val)
 {
