@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ecddc1a_1d0acd0b",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-04-01T19:23:18Z",
+      "side": 1,
+      "message": "A lot of this function is duplicated from the libpfr init(). Can we leverage that library code here?",
+      "revId": "1808906dadcaee09dfbeb61ae78935ffc1bca5b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
