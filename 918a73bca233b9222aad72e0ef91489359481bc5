@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2afc8802_aa6ad31b",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-04-15T00:45:25Z",
+      "side": 1,
+      "message": "nit: I don\u0027t think this cancellation has any effect. checkPfrInterface() (with i2cFlag\u003d\u003dtrue) will only be called from the context of the pfrObjTimer callback, so the timer is guaranteed already expired, and also probably going to be restarted right after checkPfrInterface() returns.",
+      "revId": "918a73bca233b9222aad72e0ef91489359481bc5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfe53a3d_29c0eb70",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-04-15T00:45:25Z",
+      "side": 1,
+      "message": "nit: I think I may have asked this before somewhere :), but can this call be removed?",
+      "revId": "918a73bca233b9222aad72e0ef91489359481bc5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
