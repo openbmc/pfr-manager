@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d42ed3d9_272d1188",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-04-15T07:30:36Z",
+      "side": 1,
+      "message": "Yes, this is not required. will remove. Thank You",
+      "parentUuid": "2afc8802_aa6ad31b",
+      "revId": "918a73bca233b9222aad72e0ef91489359481bc5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dfe53a3d_29c0eb70",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 19
@@ -30,6 +48,24 @@
       "writtenOn": "2021-04-15T00:45:25Z",
       "side": 1,
       "message": "nit: I think I may have asked this before somewhere :), but can this call be removed?",
+      "revId": "918a73bca233b9222aad72e0ef91489359481bc5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7669aeb_f445c83e",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-04-15T07:30:36Z",
+      "side": 1,
+      "message": "This is required to display the CPLD version for the case when PFR manager stops later.",
+      "parentUuid": "dfe53a3d_29c0eb70",
       "revId": "918a73bca233b9222aad72e0ef91489359481bc5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
