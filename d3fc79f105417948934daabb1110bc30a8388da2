@@ -16,6 +16,24 @@
       "revId": "d3fc79f105417948934daabb1110bc30a8388da2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3866b81e_4cb2a5e5",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-04-15T07:29:24Z",
+      "side": 1,
+      "message": "This is required for libpfr init() to set a flag when i2c configuration is loaded so that Application will stop calling the init(). \n\nWe keep polling init() until Entity Manager loads the PFR object and stop when i2c configuration is  loaded successfully (implemented in https://gerrit.openbmc-project.xyz/c/openbmc/pfr-manager/+/36522)\n\nPlease suggest a suitable name.\n\nThank You",
+      "parentUuid": "e0b4d199_3e427e1c",
+      "revId": "d3fc79f105417948934daabb1110bc30a8388da2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
