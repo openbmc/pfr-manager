@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0b4d199_3e427e1c",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-04-15T00:18:07Z",
+      "side": 1,
+      "message": "What is this for? The name is ambiguous.",
+      "revId": "d3fc79f105417948934daabb1110bc30a8388da2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
