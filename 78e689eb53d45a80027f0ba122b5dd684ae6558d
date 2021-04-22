@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "214d2a2e_04358c3c",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2021-04-22T04:14:45Z",
+      "side": 1,
+      "message": "can you please make sure the CPLD version is displayed even when PFR is not provisioned?",
+      "range": {
+        "startLine": 581,
+        "startChar": 4,
+        "endLine": 581,
+        "endChar": 33
+      },
+      "revId": "78e689eb53d45a80027f0ba122b5dd684ae6558d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
