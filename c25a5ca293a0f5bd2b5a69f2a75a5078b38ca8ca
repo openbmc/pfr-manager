@@ -98,6 +98,30 @@
       "revId": "c25a5ca293a0f5bd2b5a69f2a75a5078b38ca8ca",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba7532f9_b36a9d00",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-05-06T22:22:52Z",
+      "side": 1,
+      "message": "In this instance, you can trace the conn parameter and see that it always references all the way back to the actual object living in main(). So I think this is safe but it\u0027s more work to determine the safety. My rule is use \"const std::shared_ptr\u003c\u003e\u0026\" for function parameters and then always capture shared_ptr into lambdas by value.",
+      "parentUuid": "be765422_b86cf327",
+      "range": {
+        "startLine": 208,
+        "startChar": 9,
+        "endLine": 208,
+        "endChar": 14
+      },
+      "revId": "c25a5ca293a0f5bd2b5a69f2a75a5078b38ca8ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
