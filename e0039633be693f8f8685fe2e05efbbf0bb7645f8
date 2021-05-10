@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a84239a2_053f7cb7",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-05-10T07:32:38Z",
+      "side": 1,
+      "message": "Hi Appu, init() is called again from application if entity manager is not loaded. init() is called again and again unless i2cConfigLoaded is true or checkPfrCount is exhausted. Implemented in a related review : https://gerrit.openbmc-project.xyz/c/openbmc/pfr-manager/+/36522\n\nThank You.",
+      "parentUuid": "c5038781_370d7d41",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 13
+      },
+      "revId": "e0039633be693f8f8685fe2e05efbbf0bb7645f8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2de2f886_109e9caf",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2021-05-10T05:52:52Z",
       "side": 1,
       "message": "Where is this used? Basically when this flag is false, You may need to reload the config by calling init() function.",
+      "range": {
+        "startLine": 35,
+        "startChar": 12,
+        "endLine": 35,
+        "endChar": 28
+      },
+      "revId": "e0039633be693f8f8685fe2e05efbbf0bb7645f8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61bedb35_945435bd",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-05-10T07:32:38Z",
+      "side": 1,
+      "message": "Hi Appu, yes, configuration is reloaded by calling init() from application (implemented in https://gerrit.openbmc-project.xyz/c/openbmc/pfr-manager/+/36522).\n\nThank You,\nChalapathi",
+      "parentUuid": "2de2f886_109e9caf",
       "range": {
         "startLine": 35,
         "startChar": 12,
