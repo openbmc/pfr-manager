@@ -88,8 +88,6 @@ static const boost::container::flat_map<uint8_t,
         {0x04, {"BMCFirmwarePanicReason", "BMC watchdog expired"}},
         {0x05, {"MEFirmwarePanicReason", "ME watchdog expired"}},
         {0x06, {"BIOSFirmwarePanicReason", "ACM watchdog expired"}},
-        {0x07, {"BIOSFirmwarePanicReason", "IBB watchdog expired"}},
-        {0x08, {"BIOSFirmwarePanicReason", "OBB watchdog expired"}},
         {0x09,
          {"BIOSFirmwarePanicReason",
           "ACM or IBB or OBB authentication failure"}}};
@@ -166,8 +164,27 @@ static void logLastPanicEvent()
 static void logResiliencyErrorEvent(const uint8_t majorErrorCode,
                                     const uint8_t minorErrorCode)
 {
+    uint8_t cpldRoTRev = 0;
+    if (0 != readCpldReg(ActionType::readRoT, cpldRoTRev))
+    {
+        return;
+    }
+
     auto it = majorErrorCodeMap.find(majorErrorCode);
-    if (it == majorErrorCodeMap.end())
+    if (cpldRoTRev == 0x02)
+    {
+        it = majorErrorCodeMapNew.find(majorErrorCode);
+        if (it == majorErrorCodeMapNew.end())
+        {
+            it = majorErrorCodeMap.find(majorErrorCode);
+            if (it == majorErrorCodeMap.end())
+            {
+                // No matching found. So just return without logging event.
+                return;
+            }
+        }
+    }
+    else if (it == majorErrorCodeMap.end())
     {
         // No matching found. So just return without logging event.
         return;
