@@ -37,7 +37,8 @@ enum class ActionType
     panicCount,
     panicReason,
     majorError,
-    minorError
+    minorError,
+    readRoTRev
 };
 
 std::string toHexString(const uint8_t val);
