@@ -400,6 +400,9 @@ int readCpldReg(const ActionType& action, uint8_t& value)
 
     switch (action)
     {
+        case (ActionType::readRoTRev):
+            cpldReg = cpldROTVersion;
+            break;
         case (ActionType::recoveryCount):
             cpldReg = recoveryCount;
             break;
