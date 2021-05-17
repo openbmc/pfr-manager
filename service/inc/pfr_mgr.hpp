@@ -84,4 +84,11 @@ class PfrConfig
     bool ufmSupport;
 };
 
+// Firmware resiliency major map.
+// {<CPLD association>, {<Redfish MessageID>, <Error reason> })
+static const boost::container::flat_map<uint8_t,
+                                        std::pair<std::string, std::string>>
+    majorErrorCodeMapEgs = {
+        {0x03, {"FirmwareResiliencyError", "Firmware update failed"}}};
+
 } // namespace pfr

@@ -166,8 +166,27 @@ static void logLastPanicEvent()
 static void logResiliencyErrorEvent(const uint8_t majorErrorCode,
                                     const uint8_t minorErrorCode)
 {
+    uint8_t cpldRoTRev = 0;
+    if (0 != readCpldReg(ActionType::readRoT, cpldRoTRev))
+    {
+        return;
+    }
+
     auto it = majorErrorCodeMap.find(majorErrorCode);
-    if (it == majorErrorCodeMap.end())
+    if (cpldRoTRev == 0x02)
+    {
+        it = majorErrorCodeMapEgs.find(majorErrorCode);
+        if (it == majorErrorCodeMapEgs.end())
+        {
+            it = majorErrorCodeMap.find(majorErrorCode);
+            if (it == majorErrorCodeMap.end())
+            {
+                // No matching found. So just return without logging event.
+                return;
+            }
+        }
+    }
+    else if (it == majorErrorCodeMap.end())
     {
         // No matching found. So just return without logging event.
         return;
