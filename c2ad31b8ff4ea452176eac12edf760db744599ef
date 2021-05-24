@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd959490_b7d93bec",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-05-24T22:16:52Z",
+      "side": 1,
+      "message": "Why does it fall back to the Rev1 code map? Aren\u0027t the two sets of codes going to be incompatible?",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 13
+      },
+      "revId": "c2ad31b8ff4ea452176eac12edf760db744599ef",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
