@@ -22,6 +22,30 @@
       "revId": "c2ad31b8ff4ea452176eac12edf760db744599ef",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed81d5bb_84b5ada4",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-05-25T07:41:24Z",
+      "side": 1,
+      "message": "We need to fetch the error codes other than 03 from Rev1 map for platform with ROTRev \u003d 0x2. I have simplified this in latest patch. Thank You",
+      "parentUuid": "bd959490_b7d93bec",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 13
+      },
+      "revId": "c2ad31b8ff4ea452176eac12edf760db744599ef",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
