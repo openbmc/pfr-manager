@@ -27,7 +27,9 @@ enum class ImageType
     biosActive,
     biosRecovery,
     bmcActive,
-    bmcRecovery
+    bmcRecovery,
+    afmActive,
+    afmRecovery
 };
 
 enum class ActionType

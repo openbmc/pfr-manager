@@ -61,7 +61,7 @@ PfrVersion::PfrVersion(sdbusplus::asio::object_server& srv_,
 
     if ((imgType == ImageType::bmcActive) ||
         (imgType == ImageType::biosActive) ||
-        (imgType == ImageType::cpldActive))
+        (imgType == ImageType::cpldActive) || (imgType == ImageType::afmActive))
     {
         // Running images so set Activations to "Active"
         activation =
@@ -75,7 +75,8 @@ PfrVersion::PfrVersion(sdbusplus::asio::object_server& srv_,
         // BIOS version is read from SMBIOS. Since it provides more
         // version information, Lets expose those as functional.
         // Down the line, Redundant inventory objects need to be addressed.
-        if (imgType == ImageType::cpldActive)
+        if ((imgType == ImageType::cpldActive) ||
+            (imgType == ImageType::afmActive))
         {
             associations.emplace("functional", "software_version", objPath);
         }
