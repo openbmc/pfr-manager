@@ -51,6 +51,10 @@ static std::vector<std::tuple<std::string, ImageType, std::string>>
                         versionPurposeHost),
         std::make_tuple("cpld_recovery", ImageType::cpldRecovery,
                         versionPurposeOther),
+        std::make_tuple("afm_active", ImageType::afmActive,
+                        versionPurposeOther),
+        std::make_tuple("afm_recovery", ImageType::afmRecovery,
+                        versionPurposeOther),
 };
 
 // Recovery reason map.
