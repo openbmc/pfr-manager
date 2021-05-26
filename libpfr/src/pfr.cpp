@@ -53,6 +53,10 @@ static constexpr uint8_t pchRecoveryMajorVersion = 0x1B;
 static constexpr uint8_t pchRecoveryMinorVersion = 0x1C;
 static constexpr uint8_t CPLDHashRegStart = 0x20;
 static constexpr uint8_t pfrRoTValue = 0xDE;
+static constexpr uint8_t afmActiveMajorVersion = 0x75;
+static constexpr uint8_t afmActiveMinorVersion = 0x76;
+static constexpr uint8_t afmRecoveryMajorVersion = 0x78;
+static constexpr uint8_t afmRecoveryMinorVersion = 0x79;
 
 static constexpr uint8_t ufmLockedMask = (0x1 << 0x04);
 static constexpr uint8_t ufmProvisionedMask = (0x1 << 0x05);
@@ -365,6 +369,16 @@ std::string getFirmwareVersion(const ImageType& imgType)
         case (ImageType::bmcRecovery):
         {
             return readBMCVersionFromSPI(imgType);
+        }
+        case (ImageType::afmActive):
+        {
+             return readVersionFromCPLD(afmActiveMajorVersion,
+                                        afmActiveMinorVersion);
+        }
+        case (ImageType::afmRecovery):
+        {
+            return readVersionFromCPLD(afmRecoveryMajorVersion,
+                                       afmRecoveryMinorVersion);
         }
         default:
             // Invalid image Type.

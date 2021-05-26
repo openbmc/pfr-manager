@@ -61,7 +61,8 @@ PfrVersion::PfrVersion(sdbusplus::asio::object_server& srv_,
 
     if ((imgType == ImageType::bmcActive) ||
         (imgType == ImageType::biosActive) ||
-        (imgType == ImageType::cpldActive))
+        (imgType == ImageType::cpldActive) ||
+        (imgType == ImageType::afmActive))
     {
         // Running images so set Activations to "Active"
         activation =
