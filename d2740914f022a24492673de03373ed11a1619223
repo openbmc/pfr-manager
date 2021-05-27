@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "096f669d_8a928274",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-05-27T11:04:47Z",
+      "side": 1,
+      "message": "Did you tested it? Can you add your unit test results under Tested section?",
+      "revId": "d2740914f022a24492673de03373ed11a1619223",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3650aadc_8800be57",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-05-27T11:04:47Z",
+      "side": 1,
+      "message": "If PFR is not provisioned, reporting this AFm version information also will be lost because PFRManager service will be stopped.\n\nIf this AFM version info can be read from only when \"PFR is provisioned\"?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 45
+      },
+      "revId": "d2740914f022a24492673de03373ed11a1619223",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6a3eef4_1af1731c",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-05-27T11:04:47Z",
+      "side": 1,
+      "message": "Add (imgType \u003d\u003d ImageType::afmActive) check here. We need to mark all active versions as functional.",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 45
+      },
+      "revId": "d2740914f022a24492673de03373ed11a1619223",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
