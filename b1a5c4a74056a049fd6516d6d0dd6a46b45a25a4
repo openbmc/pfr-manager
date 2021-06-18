@@ -46,6 +46,30 @@
       "revId": "b1a5c4a74056a049fd6516d6d0dd6a46b45a25a4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ea5d3c0_83ee732d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2021-06-18T09:49:56Z",
+      "side": 1,
+      "message": "This is the change CPLD team missed to sync with BMC to update our mappings. We have instructed CPLD not to break any back-ward compatibility and going forward the change in error codes should always be incremental and not to change the existing codes. If there is going to be huge change in mappings then we will follow your suggestion of having platform specific flags and mappings. For this change, i think we are good go ahead.",
+      "parentUuid": "60a9894a_84341a17",
+      "range": {
+        "startLine": 9,
+        "startChar": 26,
+        "endLine": 9,
+        "endChar": 58
+      },
+      "revId": "b1a5c4a74056a049fd6516d6d0dd6a46b45a25a4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
