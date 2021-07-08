@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27e540e6_6e9bd553",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000559
+      },
+      "writtenOn": "2021-07-08T22:29:47Z",
+      "side": 1,
+      "message": "should it just return if serviceName is empty?",
+      "range": {
+        "startLine": 107,
+        "startChar": 21,
+        "endLine": 107,
+        "endChar": 28
+      },
+      "revId": "15dd393a11086c11dd9e9c48055064f16dd2a474",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
