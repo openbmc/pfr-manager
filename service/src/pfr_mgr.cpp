@@ -37,24 +37,29 @@ PfrVersion::PfrVersion(sdbusplus::asio::object_server& srv_,
     std::string objPath = "/xyz/openbmc_project/software/" + path;
     versionIface =
         server.add_interface(objPath, "xyz.openbmc_project.Software.Version");
-    versionIface->register_property("Purpose", purpose);
-    versionIface->register_property(
-        versionStr, version,
-        // Override set
-        [this](const std::string& req, std::string& propertyValue) {
-            if (internalSet)
-            {
-                if (req != propertyValue)
-                {
-                    version = req;
-                    propertyValue = req;
-                    return 1;
-                }
-            }
-            return 0;
-        });
 
-    versionIface->initialize();
+    if (versionIface != nullptr)
+    {
+
+        versionIface->register_property("Purpose", purpose);
+        versionIface->register_property(
+            versionStr, version,
+            // Override set
+            [this](const std::string& req, std::string& propertyValue) {
+                if (internalSet)
+                {
+                    if (req != propertyValue)
+                    {
+                        version = req;
+                        propertyValue = req;
+                        return 1;
+                    }
+                }
+                return 0;
+            });
+
+        versionIface->initialize();
+    }
 
     std::string activation =
         "xyz.openbmc_project.Software.Activation.Activations.StandbySpare";
@@ -86,10 +91,15 @@ PfrVersion::PfrVersion(sdbusplus::asio::object_server& srv_,
         "xyz.openbmc_project.Software.Activation.RequestedActivations.None";
     auto activationIface = server.add_interface(
         objPath, "xyz.openbmc_project.Software.Activation");
-    activationIface->register_property("Activation", activation);
-    activationIface->register_property("RequestedActivation", reqActNone);
 
-    activationIface->initialize();
+    if (activationIface != nullptr)
+    {
+
+        activationIface->register_property("Activation", activation);
+        activationIface->register_property("RequestedActivation", reqActNone);
+
+        activationIface->initialize();
+    }
 
     // All the components exposed under PFR.Manager are updateable.
     // Lets add objPath endpoints to 'updatable' association
