@@ -101,7 +101,10 @@ void init(std::shared_ptr<sdbusplus::asio::connection> conn,
             }
 
             const std::string& objPath = resp[0].first;
-            const std::string& serviceName = resp[0].second.begin()->first;
+            const std::string& serviceName =
+                (resp[0].second.begin() != resp[0].second.end()
+                     ? resp[0].second.begin()->first
+                     : "\0");
             const std::string match = "Baseboard/PFR";
             if (boost::ends_with(objPath, match))
             {
