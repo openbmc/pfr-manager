@@ -1,0 +1,11 @@
+Code-Review+2: AppaRao Puli <apparao.puli@linux.intel.com>
+Code-Review+1: Mansi Joshi <mansi.joshi@linux.intel.com>
+Code-Review+1: Saravanan Palanisamy <saravanan.palanisamy@linux.intel.com>
+Code-Review+1: Jonathan Doman <jonathan.doman@intel.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Ok-To-Test+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Chalapathi Venkataramashetty <chalapathix.venkataramashetty@intel.com>
+Submitted-at: Tue, 20 Jul 2021 03:46:59 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/pfr-manager/+/43281
+Project: openbmc/pfr-manager
+Branch: refs/heads/master
