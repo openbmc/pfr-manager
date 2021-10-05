@@ -416,6 +416,7 @@ std::string readCPLDVersion()
 
     std::string version =
         std::to_string(mainCPLDVer) + "." + std::to_string(pldVer) + svnRoTHash;
+    std::cout << "VERSION INFO - CPLD - " << version << std::endl;
     return version;
 }
 
@@ -430,7 +431,9 @@ std::string getFirmwareVersion(const ImageType& imgType)
         case (ImageType::cpldRecovery):
         {
             // TO-DO: Need to update once CPLD supported Firmware is available
-            return readVersionFromCPLD(cpldROTVersion, cpldROTSvn);
+            std::string ver = readVersionFromCPLD(cpldROTVersion, cpldROTSvn);
+            std::cout << "VERSION INFO - CPLD RECOVERY - " << ver << std::endl;
+            return ver;
         }
         case (ImageType::biosActive):
         {
@@ -439,13 +442,21 @@ std::string getFirmwareVersion(const ImageType& imgType)
         }
         case (ImageType::biosRecovery):
         {
-            return readVersionFromCPLD(pchRecoveryMajorVersion,
-                                       pchRecoveryMinorVersion);
+            std::string ver = readVersionFromCPLD(pchRecoveryMajorVersion,
+                                                  pchRecoveryMinorVersion);
+            std::cout << "VERSION INFO - CPLD RECOVERY - " << ver << std::endl;
+            return ver;
         }
         case (ImageType::bmcActive):
-        case (ImageType::bmcRecovery):
         {
             return readBMCVersionFromSPI(imgType);
+        }
+        case (ImageType::bmcRecovery):
+        {
+
+            std::string ver = readBMCVersionFromSPI(imgType);
+            std::cout << "VERSION INFO - BMC RECOVERY - " << ver << std::endl;
+            return ver;
         }
         case (ImageType::afmActive):
         {
