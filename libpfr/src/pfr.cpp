@@ -305,7 +305,7 @@ static bool getGPIOInput(const std::string& name, gpiod::line& gpioLine,
     {
         gpioLine.request({__FUNCTION__, gpiod::line_request::DIRECTION_INPUT});
     }
-    catch (std::exception& e)
+    catch (const std::exception& e)
     {
         phosphor::logging::log<phosphor::logging::level::ERR>(
             "Failed to request the GPIO line",
@@ -317,7 +317,7 @@ static bool getGPIOInput(const std::string& name, gpiod::line& gpioLine,
     {
         *value = gpioLine.get_value();
     }
-    catch (std::exception& e)
+    catch (const std::exception& e)
     {
         phosphor::logging::log<phosphor::logging::level::ERR>(
             "Failed to get the value of GPIO line",
