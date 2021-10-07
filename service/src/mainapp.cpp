@@ -80,19 +80,31 @@ static const boost::container::flat_map<uint8_t,
         {0x0A, {"CPLDFirmwareRecoveryReason", "CPLD watchdog expired"}}};
 
 // Panic Reason map.
-// {<CPLD association>, {<Redfish MessageID>, <Panic reason> })
-static const boost::container::flat_map<uint8_t,
-                                        std::pair<std::string, std::string>>
+// {<CPLD association>, {<Redfish MessageID>, <reason>, <Severity>, <Journal
+// Message> })
+static const boost::container::flat_map<uint8_t, std::array<std::string, 4>>
     panicReasonMap = {
-        {0x01, {"BIOSFirmwarePanicReason", "BIOS update intent"}},
-        {0x02, {"BMCFirmwarePanicReason", "BMC update intent"}},
-        {0x03, {"BMCFirmwarePanicReason", "BMC reset detected"}},
-        {0x04, {"BMCFirmwarePanicReason", "BMC watchdog expired"}},
-        {0x05, {"MEFirmwarePanicReason", "ME watchdog expired"}},
-        {0x06, {"BIOSFirmwarePanicReason", "ACM watchdog expired"}},
+        {0x01,
+         {"FirmwareActivationCompleted", "BIOS", "OK",
+          "Platform firmware update occurred."}},
+        {0x02,
+         {"FirmwareActivationCompleted", "BMC", "OK",
+          "Platform firmware update occurred."}},
+        {0x03,
+         {"BMCFirmwarePanicReason", "BMC reset detected", "WARNING",
+          "Platform firmware panic occurred."}},
+        {0x04,
+         {"BMCFirmwarePanicReason", "BMC watchdog expired", "WARNING",
+          "Platform firmware panic occurred."}},
+        {0x05,
+         {"MEFirmwarePanicReason", "ME watchdog expired", "WARNING",
+          "Platform firmware panic occurred."}},
+        {0x06,
+         {"BIOSFirmwarePanicReason", "ACM watchdog expired", "WARNING",
+          "Platform firmware panic occurred."}},
         {0x09,
-         {"BIOSFirmwarePanicReason",
-          "ACM or IBB or OBB authentication failure"}}};
+         {"BIOSFirmwarePanicReason", "ACM or IBB or OBB authentication failure",
+          "WARNING", "Platform firmware panic occurred."}}};
 
 // Firmware resiliency major map.
 // {<CPLD association>, {<Redfish MessageID>, <Error reason> })
@@ -156,11 +168,22 @@ static void logLastPanicEvent()
         return;
     }
 
-    std::string msgId = "OpenBMC.0.1." + it->second.first;
-    sd_journal_send("MESSAGE=%s", "Platform firmware panic occurred.",
-                    "PRIORITY=%i", LOG_WARNING, "REDFISH_MESSAGE_ID=%s",
-                    msgId.c_str(), "REDFISH_MESSAGE_ARGS=%s",
-                    it->second.second.c_str(), NULL);
+    const auto msgArray = it->second.begin();
+    std::string msgId = "OpenBMC.0.1." + *msgArray;
+
+    auto severity = LOG_ERR;
+    if (*(msgArray + 2) == "WARNING")
+    {
+        severity = LOG_WARNING;
+    }
+    else if (*(msgArray + 2) == "CRITICAL")
+    {
+        severity = LOG_ERR;
+    }
+
+    sd_journal_send("MESSAGE=%s", (*(msgArray + 3)).c_str(), "PRIORITY=%i",
+                    severity, "REDFISH_MESSAGE_ID=%s", msgId.c_str(),
+                    "REDFISH_MESSAGE_ARGS=%s", (*(msgArray + 1)).c_str(), NULL);
 }
 
 static void logResiliencyErrorEvent(const uint8_t majorErrorCode,
