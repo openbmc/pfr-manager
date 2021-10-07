@@ -83,16 +83,15 @@ static const boost::container::flat_map<uint8_t,
 // {<CPLD association>, {<Redfish MessageID>, <Panic reason> })
 static const boost::container::flat_map<uint8_t,
                                         std::pair<std::string, std::string>>
-    panicReasonMap = {
-        {0x01, {"BIOSFirmwarePanicReason", "BIOS update intent"}},
-        {0x02, {"BMCFirmwarePanicReason", "BMC update intent"}},
-        {0x03, {"BMCFirmwarePanicReason", "BMC reset detected"}},
-        {0x04, {"BMCFirmwarePanicReason", "BMC watchdog expired"}},
-        {0x05, {"MEFirmwarePanicReason", "ME watchdog expired"}},
-        {0x06, {"BIOSFirmwarePanicReason", "ACM watchdog expired"}},
-        {0x09,
-         {"BIOSFirmwarePanicReason",
-          "ACM or IBB or OBB authentication failure"}}};
+    panicReasonMap = {{0x01, {"FirmwareUpdateStatus", "BIOS update intent"}},
+                      {0x02, {"FirmwareUpdateStatus", "BMC update intent"}},
+                      {0x03, {"FirmwareResiliency", "BMC reset detected"}},
+                      {0x04, {"FirmwareResiliency", "BMC watchdog expired"}},
+                      {0x05, {"FirmwareResiliency", "ME watchdog expired"}},
+                      {0x06, {"FirmwareResiliency", "ACM watchdog expired"}},
+                      {0x09,
+                       {"FirmwareResiliencyError",
+                        "ACM or IBB or OBB authentication failure"}}};
 
 // Firmware resiliency major map.
 // {<CPLD association>, {<Redfish MessageID>, <Error reason> })
@@ -156,11 +155,10 @@ static void logLastPanicEvent()
         return;
     }
 
-    std::string msgId = "OpenBMC.0.1." + it->second.first;
-    sd_journal_send("MESSAGE=%s", "Platform firmware panic occurred.",
-                    "PRIORITY=%i", LOG_WARNING, "REDFISH_MESSAGE_ID=%s",
-                    msgId.c_str(), "REDFISH_MESSAGE_ARGS=%s",
-                    it->second.second.c_str(), NULL);
+    std::string msgId = "OpenBMC.0.2." + it->second.first;
+    sd_journal_send("MESSAGE=Platform firmware resiliency event occurred.",
+                    "REDFISH_MESSAGE_ID=%s", msgId.c_str(),
+                    "REDFISH_MESSAGE_ARGS=%s", it->second.second.c_str(), NULL);
 }
 
 static void logResiliencyErrorEvent(const uint8_t majorErrorCode,
