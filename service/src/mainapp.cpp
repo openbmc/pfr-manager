@@ -84,8 +84,6 @@ static const boost::container::flat_map<uint8_t,
 static const boost::container::flat_map<uint8_t,
                                         std::pair<std::string, std::string>>
     panicReasonMap = {
-        {0x01, {"BIOSFirmwarePanicReason", "BIOS update intent"}},
-        {0x02, {"BMCFirmwarePanicReason", "BMC update intent"}},
         {0x03, {"BMCFirmwarePanicReason", "BMC reset detected"}},
         {0x04, {"BMCFirmwarePanicReason", "BMC watchdog expired"}},
         {0x05, {"MEFirmwarePanicReason", "ME watchdog expired"}},
@@ -93,6 +91,13 @@ static const boost::container::flat_map<uint8_t,
         {0x09,
          {"BIOSFirmwarePanicReason",
           "ACM or IBB or OBB authentication failure"}}};
+
+// Update Reason map.
+// {<CPLD association>, {<Redfish MessageID>, <Activated Image> })
+static const boost::container::flat_map<uint8_t,
+                                        std::pair<std::string, std::string>>
+    firmwareActivationMap = {{0x01, {"FirmwareActivationStarted", "BIOS"}},
+                             {0x02, {"FirmwareActivationStarted", "BMC"}}};
 
 // Firmware resiliency major map.
 // {<CPLD association>, {<Redfish MessageID>, <Error reason> })
@@ -152,6 +157,15 @@ static void logLastPanicEvent()
     auto it = panicReasonMap.find(reason);
     if (it == panicReasonMap.end())
     {
+        it = firmwareActivationMap.find(reason);
+        if (it != firmwareActivationMap.end())
+        {
+            std::string msgId = "OpenBMC.0.1." + it->second.first;
+            sd_journal_send("MESSAGE=%s", "Platform firmware update occurred.",
+                            "PRIORITY=%i", LOG_INFO, "REDFISH_MESSAGE_ID=%s",
+                            msgId.c_str(), "REDFISH_MESSAGE_ARGS=%s",
+                            it->second.second.c_str(), NULL);
+        }
         // No matching found. So just return without logging event.
         return;
     }
