@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08229905_7d3a2f39",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000418
+      },
+      "writtenOn": "2021-10-18T17:08:24Z",
+      "side": 1,
+      "message": "nit: Can be moved to line number 81, so that reason numbering will be ascending 0x1, 0x2, 0x3...",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 75
+      },
+      "revId": "02f11772e1f12732195f37c993b4fd3de51b3242",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
