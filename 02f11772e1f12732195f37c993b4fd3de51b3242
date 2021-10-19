@@ -22,6 +22,30 @@
       "revId": "02f11772e1f12732195f37c993b4fd3de51b3242",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2914e8c5_b7511eb4",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-10-19T05:54:43Z",
+      "side": 1,
+      "message": "Hi Saravanan, I cannot have these in the same container as panicReasonMap as I need to implement the logic from line 160 to 168 for sd_journal_send have OK severity. Thank You",
+      "parentUuid": "08229905_7d3a2f39",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 75
+      },
+      "revId": "02f11772e1f12732195f37c993b4fd3de51b3242",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
