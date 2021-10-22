@@ -70,6 +70,29 @@
       "revId": "02f11772e1f12732195f37c993b4fd3de51b3242",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f198d20c_d239dc29",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000418
+      },
+      "writtenOn": "2021-10-22T09:37:53Z",
+      "side": 1,
+      "message": "This can be rewritten in a simple way:\n    if (it !\u003d panicReasonMap.end())\n    {\n       std::string msgId \u003d \"OpenBMC.0.1.\" + it-\u003esecond.first;\n       sd_journal_send(\"MESSAGE\u003d%s\", \"Platform firmware panic occurred.\",\n                       \"PRIORITY\u003d%i\", LOG_WARNING, \"REDFISH_MESSAGE_ID\u003d%s\",\n                        msgId.c_str(), \"REDFISH_MESSAGE_ARGS\u003d%s\",\n                        it-\u003esecond.second.c_str(), NULL);\n    }\n    else if ((it \u003d firmwareActivationMap.find(reason)) !\u003d firmwareActivationMap.end())\n    {\n         std::string msgId \u003d \"OpenBMC.0.1.\" + it-\u003esecond.first;\n         sd_journal_send(\"MESSAGE\u003d%s\", \"Platform firmware update occurred.\",\n                         \"PRIORITY\u003d%i\", LOG_INFO, \"REDFISH_MESSAGE_ID\u003d%s\",\n                          msgId.c_str(), \"REDFISH_MESSAGE_ARGS\u003d%s\",\n                          it-\u003esecond.second.c_str(), NULL);\n\n    }\n    else\n    {\n        // No matching found. So just return without logging event.\n        return;\n    }",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 53
+      },
+      "revId": "02f11772e1f12732195f37c993b4fd3de51b3242",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
