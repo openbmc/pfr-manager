@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "eb9d67b4_a662a6d8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-10-23T02:14:06Z",
+      "side": 1,
+      "message": "Do we expect users to log into the console and grep through the journal? It\u0027s a very poor non-standard interface. We should just make sure these FW versions show up in D-Bus/Redfish and then provide a script to collect the Redfish FirmwareInventory.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 32
+      },
+      "revId": "e55b82f22d57841165db68530bb43bd4d90ab1e8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6246638a_8f8ceb76",
         "filename": "libpfr/src/pfr.cpp",
         "patchSetId": 4
