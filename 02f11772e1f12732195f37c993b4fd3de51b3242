@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5668cac2_bc6a9f60",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-10-26T06:48:10Z",
+      "side": 1,
+      "message": "I have used following message and messageID.\n\"Message\": \"BMC firmware activation completed successfully.\",\nMessageId\": \"OpenBMC.0.1.FirmwareActivationCompleted\"\nThank You",
+      "parentUuid": "7bd3430c_4712b4f5",
+      "range": {
+        "startLine": 21,
+        "startChar": 9,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "02f11772e1f12732195f37c993b4fd3de51b3242",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "08229905_7d3a2f39",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 1
@@ -119,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "bc98ec59_14c26cb8",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-10-26T06:48:10Z",
+      "side": 1,
+      "message": "used the existing map to include the redfish messageID, reason, Severity and journal log. Thank You",
+      "parentUuid": "1fb05165_79fb8898",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 75
+      },
+      "revId": "02f11772e1f12732195f37c993b4fd3de51b3242",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f198d20c_d239dc29",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 1
@@ -153,6 +201,30 @@
       "writtenOn": "2021-10-22T09:51:40Z",
       "side": 1,
       "message": "Need to switch code logic, Its mixing code a lot. Make it something like\nauto it \u003d panicReasonMap.find(reason);\nif (it !\u003d panicReasonMap.end())\n{\n    std::string msgId \u003d \"OpenBMC.0.1.\" + it-\u003esecond.first;\n    sd_journal_send(\"MESSAGE\u003d%s\", \"Platform firmware panic occurred.\",\n                    \"PRIORITY\u003d%i\", LOG_WARNING, \"REDFISH_MESSAGE_ID\u003d%s\",\n                    msgId.c_str(), \"REDFISH_MESSAGE_ARGS\u003d%s\",\n                    it-\u003esecond.second.c_str(), NULL);\n     return;\n}\n\n---- Fall back to other map and check --- and so on",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 53
+      },
+      "revId": "02f11772e1f12732195f37c993b4fd3de51b3242",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c86da27_71320543",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-10-26T06:48:10Z",
+      "side": 1,
+      "message": "Updated the existing sd_journal_send. Thank You",
+      "parentUuid": "46355c86_e6ba2d05",
       "range": {
         "startLine": 173,
         "startChar": 0,
