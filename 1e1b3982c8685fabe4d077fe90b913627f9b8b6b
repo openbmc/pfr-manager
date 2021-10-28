@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebdecc78_2a38deea",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2021-10-28T15:33:09Z",
+      "side": 1,
+      "message": "we discussed this to change to \"FirmwareResilencyEvent\" instead of using word \"Panic\".",
+      "range": {
+        "startLine": 94,
+        "startChar": 14,
+        "endLine": 94,
+        "endChar": 34
+      },
+      "revId": "1e1b3982c8685fabe4d077fe90b913627f9b8b6b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
