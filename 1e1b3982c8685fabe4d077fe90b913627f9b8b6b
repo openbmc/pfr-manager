@@ -22,6 +22,30 @@
       "revId": "1e1b3982c8685fabe4d077fe90b913627f9b8b6b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e350b377_80e62f7e",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-11-02T04:26:18Z",
+      "side": 1,
+      "message": "Hi Vikram, I would like to push those changes as a separate patch as we need to add FirmwareResilencyEvent in message registry in bmcweb. Thank You",
+      "parentUuid": "ebdecc78_2a38deea",
+      "range": {
+        "startLine": 94,
+        "startChar": 14,
+        "endLine": 94,
+        "endChar": 34
+      },
+      "revId": "1e1b3982c8685fabe4d077fe90b913627f9b8b6b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
