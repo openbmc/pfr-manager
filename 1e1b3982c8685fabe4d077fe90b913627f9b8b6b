@@ -46,6 +46,76 @@
       "revId": "1e1b3982c8685fabe4d077fe90b913627f9b8b6b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9707eedc_bd9401fd",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-11-10T05:36:54Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "e350b377_80e62f7e",
+      "range": {
+        "startLine": 94,
+        "startChar": 14,
+        "endLine": 94,
+        "endChar": 34
+      },
+      "revId": "1e1b3982c8685fabe4d077fe90b913627f9b8b6b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c5e8401_60893ea5",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-11-10T05:36:54Z",
+      "side": 1,
+      "message": "All Journal logs are same - Differentiate with between BIOS, BMC, ME etc..",
+      "range": {
+        "startLine": 98,
+        "startChar": 11,
+        "endLine": 98,
+        "endChar": 44
+      },
+      "revId": "1e1b3982c8685fabe4d077fe90b913627f9b8b6b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be3349fc_488c01d2",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-11-10T05:36:54Z",
+      "side": 1,
+      "message": "Instead of this, Why can\u0027t you use LOG_INFO, LOG_WARNING, LOG_ERR directly in panicReasonMap?",
+      "range": {
+        "startLine": 175,
+        "startChar": 4,
+        "endLine": 182,
+        "endChar": 5
+      },
+      "revId": "1e1b3982c8685fabe4d077fe90b913627f9b8b6b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
