@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "775dc0b0_07543dd0",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-11-19T17:24:14Z",
+      "side": 1,
+      "message": "Modified Panic to Resiliency. Thank You",
+      "parentUuid": "9707eedc_bd9401fd",
+      "range": {
+        "startLine": 94,
+        "startChar": 14,
+        "endLine": 94,
+        "endChar": 34
+      },
+      "revId": "1e1b3982c8685fabe4d077fe90b913627f9b8b6b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0c5e8401_60893ea5",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 3
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "6f028096_b3512f9e",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-11-19T17:24:14Z",
+      "side": 1,
+      "message": "Used a common Journal Log for all resiliency events as \"Platform firmware resiliency event occurred\". Thank You",
+      "parentUuid": "0c5e8401_60893ea5",
+      "range": {
+        "startLine": 98,
+        "startChar": 11,
+        "endLine": 98,
+        "endChar": 44
+      },
+      "revId": "1e1b3982c8685fabe4d077fe90b913627f9b8b6b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "be3349fc_488c01d2",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 3
@@ -107,6 +155,30 @@
       "writtenOn": "2021-11-10T05:36:54Z",
       "side": 1,
       "message": "Instead of this, Why can\u0027t you use LOG_INFO, LOG_WARNING, LOG_ERR directly in panicReasonMap?",
+      "range": {
+        "startLine": 175,
+        "startChar": 4,
+        "endLine": 182,
+        "endChar": 5
+      },
+      "revId": "1e1b3982c8685fabe4d077fe90b913627f9b8b6b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7731a311_14259e0e",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000566
+      },
+      "writtenOn": "2021-11-19T17:24:14Z",
+      "side": 1,
+      "message": "This has been removed in latest patch set. BMCweb differentiates the Message Registries with Redfish MessageID itself and considers the hardcoded Severity present in openbmc-massage-registry.hpp. hence this logic is not required. Thank You.",
+      "parentUuid": "be3349fc_488c01d2",
       "range": {
         "startLine": 175,
         "startChar": 4,
