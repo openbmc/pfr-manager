@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "872ef6cd_cd1a77c3",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-11-30T08:13:34Z",
+      "side": 1,
+      "message": "Isn\u0027t this the Error (FirmwareResiliencyError)?",
+      "range": {
+        "startLine": 94,
+        "startChar": 11,
+        "endLine": 94,
+        "endChar": 34
+      },
+      "revId": "e45e8e23236376d3c0d2ed229ff556ffa3e9294a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b2984ed_1b49cc31",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-11-30T08:13:34Z",
+      "side": 1,
+      "message": "This is not correct for all MessageId\u0027s right? \nFirmwareResiliencyEvent - WARNING\nFirmwareResiliencyNotify - OK",
+      "range": {
+        "startLine": 162,
+        "startChar": 23,
+        "endLine": 162,
+        "endChar": 34
+      },
+      "revId": "e45e8e23236376d3c0d2ed229ff556ffa3e9294a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
