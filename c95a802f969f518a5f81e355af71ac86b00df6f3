@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f42d7645_5e434b20",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-12-03T00:31:30Z",
+      "side": 1,
+      "message": "nit: you can remove the %s formatting and just put \"MESSAGE\u003dPlatform...\"",
+      "range": {
+        "startLine": 160,
+        "startChar": 29,
+        "endLine": 161,
+        "endChar": 21
+      },
+      "revId": "c95a802f969f518a5f81e355af71ac86b00df6f3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
