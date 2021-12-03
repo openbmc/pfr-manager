@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5e3ea3e2_acc9bb1f",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000900
+      },
+      "writtenOn": "2021-12-03T00:42:16Z",
+      "side": 1,
+      "message": "FirmwareResiliency{Event,Notification} are/will be in OpenBMC.0.2, not 0.1.\nNot sure if we care about actually doing this correctly, though.",
+      "range": {
+        "startLine": 159,
+        "startChar": 33,
+        "endLine": 159,
+        "endChar": 37
+      },
+      "revId": "c95a802f969f518a5f81e355af71ac86b00df6f3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f42d7645_5e434b20",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 6
