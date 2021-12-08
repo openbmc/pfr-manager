@@ -485,6 +485,24 @@ int getProvisioningStatus(bool& ufmLocked, bool& ufmProvisioned,
     }
 }
 
+int getPlatformState(uint8_t& state)
+{
+    try
+    {
+        I2CFile cpldDev(i2cBusNumber, i2cSlaveAddress, O_RDWR | O_CLOEXEC);
+        state = cpldDev.i2cReadByteData(platformState);
+
+        return 0;
+    }
+    catch (const std::exception& e)
+    {
+        phosphor::logging::log<phosphor::logging::level::ERR>(
+            "Exception caught in getPlatformState.",
+            phosphor::logging::entry("MSG=%s", e.what()));
+        return -1;
+    }
+}
+
 int readCpldReg(const ActionType& action, uint8_t& value)
 {
     uint8_t cpldReg;
