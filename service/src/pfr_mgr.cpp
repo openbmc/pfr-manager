@@ -213,4 +213,83 @@ void PfrConfig::updateProvisioningStatus()
     return;
 }
 
+static constexpr const char* postcodeStrProp = "PlatformState";
+static constexpr const char* postcodeStrDefault = "Unknown";
+static constexpr const char* postcodeDataProp = "Data";
+static constexpr const char* postcodeIface =
+    "xyz.openbmc_project.State.Boot.Platform";
+
+PfrPostcode::PfrPostcode(sdbusplus::asio::object_server& srv_,
+                         std::shared_ptr<sdbusplus::asio::connection>& conn_) :
+    server(srv_),
+    conn(conn_)
+{
+    if (getPlatformState(postcode) < 0)
+    {
+        postcode = 0;
+    }
+
+    pfrPostcodeIface =
+        server.add_interface("/xyz/openbmc_project/pfr", postcodeIface);
+
+    if (pfrPostcodeIface != nullptr)
+    {
+        pfrPostcodeIface->register_property(
+            postcodeDataProp, postcode,
+            // Override set
+            [this](const uint8_t req, uint8_t& propertyValue) {
+                if (internalSet)
+                {
+                    if (req != propertyValue)
+                    {
+                        postcode = req;
+                        propertyValue = req;
+                        return 1;
+                    }
+                }
+                return 0;
+            },
+            [this](uint8_t& propertyValue) {
+                updatePostcode();
+                propertyValue = postcode;
+                return propertyValue;
+            });
+
+        pfrPostcodeIface->register_property(postcodeStrProp,
+                                            std::string(postcodeStrDefault));
+
+        pfrPostcodeIface->initialize();
+        auto it = postcodeMap.find(postcode);
+        if (it != postcodeMap.end())
+        {
+            pfrPostcodeIface->set_property(postcodeStrProp, it->second);
+        }
+    }
+}
+
+void PfrPostcode::updatePostcode()
+{
+    if (pfrPostcodeIface && pfrPostcodeIface->is_initialized())
+    {
+        if (getPlatformState(postcode) < 0)
+        {
+            postcode = 0;
+        }
+
+        internalSet = true;
+        pfrPostcodeIface->set_property(postcodeDataProp, postcode);
+        auto it = postcodeMap.find(postcode);
+        if (it == postcodeMap.end())
+        {
+            pfrPostcodeIface->set_property(postcodeStrProp, postcodeStrDefault);
+        }
+        else
+        {
+            pfrPostcodeIface->set_property(postcodeStrProp, it->second);
+        }
+        internalSet = false;
+    }
+    return;
+}
+
 } // namespace pfr
