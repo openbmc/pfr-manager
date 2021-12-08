@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "572ea171_6b88a2cb",
+        "filename": "service/inc/pfr_mgr.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000559
+      },
+      "writtenOn": "2021-12-08T23:20:35Z",
+      "side": 1,
+      "message": "not needed, no lg2 call in this patch",
+      "revId": "90a3156e7b8b16911d1e2628f71cd25659ed9fbb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
