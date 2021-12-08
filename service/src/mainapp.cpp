@@ -39,6 +39,7 @@ std::unique_ptr<boost::asio::steady_timer> initTimer = nullptr;
 std::unique_ptr<boost::asio::steady_timer> pfrObjTimer = nullptr;
 std::vector<std::unique_ptr<PfrVersion>> pfrVersionObjects;
 std::unique_ptr<PfrConfig> pfrConfigObject;
+std::unique_ptr<PfrPostcode> pfrPostcodeObject;
 
 // List holds <ObjPath> <ImageType> <VersionPurpose>
 static std::vector<std::tuple<std::string, ImageType, std::string>>
@@ -687,6 +688,16 @@ int main()
         pfr::pfrVersionObjects.emplace_back(std::make_unique<pfr::PfrVersion>(
             server, conn, std::get<0>(entry), std::get<1>(entry),
             std::get<2>(entry)));
+    }
+
+    if (pfr::pfrConfigObject)
+    {
+        pfr::pfrConfigObject->updateProvisioningStatus();
+        if (pfr::pfrConfigObject->getPfrProvisioned())
+        {
+            pfr::pfrPostcodeObject =
+                std::make_unique<pfr::PfrPostcode>(server, conn);
+        }
     }
 
     conn->request_name("xyz.openbmc_project.PFR.Manager");
