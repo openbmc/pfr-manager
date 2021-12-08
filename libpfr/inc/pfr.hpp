@@ -51,6 +51,7 @@ std::string toHexString(const uint8_t val);
 std::string getFirmwareVersion(const ImageType& imgType);
 int getProvisioningStatus(bool& ufmLocked, bool& ufmProvisioned,
                           bool& ufmSupport);
+int getPlatformState(uint8_t& state);
 int readCpldReg(const ActionType& action, uint8_t& value);
 std::string readCPLDVersion();
 int setBMCBootCheckpoint(const uint8_t checkPoint);
