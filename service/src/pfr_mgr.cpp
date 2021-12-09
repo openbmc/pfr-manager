@@ -19,6 +19,10 @@
 namespace pfr
 {
 
+inline void printVersion(const std::string& path, const std::string& version)
+{
+    lg2::info("VERSION INFO - {TYPE} - {VER}", "TYPE", path, "VER", version);
+}
 static constexpr uint8_t activeImage = 0;
 static constexpr uint8_t recoveryImage = 1;
 
@@ -33,6 +37,9 @@ PfrVersion::PfrVersion(sdbusplus::asio::object_server& srv_,
     conn(conn_), path(path_), imgType(imgType_), purpose(purpose_)
 {
     version = getFirmwareVersion(imgType);
+
+    if (!(version == "0.0" || version.empty()))
+        printVersion(path, version);
 
     std::string objPath = "/xyz/openbmc_project/software/" + path;
     versionIface =
@@ -112,6 +119,7 @@ void PfrVersion::updateVersion()
     if (versionIface && versionIface->is_initialized())
     {
         std::string ver = getFirmwareVersion(imgType);
+        printVersion(path, ver);
         internalSet = true;
         versionIface->set_property(versionStr, ver);
         internalSet = false;
