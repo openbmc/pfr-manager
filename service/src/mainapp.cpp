@@ -548,6 +548,7 @@ void monitorSignals(sdbusplus::asio::object_server& server,
 static void updateCPLDversion(std::shared_ptr<sdbusplus::asio::connection> conn)
 {
     std::string cpldVersion = pfr::readCPLDVersion();
+    lg2::info("VERSION INFO - cpld - {VER}", "VER", cpldVersion);
     conn->async_method_call(
         [](const boost::system::error_code ec) {
             if (ec)
