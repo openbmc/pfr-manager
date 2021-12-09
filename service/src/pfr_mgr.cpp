@@ -34,6 +34,19 @@ PfrVersion::PfrVersion(sdbusplus::asio::object_server& srv_,
 {
     version = getFirmwareVersion(imgType);
 
+    if (imgType == ImageType::bmcRecovery)
+    {
+        lg2::info("VERSION INFO - BMC RECOVERY - {VER}", "VER", version);
+    }
+    else if (imgType == ImageType::cpldRecovery)
+    {
+        lg2::info("VERSION INFO - CPLD RECOVERY - {VER}", "VER", version);
+    }
+    else if (imgType == ImageType::biosRecovery)
+    {
+        lg2::info("VERSION INFO - BIOS RECOVERY - {VER}", "VER", version);
+    }
+
     std::string objPath = "/xyz/openbmc_project/software/" + path;
     versionIface =
         server.add_interface(objPath, "xyz.openbmc_project.Software.Version");
