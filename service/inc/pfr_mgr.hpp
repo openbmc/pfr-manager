@@ -20,6 +20,7 @@
 
 #include <boost/asio.hpp>
 #include <phosphor-logging/log.hpp>
+#include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/asio/object_server.hpp>
 
 #include <string>
