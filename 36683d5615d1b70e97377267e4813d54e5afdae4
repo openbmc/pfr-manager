@@ -1,6 +1,24 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5960a3c3_86231bd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001220
+      },
+      "writtenOn": "2022-01-11T00:49:03Z",
+      "side": 1,
+      "message": "Resolving these long-standing comments that I already addressed.",
+      "revId": "36683d5615d1b70e97377267e4813d54e5afdae4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "94437bd5_66dccc4e",
         "filename": "service/src/pfr_mgr.cpp",
@@ -20,8 +38,7 @@
         "endChar": 5
       },
       "revId": "36683d5615d1b70e97377267e4813d54e5afdae4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
