@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f47a10f3_0c8a02a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-01-11T02:55:16Z",
+      "side": 1,
+      "message": "This is good idea, I like it.\n\nCurrently PFRManager doesn\u0027t maintain BMC active, BIOS active D-Bus objects on this service. Those are maintained in Settings service. Did you added code to print those version as well? If not, That carries major part as most will be looking for BMC/BIOS/CPLD ACTIVE version information than other versions.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 32
+      },
+      "revId": "36683d5615d1b70e97377267e4813d54e5afdae4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5960a3c3_86231bd9",
@@ -37,6 +60,47 @@
         "endLine": 48,
         "endChar": 5
       },
+      "revId": "36683d5615d1b70e97377267e4813d54e5afdae4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b045f63_21ad3c5c",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-01-11T02:55:16Z",
+      "side": 1,
+      "message": "This is kind of hardcoding the Type and also missing some component version information. \n\nYou can remove type check here and use directly \"path\" which will have both information what you are looking for. (Example path: bmc_recovery, bios_recovery etc..) Like Component name ie. BMC/BIOS/CPLD/AFM and Active/recovery). \n\nhttps://github.com/openbmc/pfr-manager/blob/master/service/src/mainapp.cpp#L46 ( First arg in tuple is passed as path).",
+      "parentUuid": "94437bd5_66dccc4e",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 5
+      },
+      "revId": "36683d5615d1b70e97377267e4813d54e5afdae4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97e2e54e_9d0ef0dc",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-01-11T02:55:16Z",
+      "side": 1,
+      "message": "You need to add version print here as well.\nReason: During early BMC boot phase, We don\u0027t see full version information, It will be populated on D-Bus with empty string and after some time, it gets updated and populate actual string.\n\nSo print version in PfrVersion class constructor change does not fully justice to the requirement. Add print version info here as well. \n\nSuggestion: You can define a inline function for print version and use in both places.\ninline printVersion(const std::string\u0026 path, const std::string\u0026 version)",
       "revId": "36683d5615d1b70e97377267e4813d54e5afdae4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
