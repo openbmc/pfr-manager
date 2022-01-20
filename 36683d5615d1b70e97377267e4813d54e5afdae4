@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a2a76cab_633b6a85",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001220
+      },
+      "writtenOn": "2022-01-20T23:27:47Z",
+      "side": 1,
+      "message": "BMC active and BIOS active are printed by changes to openbmc-meta-intel and smbios-mdrv2, respectively.",
+      "parentUuid": "f47a10f3_0c8a02a1",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 32
+      },
+      "revId": "36683d5615d1b70e97377267e4813d54e5afdae4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5960a3c3_86231bd9",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 7
@@ -112,6 +136,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c69a727_593416c6",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1001220
+      },
+      "writtenOn": "2022-01-20T23:27:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e331549_5e07fd4a",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 5
+      },
+      "revId": "36683d5615d1b70e97377267e4813d54e5afdae4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97e2e54e_9d0ef0dc",
@@ -125,6 +173,24 @@
       "writtenOn": "2022-01-11T02:55:16Z",
       "side": 1,
       "message": "You need to add version print here as well.\nReason: During early BMC boot phase, We don\u0027t see full version information, It will be populated on D-Bus with empty string and after some time, it gets updated and populate actual string.\n\nSo print version in PfrVersion class constructor change does not fully justice to the requirement. Add print version info here as well. \n\nSuggestion: You can define a inline function for print version and use in both places.\ninline printVersion(const std::string\u0026 path, const std::string\u0026 version)",
+      "revId": "36683d5615d1b70e97377267e4813d54e5afdae4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85132db2_a728de64",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1001220
+      },
+      "writtenOn": "2022-01-20T23:27:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97e2e54e_9d0ef0dc",
       "revId": "36683d5615d1b70e97377267e4813d54e5afdae4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
