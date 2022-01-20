@@ -524,8 +524,16 @@ void monitorSignals(sdbusplus::asio::object_server& server,
                     std::get_if<std::string>(&it->second);
                 if (state != nullptr)
                 {
+                    // The short strings "BootComplete" and "Standby" are
+                    // deprecated in favor of the full enum strings
+                    // Support for the short strings will be removed in the
+                    // future.
                     if (((*state == "BootComplete") ||
-                         (*state == "Inactive")) &&
+                         (*state == "xyz.openbmc_project.State.OperatingSystem."
+                                    "Status.OSStatus.BootComplete") ||
+                         (*state == "Inactive") ||
+                         (*state == "xyz.openbmc_project.State.OperatingSystem."
+                                    "Status.OSStatus.Inactive")) &&
                         (stateTimerRunning))
                     {
                         stateTimer->cancel();
