@@ -525,7 +525,11 @@ void monitorSignals(sdbusplus::asio::object_server& server,
                 if (state != nullptr)
                 {
                     if (((*state == "BootComplete") ||
-                         (*state == "Inactive")) &&
+                         (*state == "xyz.openbmc_project.State.OperatingSystem."
+                                    "Status.OSStatus.BootComplete") ||
+                         (*state == "Inactive") ||
+                         (*state == "xyz.openbmc_project.State.OperatingSystem."
+                                    "Status.OSStatus.Inactive")) &&
                         (stateTimerRunning))
                     {
                         stateTimer->cancel();
