@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "938bc9a2_6a706311",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001220
+      },
+      "writtenOn": "2022-01-21T20:18:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3206b9c4_e9e6eddf",
+      "range": {
+        "startLine": 13,
+        "startChar": 51,
+        "endLine": 14,
+        "endChar": 28
+      },
+      "revId": "696741bfc72d199c386c65b3b75e5f42914526c9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c383a74d_181741b1",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-21T20:08:33Z",
       "side": 1,
       "message": "nit: cpld_active to make it clear",
+      "range": {
+        "startLine": 551,
+        "startChar": 30,
+        "endLine": 551,
+        "endChar": 34
+      },
+      "revId": "696741bfc72d199c386c65b3b75e5f42914526c9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f416843b_a29df2b9",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1001220
+      },
+      "writtenOn": "2022-01-21T20:18:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c383a74d_181741b1",
       "range": {
         "startLine": 551,
         "startChar": 30,
