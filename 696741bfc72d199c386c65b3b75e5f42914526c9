@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3206b9c4_e9e6eddf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000559
+      },
+      "writtenOn": "2022-01-21T20:08:33Z",
+      "side": 1,
+      "message": "nit: not true for afm. add cpld_active, so it would be clear",
+      "range": {
+        "startLine": 13,
+        "startChar": 51,
+        "endLine": 14,
+        "endChar": 28
+      },
+      "revId": "696741bfc72d199c386c65b3b75e5f42914526c9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c383a74d_181741b1",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1000559
+      },
+      "writtenOn": "2022-01-21T20:08:33Z",
+      "side": 1,
+      "message": "nit: cpld_active to make it clear",
+      "range": {
+        "startLine": 551,
+        "startChar": 30,
+        "endLine": 551,
+        "endChar": 34
+      },
+      "revId": "696741bfc72d199c386c65b3b75e5f42914526c9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
