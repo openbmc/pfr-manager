@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9edaf6de_87f1eba2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2022-02-01T22:22:25Z",
+      "side": 1,
+      "message": "Ping.  This is blocking changes in x86-power-control.",
+      "revId": "f89de47109809797c5913e4b6c66485146ab30a1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
