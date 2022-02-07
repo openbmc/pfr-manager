@@ -1,0 +1,9 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: Andrei Kartashev <a.kartashev@yadro.com>
+Code-Review+1: Sumanth Bhat <sumanth.bhat@linux.intel.com>
+Code-Review+2: AppaRao Puli <apparao.puli@linux.intel.com>
+Submitted-by: Jason Bills <jason.m.bills@linux.intel.com>
+Submitted-at: Mon, 07 Feb 2022 20:13:39 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/pfr-manager/+/50515
+Project: openbmc/pfr-manager
+Branch: refs/heads/master
