@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3be7b40a_13b00acf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-02-07T02:36:48Z",
+      "side": 1,
+      "message": "Minor pick, Otherwise code lgtm. Waiting for empty check addition before provide +2 on it.",
+      "revId": "9c83914aeb782659b6e9de36b4171e14b4a11d62",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d7e46ce_20a419d0",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-02-07T02:36:48Z",
+      "side": 1,
+      "message": "One more check needed here.\n\nThe default values returned from getFirmwareVersion() is not \"0.0\" always, Some it will return empty as well. So better add empty check also.",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 25
+      },
+      "revId": "9c83914aeb782659b6e9de36b4171e14b4a11d62",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
