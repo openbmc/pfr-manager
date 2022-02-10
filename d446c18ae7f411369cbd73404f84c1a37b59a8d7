@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc0f9933_5b362ac6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-02-10T17:47:04Z",
+      "side": 1,
+      "message": "One coding standard issue, Sorry missed in previous review.",
+      "revId": "d446c18ae7f411369cbd73404f84c1a37b59a8d7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "484dee5f_70cf5704",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-02-10T17:47:04Z",
+      "side": 1,
+      "message": "I am sorry, I missed it in previous review.\n\nCan you enclose this between braces {} as per our coding standard. \n\nif (!(version \u003d\u003d \"0.0\" || version.empty()))\n{\n    printVersion(path, version);\n}",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 36
+      },
+      "revId": "d446c18ae7f411369cbd73404f84c1a37b59a8d7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
