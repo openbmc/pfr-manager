@@ -16,6 +16,24 @@
       "message": "PFR Platform states are more relevant only when PFR is provisioned. Could you add a check to populate \"platform state\" only when PFR is provisioned.",
       "revId": "4ef0781971a93e414be60b8e5a9b29d158265e48",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd89aad8_593e3231",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000559
+      },
+      "writtenOn": "2022-02-15T00:36:13Z",
+      "side": 1,
+      "message": "I added the check in main app. Please review patchset 3. It does assume the pfr provision status is known when the service starts. Please let me know if pfr provision status can change on the fly and it needs to be checked dynamically.",
+      "parentUuid": "f7c2dff5_d78c743b",
+      "revId": "4ef0781971a93e414be60b8e5a9b29d158265e48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
