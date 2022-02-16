@@ -22,6 +22,30 @@
       },
       "revId": "e47a7874c1ddb09c1eab9d54cad8fd0749068f1a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba834c07_65d3f1d3",
+        "filename": "service/inc/pfr_mgr.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000559
+      },
+      "writtenOn": "2022-02-16T19:36:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2a0e17a_b6082139",
+      "range": {
+        "startLine": 78,
+        "startChar": 12,
+        "endLine": 78,
+        "endChar": 15
+      },
+      "revId": "e47a7874c1ddb09c1eab9d54cad8fd0749068f1a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
