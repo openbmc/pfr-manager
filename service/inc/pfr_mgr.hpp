@@ -84,6 +84,8 @@ class PfrConfig
   private:
     sdbusplus::asio::object_server& server;
     std::shared_ptr<sdbusplus::asio::dbus_interface> pfrCfgIface;
+    std::shared_ptr<sdbusplus::asio::dbus_interface> pfrMBIface;
+
     bool internalSet = false;
 
     bool ufmProvisioned;
