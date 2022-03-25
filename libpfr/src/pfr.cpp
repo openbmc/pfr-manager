@@ -599,4 +599,72 @@ int setBMCBootCheckpoint(const uint8_t checkPoint)
     }
 }
 
+static bool setMBRegister(uint32_t regOffset, uint8_t regValue)
+{
+    try
+    {
+        I2CFile mailDev(i2cBusNumber, i2cSlaveAddress, O_RDWR | O_CLOEXEC);
+        mailDev.i2cWriteByteData(regOffset, regValue);
+        return true;
+    }
+    catch (const std::exception& e)
+    {
+        phosphor::logging::log<phosphor::logging::level::ERR>(
+            "Exception caught in setting PFR Mailbox.",
+            phosphor::logging::entry("MSG=%s", e.what()));
+        return false;
+    }
+}
+
+int setBMCBusy(bool setValue)
+{
+    uint32_t bmcBusyReg = 0x63;
+    uint8_t valHigh = 0x01;
+    uint8_t mailBoxReply = 0;
+
+    if (getMBRegister(bmcBusyReg, mailBoxReply))
+    {
+        return -1;
+    }
+    uint8_t readValue = mailBoxReply | valHigh;
+    if (setValue == false)
+    {
+        readValue &= 0b11111110;
+    }
+    if (!setMBRegister(bmcBusyReg, readValue))
+    {
+        return -1;
+    }
+    if (setValue == false)
+    {
+        phosphor::logging::log<phosphor::logging::level::DEBUG>(
+            "Successfully reset the PFR MailBox register.");
+    }
+    else
+    {
+        phosphor::logging::log<phosphor::logging::level::DEBUG>(
+            "Successfully set the PFR MailBox to BMCBusy.");
+    }
+    return 0;
+}
+
+int getMBRegister(uint32_t regAddr, uint8_t& mailBoxReply)
+{
+    // Read from PFR CPLD's mailbox register
+    try
+    {
+        I2CFile mailReadDev(i2cBusNumber, i2cSlaveAddress, O_RDWR | O_CLOEXEC);
+
+        mailBoxReply = mailReadDev.i2cReadByteData(regAddr);
+    }
+    catch (const std::exception& e)
+    {
+        phosphor::logging::log<phosphor::logging::level::ERR>(
+            "Exception caught in mailbox reading.",
+            phosphor::logging::entry("MSG=%s", e.what()));
+        throw;
+    }
+    return 0;
+}
+
 } // namespace pfr
