@@ -83,11 +83,16 @@ class PfrConfig
   private:
     sdbusplus::asio::object_server& server;
     std::shared_ptr<sdbusplus::asio::dbus_interface> pfrCfgIface;
+    std::shared_ptr<sdbusplus::asio::dbus_interface> pfrMBIface;
+
     bool internalSet = false;
 
     bool ufmProvisioned;
     bool ufmLocked;
     bool ufmSupport;
+    uint8_t bmcBusyReg = 0x63;
+    uint8_t valHigh = 0x01;
+    uint8_t mailBoxReply = 0;
 };
 
 // Firmware resiliency major map.
