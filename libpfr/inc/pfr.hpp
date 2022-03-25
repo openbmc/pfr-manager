@@ -24,6 +24,9 @@
 namespace pfr
 {
 
+  static  int i2cBusNumber = 4;
+  static  int i2cSlaveAddress = 56;
+
 enum class ImageType
 {
     cpldActive,
