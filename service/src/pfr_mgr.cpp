@@ -16,6 +16,8 @@
 
 #include "pfr_mgr.hpp"
 
+#include "file.hpp"
+
 namespace pfr
 {
 
@@ -188,6 +190,64 @@ PfrConfig::PfrConfig(sdbusplus::asio::object_server& srv_,
                                    });
 
     pfrCfgIface->initialize();
+
+    /*BMCBusy period MailBox handling */
+    pfrMBIface = server.add_interface("/xyz/openbmc_project/pfr",
+                                      "xyz.openbmc_project.PFR.Mailbox");
+    int mailBoxBusNumber = pfr::i2cBusNumber;
+    int mailBoxSlaveAddr = pfr::i2cSlaveAddress;
+    pfrMBIface->register_method(
+        "InitiateBMCBusyPeriod", [mailBoxBusNumber, mailBoxSlaveAddr]() {
+            uint8_t mailBoxReg = 0x63;
+            uint8_t valHigh = 0x01;
+            uint8_t mailBoxReply = 0;
+            try
+            {
+                I2CFile mailDev(mailBoxBusNumber, mailBoxSlaveAddr,
+                                O_RDWR | O_CLOEXEC);
+
+                mailBoxReply = mailDev.i2cReadByteData(mailBoxReg);
+
+                valHigh = mailBoxReply | valHigh;
+
+                mailDev.i2cWriteByteData(mailBoxReg, valHigh);
+
+                phosphor::logging::log<phosphor::logging::level::INFO>(
+                    "Successfully set the PFR MailBox to BMCBusy.");
+            }
+            catch (const std::exception& e)
+            {
+                phosphor::logging::log<phosphor::logging::level::ERR>(
+                    "Exception caught in black out period.",
+                    phosphor::logging::entry("MSG=%s", e.what()));
+                return false;
+            }
+            return true;
+        });
+
+    pfrMBIface->register_method(
+        "ReadMBRegister",
+        [mailBoxBusNumber, mailBoxSlaveAddr](uint32_t regAddr) -> uint8_t {
+            // Read from PFR CPLD's mailbox register
+            uint8_t mailBoxReply = 0;
+            try
+            {
+
+                I2CFile mailReadDev(mailBoxBusNumber, mailBoxSlaveAddr,
+                                    O_RDWR | O_CLOEXEC);
+
+                mailBoxReply = mailReadDev.i2cReadByteData(regAddr);
+            }
+            catch (const std::exception& e)
+            {
+                phosphor::logging::log<phosphor::logging::level::ERR>(
+                    "Exception caught in mailbox reading.",
+                    phosphor::logging::entry("MSG=%s", e.what()));
+                return -1;
+            }
+            return mailBoxReply;
+        });
+    pfrMBIface->initialize();
 
     associationIface =
         server.add_interface("/xyz/openbmc_project/software",
