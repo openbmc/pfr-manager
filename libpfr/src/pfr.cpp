@@ -32,9 +32,6 @@ using GetSubTreeType = std::vector<
     std::pair<std::string,
               std::vector<std::pair<std::string, std::vector<std::string>>>>>;
 
-static int i2cBusNumber = 4;
-static int i2cSlaveAddress = 56;
-
 // CPLD mailbox registers
 static constexpr uint8_t pfrROTId = 0x00;
 static constexpr uint8_t cpldROTVersion = 0x01;
