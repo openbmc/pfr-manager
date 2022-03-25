@@ -231,7 +231,7 @@ static void
         "xyz.openbmc_project.PFR.LastEvents",
         [conn](
             boost::system::error_code ec,
-            std::vector<
+            const std::vector<
                 std::pair<std::string, std::variant<std::monostate, uint8_t>>>&
                 properties) {
             if (ec)
