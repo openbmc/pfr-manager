@@ -57,5 +57,7 @@ std::string readCPLDVersion();
 int setBMCBootCheckpoint(const uint8_t checkPoint);
 void init(std::shared_ptr<sdbusplus::asio::connection> conn,
           bool& i2cConfigLoaded);
+int setMBRegister(bool setReset);
+int getMBRegister(uint32_t regAddr, uint8_t& mailBoxReply);
 
 } // namespace pfr
