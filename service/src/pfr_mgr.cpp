@@ -16,6 +16,8 @@
 
 #include "pfr_mgr.hpp"
 
+#include "file.hpp"
+
 namespace pfr
 {
 
@@ -28,6 +30,10 @@ static constexpr uint8_t recoveryImage = 1;
 
 std::shared_ptr<sdbusplus::asio::dbus_interface> associationIface;
 std::set<std::tuple<std::string, std::string, std::string>> associations;
+
+using GetSubTreeType = std::vector<
+    std::pair<std::string,
+              std::vector<std::pair<std::string, std::vector<std::string>>>>>;
 
 PfrVersion::PfrVersion(sdbusplus::asio::object_server& srv_,
                        std::shared_ptr<sdbusplus::asio::connection>& conn_,
@@ -188,6 +194,32 @@ PfrConfig::PfrConfig(sdbusplus::asio::object_server& srv_,
                                    });
 
     pfrCfgIface->initialize();
+
+    /*BMCBusy period MailBox handling */
+    pfrMBIface = server.add_interface("/xyz/openbmc_project/pfr",
+                                      "xyz.openbmc_project.PFR.Mailbox");
+
+    pfrMBIface->register_method("InitiateBMCBusyPeriod", [](bool setReset) {
+        if (setBMCBusy(setReset) < 0)
+        {
+            return false;
+        }
+        return true;
+    });
+
+    pfrMBIface->register_method("ReadMBRegister", [](uint32_t regAddr) {
+        uint8_t mailBoxReply = 0;
+        try
+        {
+            getMBRegister(regAddr, mailBoxReply);
+        }
+        catch (const std::exception& e)
+        {
+            throw;
+        }
+        return mailBoxReply;
+    });
+    pfrMBIface->initialize();
 
     associationIface =
         server.add_interface("/xyz/openbmc_project/software",
