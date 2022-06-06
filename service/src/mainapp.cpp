@@ -78,7 +78,8 @@ static const boost::container::flat_map<uint8_t,
          {"BMCFirmwareRecoveryReason",
           "BMC recovery image authentication failure"}},
         {0x09, {"BMCFirmwareRecoveryReason", "BMC launch failure"}},
-        {0x0A, {"CPLDFirmwareRecoveryReason", "CPLD watchdog expired"}}};
+        {0x0A, {"CPLDFirmwareRecoveryReason", "CPLD watchdog expired"}},
+        {0x0B, {"CPLDFirmwareRecoveryReason", "CPLD Active failure"}}};
 
 // Panic Reason map.
 // {<CPLD association>, {<Redfish MessageID>, <Panic reason> })
@@ -91,9 +92,12 @@ static const boost::container::flat_map<uint8_t,
         {0x04, {"BMCFirmwarePanicReason", "BMC watchdog expired"}},
         {0x05, {"MEFirmwarePanicReason", "ME watchdog expired"}},
         {0x06, {"BIOSFirmwarePanicReason", "ACM watchdog expired"}},
+        {0x07, {"BIOSFirmwarePanicReason", "IBB watchdog expired"}},
+        {0x08, {"BIOSFirmwarePanicReason", "OBB watchdog expired"}},
         {0x09,
          {"BIOSFirmwarePanicReason",
-          "ACM or IBB or OBB authentication failure"}}};
+          "ACM or IBB or OBB authentication failure"}},
+        {0x0A, {"AttestationPanicReason", "Attestation failure"}}};
 
 // Firmware resiliency major map.
 // {<CPLD association>, {<Redfish MessageID>, <Error reason> })
@@ -105,7 +109,16 @@ static const boost::container::flat_map<uint8_t,
         {0x02,
          {"BIOSFirmwareResiliencyError", "BIOS image authentication failed"}},
         {0x03, {"BIOSFirmwareResiliencyError", "Update from BIOS failed"}},
-        {0x04, {"BMCFirmwareResiliencyError", "Update from BMC failed"}}};
+        {0x04,
+         {"CPLDFirmwareResiliencyError", "PFR CPLD authentication failure"}},
+        {0x05,
+         {"AttestationResiliencyError",
+          "Attestation measurement mismatch-Attestaion failure"}},
+        {0x06, {"AttestationResiliencyError", "Attestation Challenge timeout"}},
+        {0x07, {"SPDMError", "SPDM Protocol Error"}},
+        {0x08,
+         {"CombinedCPLDFirmwareResiliencyError",
+          "CPU/SCM/Debug CPLD Authentication failure"}}};
 
 static void updateDbusPropertiesCache()
 {
