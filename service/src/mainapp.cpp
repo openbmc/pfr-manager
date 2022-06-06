@@ -78,7 +78,10 @@ static const boost::container::flat_map<uint8_t,
          {"BMCFirmwareRecoveryReason",
           "BMC recovery image authentication failure"}},
         {0x09, {"BMCFirmwareRecoveryReason", "BMC launch failure"}},
-        {0x0A, {"CPLDFirmwareRecoveryReason", "CPLD watchdog expired"}}};
+        {0x0A,
+         {"CPLDFirmwareRecoveryReason",
+          "CPLD watchdog expiry forced active firmware recovery"}},
+        {0x0B, {"CPLDFirmwareRecoveryReason", "CPLD Active failure"}}};
 
 // Panic Reason map.
 // {<CPLD association>, {<Redfish MessageID>, <Panic reason> })
@@ -93,7 +96,8 @@ static const boost::container::flat_map<uint8_t,
         {0x06, {"BIOSFirmwarePanicReason", "ACM watchdog expired"}},
         {0x09,
          {"BIOSFirmwarePanicReason",
-          "ACM or IBB or OBB authentication failure"}}};
+          "ACM or IBB or OBB signaled authentication failure"}},
+        {0x0A, {"AttestationPanicReason", "Attestation failure"}}};
 
 // Firmware resiliency major map.
 // {<CPLD association>, {<Redfish MessageID>, <Error reason> })
@@ -105,7 +109,14 @@ static const boost::container::flat_map<uint8_t,
         {0x02,
          {"BIOSFirmwareResiliencyError", "BIOS image authentication failed"}},
         {0x03, {"BIOSFirmwareResiliencyError", "Update from BIOS failed"}},
-        {0x04, {"BMCFirmwareResiliencyError", "Update from BMC failed"}}};
+        {0x04,
+         {"CPLDFirmwareResiliencyError", "PFR CPLD authentication failure"}},
+        {0x05, {"AttestationError", "Attestation measurement mismatch"}},
+        {0x06, {"AttestationError", "Attestation Challenge timeout"}},
+        {0x07, {"SPDMError", "SPDM Protocol Error"}},
+        {0x08,
+         {"CPLDFirmwareResiliencyError",
+          "Combined CPLD Authentication failure"}}};
 
 static void updateDbusPropertiesCache()
 {
