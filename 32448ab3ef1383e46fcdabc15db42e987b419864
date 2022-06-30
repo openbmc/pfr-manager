@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "076aa3ca_a6694da2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001213
+      },
+      "writtenOn": "2022-06-30T06:18:11Z",
+      "side": 1,
+      "message": "SPDError, CombinedCPLDFirmwareResiliencyError, Attestation error are the part of major error code map. I have tested and captured the redfish logs for all the newly added error codes/maps added.",
+      "parentUuid": "0d84ea04_40fbf5ac",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "32448ab3ef1383e46fcdabc15db42e987b419864",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0116d37_961e630f",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2022-06-28T14:43:11Z",
       "side": 1,
       "message": "Maps ?\nDid you mean Recovery, Panic etc ?",
+      "range": {
+        "startLine": 15,
+        "startChar": 3,
+        "endLine": 16,
+        "endChar": 31
+      },
+      "revId": "32448ab3ef1383e46fcdabc15db42e987b419864",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bb9490b_0faefcd6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1001213
+      },
+      "writtenOn": "2022-06-30T06:18:11Z",
+      "side": 1,
+      "message": "All are reason maps",
+      "parentUuid": "a0116d37_961e630f",
       "range": {
         "startLine": 15,
         "startChar": 3,
@@ -118,6 +166,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5533c60f_49f6a8fb",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1001213
+      },
+      "writtenOn": "2022-06-30T06:18:11Z",
+      "side": 1,
+      "message": "Bmcweb Reference: https://gerrit.openbmc.org/c/openbmc/bmcweb/+/54348?tab\u003dcomments",
+      "parentUuid": "75f2550d_47f873fc",
+      "range": {
+        "startLine": 115,
+        "startChar": 11,
+        "endLine": 115,
+        "endChar": 37
+      },
+      "revId": "32448ab3ef1383e46fcdabc15db42e987b419864",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7b206192_507f9512",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 5
@@ -152,6 +224,30 @@
       "writtenOn": "2022-06-28T05:07:18Z",
       "side": 1,
       "message": "Need to add message registry entry for these new messages in bmcweb. \nSPDMError\nCombinedCPLDFirmwareResiliencyError",
+      "range": {
+        "startLine": 118,
+        "startChar": 17,
+        "endLine": 118,
+        "endChar": 26
+      },
+      "revId": "32448ab3ef1383e46fcdabc15db42e987b419864",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "504e0298_103d259f",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1001213
+      },
+      "writtenOn": "2022-06-30T06:18:11Z",
+      "side": 1,
+      "message": "Bmcweb Reference: https://gerrit.openbmc.org/c/openbmc/bmcweb/+/54348?tab\u003dcomments",
+      "parentUuid": "d47bb098_02eeb068",
       "range": {
         "startLine": 118,
         "startChar": 17,
