@@ -399,12 +399,12 @@ void monitorSignals(sdbusplus::asio::object_server& server,
 {
     // Monitor Boot finished signal and set the checkpoint 9 to
     // notify CPLD about BMC boot finish.
-    auto bootFinishedSignal = std::make_unique<sdbusplus::bus::match::match>(
-        static_cast<sdbusplus::bus::bus&>(*conn),
+    auto bootFinishedSignal = std::make_unique<sdbusplus::bus::match_t>(
+        static_cast<sdbusplus::bus_t&>(*conn),
         "type='signal',"
         "member='StartupFinished',path='/org/freedesktop/systemd1',"
         "interface='org.freedesktop.systemd1.Manager'",
-        [&server, &conn](sdbusplus::message::message& msg) {
+        [&server, &conn](sdbusplus::message_t& msg) {
             if (!finishedSettingChkPoint)
             {
                 phosphor::logging::log<phosphor::logging::level::INFO>(
@@ -419,13 +419,13 @@ void monitorSignals(sdbusplus::asio::object_server& server,
     // Capture the Chassis state and Start the monitor timer
     // if state changed to 'On'. Run timer until  OS boot.
     // Stop timer if state changed to 'Off'.
-    static auto matchChassisState = sdbusplus::bus::match::match(
-        static_cast<sdbusplus::bus::bus&>(*conn),
+    static auto matchChassisState = sdbusplus::bus::match_t(
+        static_cast<sdbusplus::bus_t&>(*conn),
         "type='signal',member='PropertiesChanged', "
         "interface='org.freedesktop.DBus.Properties', "
         "sender='xyz.openbmc_project.State.Chassis', "
         "arg0namespace='xyz.openbmc_project.State.Chassis'",
-        [&server, &conn](sdbusplus::message::message& message) {
+        [&server, &conn](sdbusplus::message_t& message) {
             std::string intfName;
             std::map<std::string, std::variant<std::string>> properties;
             message.read(intfName, properties);
@@ -462,13 +462,13 @@ void monitorSignals(sdbusplus::asio::object_server& server,
     // Capture the Host state and Start the monitor timer
     // if state changed to 'Running'. Run timer until OS boot.
     // Stop timer if state changed to 'Off'.
-    static auto matchHostState = sdbusplus::bus::match::match(
-        static_cast<sdbusplus::bus::bus&>(*conn),
+    static auto matchHostState = sdbusplus::bus::match_t(
+        static_cast<sdbusplus::bus_t&>(*conn),
         "type='signal',member='PropertiesChanged', "
         "interface='org.freedesktop.DBus.Properties', "
         "sender='xyz.openbmc_project.State.Chassis', "
         "arg0namespace='xyz.openbmc_project.State.Host'",
-        [&server, &conn](sdbusplus::message::message& message) {
+        [&server, &conn](sdbusplus::message_t& message) {
             std::string intfName;
             std::map<std::string, std::variant<std::string>> properties;
             message.read(intfName, properties);
@@ -507,13 +507,13 @@ void monitorSignals(sdbusplus::asio::object_server& server,
     // Capture the OS state change and stop monitor timer
     // if OS boots completly or becomes Inactive.
     // start timer in other cases to mnitor states.
-    static auto matchOsState = sdbusplus::bus::match::match(
-        static_cast<sdbusplus::bus::bus&>(*conn),
+    static auto matchOsState = sdbusplus::bus::match_t(
+        static_cast<sdbusplus::bus_t&>(*conn),
         "type='signal',member='PropertiesChanged', "
         "interface='org.freedesktop.DBus.Properties', "
         "sender='xyz.openbmc_project.State.Chassis', "
         "arg0namespace='xyz.openbmc_project.State.OperatingSystem.Status'",
-        [&server, &conn](sdbusplus::message::message& message) {
+        [&server, &conn](sdbusplus::message_t& message) {
             std::string intfName;
             std::map<std::string, std::variant<std::string>> properties;
             message.read(intfName, properties);
