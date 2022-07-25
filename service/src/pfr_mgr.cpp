@@ -194,8 +194,8 @@ PfrConfig::PfrConfig(sdbusplus::asio::object_server& srv_,
     /*BMCBusy period MailBox handling */
     pfrMBIface = server.add_interface("/xyz/openbmc_project/pfr",
                                       "xyz.openbmc_project.PFR.Mailbox");
-    uint32_t mailBoxBusNumber = 4;
-    uint32_t mailBoxSlaveAddr = 56;
+    int mailBoxBusNumber = pfr::i2cBusNumber;
+    int mailBoxSlaveAddr = pfr::i2cSlaveAddress;
     pfrMBIface->register_method(
         "InitiateBMCBusyPeriod", [mailBoxBusNumber, mailBoxSlaveAddr]() {
             uint8_t mailBoxReg = 0x63;
@@ -203,6 +203,7 @@ PfrConfig::PfrConfig(sdbusplus::asio::object_server& srv_,
             uint8_t mailBoxReply = 0;
             try
             {
+
                 I2CFile mailDev(mailBoxBusNumber, mailBoxSlaveAddr,
                                 O_RDWR | O_CLOEXEC);
 
