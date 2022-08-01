@@ -236,6 +236,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c16e6473_b3108963",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1001213
+      },
+      "writtenOn": "2022-08-01T10:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5533c60f_49f6a8fb",
+      "range": {
+        "startLine": 115,
+        "startChar": 11,
+        "endLine": 115,
+        "endChar": 37
+      },
+      "revId": "32448ab3ef1383e46fcdabc15db42e987b419864",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b206192_507f9512",
@@ -249,6 +273,30 @@
       "writtenOn": "2022-06-28T05:07:18Z",
       "side": 1,
       "message": "What is difference between 0x05 \u0026 0x06? - Both has Message Key",
+      "range": {
+        "startLine": 117,
+        "startChar": 17,
+        "endLine": 117,
+        "endChar": 43
+      },
+      "revId": "32448ab3ef1383e46fcdabc15db42e987b419864",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c09d25b4_dab30681",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1001213
+      },
+      "writtenOn": "2022-08-01T10:17:56Z",
+      "side": 1,
+      "message": "Message keys are same but reasons are different.",
+      "parentUuid": "7b206192_507f9512",
       "range": {
         "startLine": 117,
         "startChar": 17,
@@ -296,6 +344,30 @@
       "side": 1,
       "message": "Bmcweb Reference: https://gerrit.openbmc.org/c/openbmc/bmcweb/+/54348?tab\u003dcomments",
       "parentUuid": "d47bb098_02eeb068",
+      "range": {
+        "startLine": 118,
+        "startChar": 17,
+        "endLine": 118,
+        "endChar": 26
+      },
+      "revId": "32448ab3ef1383e46fcdabc15db42e987b419864",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66c9f62f_9461fc34",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1001213
+      },
+      "writtenOn": "2022-08-01T10:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "504e0298_103d259f",
       "range": {
         "startLine": 118,
         "startChar": 17,
