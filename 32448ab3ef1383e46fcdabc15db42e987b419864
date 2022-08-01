@@ -48,6 +48,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17d71eb1_e703615e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001213
+      },
+      "writtenOn": "2022-08-01T10:21:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "076aa3ca_a6694da2",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "32448ab3ef1383e46fcdabc15db42e987b419864",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0116d37_961e630f",
@@ -119,6 +143,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66c3ffb8_ce4edb3a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1001213
+      },
+      "writtenOn": "2022-08-01T10:21:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2fe22d0_8de1915a",
+      "range": {
+        "startLine": 15,
+        "startChar": 3,
+        "endLine": 16,
+        "endChar": 31
+      },
+      "revId": "32448ab3ef1383e46fcdabc15db42e987b419864",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4b95809_1cd2af44",
@@ -166,6 +214,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69c568a6_4c5b7089",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001213
+      },
+      "writtenOn": "2022-08-01T10:21:29Z",
+      "side": 1,
+      "message": "Updated.",
+      "parentUuid": "2f9d3ad9_df478945",
+      "range": {
+        "startLine": 17,
+        "startChar": 37,
+        "endLine": 17,
+        "endChar": 53
+      },
+      "revId": "32448ab3ef1383e46fcdabc15db42e987b419864",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e35d68b_8f9f6d9d",
@@ -179,6 +251,30 @@
       "writtenOn": "2022-06-28T05:07:18Z",
       "side": 1,
       "message": "This is redundant in Message which should not be Message registries. So modify message registry to provide meaningful message to user",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 30,
+        "endChar": 69
+      },
+      "revId": "32448ab3ef1383e46fcdabc15db42e987b419864",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "caaea7ff_1c7b340c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1001213
+      },
+      "writtenOn": "2022-08-01T10:21:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e35d68b_8f9f6d9d",
       "range": {
         "startLine": 30,
         "startChar": 24,
