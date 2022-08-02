@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b514d4c_75303146",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-02T13:15:32Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "af2e9bc7_39e33926",
+      "revId": "2adc7c28b434e4676d1efaad554ea6fbf0f26d4f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0e1cb97_d2ea80a9",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-04-05T05:48:27Z",
       "side": 1,
       "message": "Mark it as WIP and pull it for review when its ready.\n\nCurrent not reviewing code. Let me know once ready.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 3
+      },
+      "revId": "2adc7c28b434e4676d1efaad554ea6fbf0f26d4f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a9f3d9e_4600ca0c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-02T13:15:32Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "e0e1cb97_d2ea80a9",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37b3146d_641133a8",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-02T13:15:32Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "0a2d0dc5_bc00832d",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 34
+      },
+      "revId": "2adc7c28b434e4676d1efaad554ea6fbf0f26d4f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f01e1d88_c4a06c93",
@@ -77,6 +143,30 @@
       "writtenOn": "2022-04-05T07:13:20Z",
       "side": 1,
       "message": "can you make it const?",
+      "range": {
+        "startLine": 202,
+        "startChar": 12,
+        "endLine": 202,
+        "endChar": 19
+      },
+      "revId": "2adc7c28b434e4676d1efaad554ea6fbf0f26d4f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c070a8ae_b0546527",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-02T13:15:32Z",
+      "side": 1,
+      "message": "Cannot make it const as we are modifying \u0027valHigh\u0027  in \nvalHigh \u003d mailBoxReply | valHigh\nline 211",
+      "parentUuid": "f01e1d88_c4a06c93",
       "range": {
         "startLine": 202,
         "startChar": 12,
