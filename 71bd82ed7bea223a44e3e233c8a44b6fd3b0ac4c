@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a2dca60_87c467bc",
+        "filename": "libpfr/inc/pfr.hpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-10T16:05:01Z",
+      "side": 1,
+      "message": "This is done so that we can access the same variables in pfr-manager.cpp file.\nPlease see pfr-manager.cpp line no 197 and 198.",
+      "parentUuid": "d7d74e61_fac53084",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 32
+      },
+      "revId": "71bd82ed7bea223a44e3e233c8a44b6fd3b0ac4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c0f06f9_fe97e00d",
