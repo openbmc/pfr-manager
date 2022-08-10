@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d7d74e61_fac53084",
+        "filename": "libpfr/inc/pfr.hpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2022-08-10T15:57:15Z",
+      "side": 1,
+      "message": "why is this moved here?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 32
+      },
+      "revId": "71bd82ed7bea223a44e3e233c8a44b6fd3b0ac4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2c0f06f9_fe97e00d",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 8
@@ -32,6 +55,29 @@
       "side": 1,
       "message": "Not sure about this change. I needed to make this change. Otherwise build was getting failed.",
       "parentUuid": "2c0f06f9_fe97e00d",
+      "revId": "71bd82ed7bea223a44e3e233c8a44b6fd3b0ac4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be2512b3_80ad12a3",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2022-08-10T15:57:15Z",
+      "side": 1,
+      "message": "move these definitions to hpp file, name the register as blackout register or something.",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 37
+      },
       "revId": "71bd82ed7bea223a44e3e233c8a44b6fd3b0ac4c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
