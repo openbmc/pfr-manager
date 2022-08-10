@@ -50,6 +50,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "588bc0a3_ad6f99ef",
+        "filename": "libpfr/inc/pfr.hpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000928
+      },
+      "writtenOn": "2022-08-10T17:33:25Z",
+      "side": 1,
+      "message": "Can we use constexpr here? I think declaring static variable in header file not encouraged",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 32
+      },
+      "revId": "71bd82ed7bea223a44e3e233c8a44b6fd3b0ac4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2c0f06f9_fe97e00d",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 8
@@ -102,6 +125,57 @@
         "endLine": 203,
         "endChar": 37
       },
+      "revId": "71bd82ed7bea223a44e3e233c8a44b6fd3b0ac4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "132869fb_0f9516cc",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000928
+      },
+      "writtenOn": "2022-08-10T17:33:25Z",
+      "side": 1,
+      "message": "Move definition of mailBoxReply to inside this scope. Its not used outside this.\nhttps://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#es5-keep-scopes-small",
+      "revId": "71bd82ed7bea223a44e3e233c8a44b6fd3b0ac4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "197ff5f7_074e16c3",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000928
+      },
+      "writtenOn": "2022-08-10T17:33:25Z",
+      "side": 1,
+      "message": "better to use use another variable to store the result of | operation and declare valHigh mailBoxReg  etc as constexpr",
+      "revId": "71bd82ed7bea223a44e3e233c8a44b6fd3b0ac4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "161e0153_23b26343",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000928
+      },
+      "writtenOn": "2022-08-10T17:33:25Z",
+      "side": 1,
+      "message": "Any security validation required on the register address here? \nAre we introducing a DBUs method to call any read any register value?",
       "revId": "71bd82ed7bea223a44e3e233c8a44b6fd3b0ac4c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
