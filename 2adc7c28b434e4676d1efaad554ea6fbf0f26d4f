@@ -132,6 +132,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "168a409f_62fc4996",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-08-17T17:53:15Z",
+      "side": 1,
+      "message": "I don\u0027t see updated code but comment is moved to resolve. Don\u0027t resolve the comments unless its done.",
+      "parentUuid": "37b3146d_641133a8",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 34
+      },
+      "revId": "2adc7c28b434e4676d1efaad554ea6fbf0f26d4f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f01e1d88_c4a06c93",
         "filename": "service/src/pfr_mgr.cpp",
         "patchSetId": 1
