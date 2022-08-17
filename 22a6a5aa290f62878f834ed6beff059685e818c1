@@ -18,6 +18,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c2560da_b0055a7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-08-17T17:56:28Z",
+      "side": 1,
+      "message": "Don\u0027t see any update from quite long time, Is this still needed? If not, Can you close this?",
+      "revId": "22a6a5aa290f62878f834ed6beff059685e818c1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "364dd1d2_86506044",
