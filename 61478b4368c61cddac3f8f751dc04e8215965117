@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1b0e10b_15cd0a0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-08-17T17:54:44Z",
+      "side": 1,
+      "message": "Is https://gerrit.openbmc.org/c/openbmc/pfr-manager/+/56078 this need to be merged here?",
+      "revId": "61478b4368c61cddac3f8f751dc04e8215965117",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "acee0784_db868bcd",
