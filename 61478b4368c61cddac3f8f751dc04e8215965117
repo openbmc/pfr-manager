@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec8e561f_cab994fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-17T19:12:06Z",
+      "side": 1,
+      "message": "No this does not need to be merged. Create by mistake. Will close it.",
+      "parentUuid": "d1b0e10b_15cd0a0c",
+      "revId": "61478b4368c61cddac3f8f751dc04e8215965117",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "acee0784_db868bcd",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-08-17T16:22:51Z",
       "side": 1,
       "message": "These can be constexpr? I didnt see these variables modified anywhere",
+      "range": {
+        "startLine": 93,
+        "startChar": 3,
+        "endLine": 95,
+        "endChar": 29
+      },
+      "revId": "61478b4368c61cddac3f8f751dc04e8215965117",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c0b8337_b76a6b11",
+        "filename": "service/inc/pfr_mgr.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-17T19:12:06Z",
+      "side": 1,
+      "message": "Getting following compile error on making this as consexpr:\nerror: non-static data member \u0027blackOutReg\u0027 declared \u0027constexpr\u0027",
+      "parentUuid": "acee0784_db868bcd",
       "range": {
         "startLine": 93,
         "startChar": 3,
@@ -64,6 +106,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e7f04ad_72beb416",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-17T19:12:06Z",
+      "side": 1,
+      "message": "I am not sure about this. But I think changes made from pfr.cpp should reflect here as same variables are used here.",
+      "parentUuid": "243bc8b7_8530052c",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 48
+      },
+      "revId": "61478b4368c61cddac3f8f751dc04e8215965117",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7deb4d56_696574e2",
@@ -77,6 +143,30 @@
       "writtenOn": "2022-08-17T17:53:15Z",
       "side": 1,
       "message": "Make it in single line.",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 0
+      },
+      "revId": "61478b4368c61cddac3f8f751dc04e8215965117",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b79a5f9d_fce6d561",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-17T19:12:06Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "7deb4d56_696574e2",
       "range": {
         "startLine": 208,
         "startChar": 0,
