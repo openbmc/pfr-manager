@@ -71,6 +71,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d90c479_db5a3d70",
+        "filename": "libpfr/inc/pfr.hpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-17T13:54:54Z",
+      "side": 1,
+      "message": "Cannot make constexpr as we are assigning these variables in pfr.cpp.\n                        i2cBusNumber \u003d static_cast\u003cint\u003e(*i2cBus);\n                        i2cSlaveAddress \u003d static_cast\u003cint\u003e(*address);",
+      "parentUuid": "588bc0a3_ad6f99ef",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 32
+      },
+      "revId": "71bd82ed7bea223a44e3e233c8a44b6fd3b0ac4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c0f06f9_fe97e00d",
@@ -129,6 +153,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1425c0a_ef5a65a5",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-17T13:54:54Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "be2512b3_80ad12a3",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 37
+      },
+      "revId": "71bd82ed7bea223a44e3e233c8a44b6fd3b0ac4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "132869fb_0f9516cc",
@@ -142,6 +190,24 @@
       "writtenOn": "2022-08-10T17:33:25Z",
       "side": 1,
       "message": "Move definition of mailBoxReply to inside this scope. Its not used outside this.\nhttps://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#es5-keep-scopes-small",
+      "revId": "71bd82ed7bea223a44e3e233c8a44b6fd3b0ac4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05b07091_ed7ff4a7",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-17T13:54:54Z",
+      "side": 1,
+      "message": "Definitions moved to header file.",
+      "parentUuid": "132869fb_0f9516cc",
       "revId": "71bd82ed7bea223a44e3e233c8a44b6fd3b0ac4c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -163,6 +229,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fa461f4_47644d17",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-17T13:54:54Z",
+      "side": 1,
+      "message": "Another variable used. And Definitions moved to header file.",
+      "parentUuid": "197ff5f7_074e16c3",
+      "revId": "71bd82ed7bea223a44e3e233c8a44b6fd3b0ac4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "161e0153_23b26343",
@@ -176,6 +260,24 @@
       "writtenOn": "2022-08-10T17:33:25Z",
       "side": 1,
       "message": "Any security validation required on the register address here? \nAre we introducing a DBUs method to call any read any register value?",
+      "revId": "71bd82ed7bea223a44e3e233c8a44b6fd3b0ac4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94fe0974_28f5d40f",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-17T13:54:54Z",
+      "side": 1,
+      "message": "I dont think any security validation is required here. No DBUs method call is here.",
+      "parentUuid": "161e0153_23b26343",
       "revId": "71bd82ed7bea223a44e3e233c8a44b6fd3b0ac4c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
