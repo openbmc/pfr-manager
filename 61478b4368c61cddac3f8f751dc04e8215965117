@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acee0784_db868bcd",
+        "filename": "service/inc/pfr_mgr.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000928
+      },
+      "writtenOn": "2022-08-17T16:22:51Z",
+      "side": 1,
+      "message": "These can be constexpr? I didnt see these variables modified anywhere",
+      "range": {
+        "startLine": 93,
+        "startChar": 3,
+        "endLine": 95,
+        "endChar": 29
+      },
+      "revId": "61478b4368c61cddac3f8f751dc04e8215965117",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "243bc8b7_8530052c",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000928
+      },
+      "writtenOn": "2022-08-17T16:22:51Z",
+      "side": 1,
+      "message": "I think i2cBusNumber and i2cSlaveAddr will have internal linkage . changes made to these from pfr.cpp wont be seen here right?",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 48
+      },
+      "revId": "61478b4368c61cddac3f8f751dc04e8215965117",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
