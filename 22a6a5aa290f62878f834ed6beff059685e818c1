@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c66dca11_1155eeb4",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1001213
+      },
+      "writtenOn": "2022-08-18T13:10:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "364dd1d2_86506044",
+      "range": {
+        "startLine": 83,
+        "startChar": 11,
+        "endLine": 83,
+        "endChar": 53
+      },
+      "revId": "22a6a5aa290f62878f834ed6beff059685e818c1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "481c211d_5c6a8f5d",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 6
@@ -94,6 +118,30 @@
       "writtenOn": "2022-08-03T02:15:13Z",
       "side": 1,
       "message": "Can be removed, Its aleady covered in other part of message.",
+      "range": {
+        "startLine": 116,
+        "startChar": 43,
+        "endLine": 116,
+        "endChar": 62
+      },
+      "revId": "22a6a5aa290f62878f834ed6beff059685e818c1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8168be03_39814475",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1001213
+      },
+      "writtenOn": "2022-08-18T13:10:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ba8a802_cfead6cb",
       "range": {
         "startLine": 116,
         "startChar": 43,
