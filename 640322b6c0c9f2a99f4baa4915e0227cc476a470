@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11c3d0e7_d67d1e55",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000410
+      },
+      "writtenOn": "2022-08-29T04:20:45Z",
+      "side": 1,
+      "message": "Nitpick: I don\u0027t think we need this prefix in commit titles",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "640322b6c0c9f2a99f4baa4915e0227cc476a470",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2383303b_ef9c1ffa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000410
+      },
+      "writtenOn": "2022-08-29T04:20:45Z",
+      "side": 1,
+      "message": "And add the following text: \"This patch introduces capability to intimate PFR about BMC busy period\"",
+      "revId": "640322b6c0c9f2a99f4baa4915e0227cc476a470",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cca9af7_a252dab3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000410
+      },
+      "writtenOn": "2022-08-29T04:20:45Z",
+      "side": 1,
+      "message": "Please capture this as \"placeholder code is implemented for write operations\"",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "640322b6c0c9f2a99f4baa4915e0227cc476a470",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a39dfcb_92adca30",
+        "filename": "service/inc/pfr_mgr.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000410
+      },
+      "writtenOn": "2022-08-29T04:20:45Z",
+      "side": 1,
+      "message": "For inclusive naming, please use \"bmcBusyReg\"",
+      "range": {
+        "startLine": 93,
+        "startChar": 12,
+        "endLine": 93,
+        "endChar": 23
+      },
+      "revId": "640322b6c0c9f2a99f4baa4915e0227cc476a470",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e2c2332_39175d0c",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000410
+      },
+      "writtenOn": "2022-08-29T04:20:45Z",
+      "side": 1,
+      "message": "Please capture a comment saying \n/* Placeholder code */",
+      "revId": "640322b6c0c9f2a99f4baa4915e0227cc476a470",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
