@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ca4dabf_cfc9d738",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-29T12:15:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "11c3d0e7_d67d1e55",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "640322b6c0c9f2a99f4baa4915e0227cc476a470",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2383303b_ef9c1ffa",
@@ -41,6 +65,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af9100d8_492f2905",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-29T12:15:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "2383303b_ef9c1ffa",
+      "revId": "640322b6c0c9f2a99f4baa4915e0227cc476a470",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9cca9af7_a252dab3",
@@ -54,6 +96,30 @@
       "writtenOn": "2022-08-29T04:20:45Z",
       "side": 1,
       "message": "Please capture this as \"placeholder code is implemented for write operations\"",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "640322b6c0c9f2a99f4baa4915e0227cc476a470",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f41fe6c_6c20de46",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-29T12:15:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "9cca9af7_a252dab3",
       "range": {
         "startLine": 16,
         "startChar": 0,
@@ -87,6 +153,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0b22dc1_f737cd12",
+        "filename": "service/inc/pfr_mgr.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-29T12:15:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "8a39dfcb_92adca30",
+      "range": {
+        "startLine": 93,
+        "startChar": 12,
+        "endLine": 93,
+        "endChar": 23
+      },
+      "revId": "640322b6c0c9f2a99f4baa4915e0227cc476a470",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e2c2332_39175d0c",
@@ -100,6 +190,24 @@
       "writtenOn": "2022-08-29T04:20:45Z",
       "side": 1,
       "message": "Please capture a comment saying \n/* Placeholder code */",
+      "revId": "640322b6c0c9f2a99f4baa4915e0227cc476a470",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da9da078_c576796b",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-08-29T12:15:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "0e2c2332_39175d0c",
       "revId": "640322b6c0c9f2a99f4baa4915e0227cc476a470",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
