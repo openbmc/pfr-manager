@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6f346da_ac4dfd46",
+        "filename": "libpfr/inc/pfr.hpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000907
+      },
+      "writtenOn": "2022-08-30T16:58:21Z",
+      "side": 1,
+      "message": "Moving Static variables to hpp file would result in having copies of these variables in every translation unit it is being included.\nIs this desirable ?\n\nThis will result in not reflecting the value loaded into them by the dbus call in pfr.cpp",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 32
+      },
+      "revId": "0cb26e3897295b90c775b876d478a41ed1d7e0ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e879f3c_0e3f8c38",
+        "filename": "service/inc/pfr_mgr.hpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000907
+      },
+      "writtenOn": "2022-08-30T16:58:21Z",
+      "side": 1,
+      "message": "Do these variables need to be part of this class ?\nI see these are more like runtime variables then class members",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 29
+      },
+      "revId": "0cb26e3897295b90c775b876d478a41ed1d7e0ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d723b89_20450290",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000907
+      },
+      "writtenOn": "2022-08-30T16:58:21Z",
+      "side": 1,
+      "message": "Do we need these local variables? I think these variables can be omitted.",
+      "range": {
+        "startLine": 197,
+        "startChar": 4,
+        "endLine": 198,
+        "endChar": 48
+      },
+      "revId": "0cb26e3897295b90c775b876d478a41ed1d7e0ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e24be34_85360394",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000907
+      },
+      "writtenOn": "2022-08-30T16:58:21Z",
+      "side": 1,
+      "message": "Since we are passing \"this\", do we need to capture Bus Number and Slave Address ? I think we should be able to directly access them right?",
+      "range": {
+        "startLine": 201,
+        "startChar": 40,
+        "endLine": 201,
+        "endChar": 74
+      },
+      "revId": "0cb26e3897295b90c775b876d478a41ed1d7e0ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e818e041_57b3c63a",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000907
+      },
+      "writtenOn": "2022-08-30T16:58:21Z",
+      "side": 1,
+      "message": "*Nit: Did you mean \"Exception caught while setting PFR Mailbox to BMCBusy\"",
+      "range": {
+        "startLine": 220,
+        "startChar": 41,
+        "endLine": 220,
+        "endChar": 57
+      },
+      "revId": "0cb26e3897295b90c775b876d478a41ed1d7e0ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
