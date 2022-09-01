@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.10 FATAL_ERROR)
 project(pfr CXX)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(ExternalProject)
