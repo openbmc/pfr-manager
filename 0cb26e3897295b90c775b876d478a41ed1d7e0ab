@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7f571323_80416cc1",
+        "filename": "libpfr/inc/pfr.hpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000907
+      },
+      "writtenOn": "2022-09-08T21:05:27Z",
+      "side": 1,
+      "message": "We could also use \"extern\" keyword if we really need the variable to be used in another translation unit.\n\nBy keeping it in the header file like in the present code, each translation unit is going to have a separate copy of the variable.\nWhich means, if any file is trying to load the bus and address to these variables from a dBus call, then this value will not reflect in the other files.\n\nEither we need to extern them or, call the dbus call where ever required.",
+      "parentUuid": "efcce6f5_a0fb9685",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 32
+      },
+      "revId": "0cb26e3897295b90c775b876d478a41ed1d7e0ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9e879f3c_0e3f8c38",
         "filename": "service/inc/pfr_mgr.hpp",
         "patchSetId": 17
@@ -97,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9c16c19b_a33ae2de",
+        "filename": "service/inc/pfr_mgr.hpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000907
+      },
+      "writtenOn": "2022-09-08T21:05:27Z",
+      "side": 1,
+      "message": "Could you please point me to that comment ?\nHaving these variables as part of the class doesn\u0027t seem good.\nAs cakked out earlier, these variables are more of runtime consumption and do not have any significance to be part of this class.\n\nOr, am i missing something here ?",
+      "parentUuid": "28c78d07_9ffd1b80",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 29
+      },
+      "revId": "0cb26e3897295b90c775b876d478a41ed1d7e0ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d723b89_20450290",
         "filename": "service/src/pfr_mgr.cpp",
         "patchSetId": 17
@@ -132,6 +180,30 @@
       "side": 1,
       "message": "This is just done for simplicity. Otherwise we need to write pfr::i2cBusNumber and pfr::i2cSlaveAddress everywhere.",
       "parentUuid": "4d723b89_20450290",
+      "range": {
+        "startLine": 197,
+        "startChar": 4,
+        "endLine": 198,
+        "endChar": 48
+      },
+      "revId": "0cb26e3897295b90c775b876d478a41ed1d7e0ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdcac4da_cf61b9be",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000907
+      },
+      "writtenOn": "2022-09-08T21:05:27Z",
+      "side": 1,
+      "message": "I think it is better to call out \"pfr::i2cBusNumber\" and \"pfr::i2cSlaveAddress\" as it makes it more readable.\nDeclaring a variable for this purpose doesn\u0027t look good. We can may be use \"using\" if really required.",
+      "parentUuid": "4b71ff95_2e826452",
       "range": {
         "startLine": 197,
         "startChar": 4,
