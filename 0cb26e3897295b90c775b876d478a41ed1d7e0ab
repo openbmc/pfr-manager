@@ -72,6 +72,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c27367c_b7e502d5",
+        "filename": "libpfr/inc/pfr.hpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-09-09T13:07:16Z",
+      "side": 1,
+      "message": "I tried yo use extern but got build on using extern. So used the dbus call by taking reference from pfr.cpp.",
+      "parentUuid": "7f571323_80416cc1",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 32
+      },
+      "revId": "0cb26e3897295b90c775b876d478a41ed1d7e0ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e879f3c_0e3f8c38",
@@ -143,6 +167,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cf9573c_9f60e361",
+        "filename": "service/inc/pfr_mgr.hpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-09-09T13:07:16Z",
+      "side": 1,
+      "message": "Below is the link for earlier review comment which mentioned to move the definitions to header file.\nhttps://gerrit.openbmc.org/c/openbmc/pfr-manager/+/52364/8..20/service/src/pfr_mgr.cpp#b203\n\nAnyways I have removed these definitions from header file and kept it local.",
+      "parentUuid": "9c16c19b_a33ae2de",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 29
+      },
+      "revId": "0cb26e3897295b90c775b876d478a41ed1d7e0ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d723b89_20450290",
@@ -204,6 +252,30 @@
       "side": 1,
       "message": "I think it is better to call out \"pfr::i2cBusNumber\" and \"pfr::i2cSlaveAddress\" as it makes it more readable.\nDeclaring a variable for this purpose doesn\u0027t look good. We can may be use \"using\" if really required.",
       "parentUuid": "4b71ff95_2e826452",
+      "range": {
+        "startLine": 197,
+        "startChar": 4,
+        "endLine": 198,
+        "endChar": 48
+      },
+      "revId": "0cb26e3897295b90c775b876d478a41ed1d7e0ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b22ec271_047f5a3f",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2022-09-09T13:07:16Z",
+      "side": 1,
+      "message": "Corrected.",
+      "parentUuid": "fdcac4da_cf61b9be",
       "range": {
         "startLine": 197,
         "startChar": 4,
