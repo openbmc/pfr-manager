@@ -19,6 +19,7 @@
 #include "pfr.hpp"
 
 #include <boost/asio.hpp>
+#include <boost/container/flat_map.hpp>
 #include <phosphor-logging/lg2.hpp>
 #include <phosphor-logging/log.hpp>
 #include <sdbusplus/asio/object_server.hpp>
