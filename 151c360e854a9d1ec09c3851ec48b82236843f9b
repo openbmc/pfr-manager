@@ -36,6 +36,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41128f59_a7d8939a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-10-18T09:27:53Z",
+      "side": 1,
+      "message": "One minor sentence change, otherwise code mostly looks good.\n\nGet vote from other people reviewed before i proceed with +2.  ",
+      "revId": "151c360e854a9d1ec09c3851ec48b82236843f9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50c38ba5_792543d8",
@@ -67,6 +84,29 @@
       "side": 1,
       "message": "As per Appu\u0027s suggestion , added specific message.",
       "parentUuid": "50c38ba5_792543d8",
+      "revId": "151c360e854a9d1ec09c3851ec48b82236843f9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e458cd98_fe015e79",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-10-18T09:27:53Z",
+      "side": 1,
+      "message": "CPLD firmware \"activation\" failure",
+      "range": {
+        "startLine": 84,
+        "startChar": 47,
+        "endLine": 84,
+        "endChar": 75
+      },
       "revId": "151c360e854a9d1ec09c3851ec48b82236843f9b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
