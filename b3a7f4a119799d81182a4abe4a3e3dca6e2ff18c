@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c088ab50_7ab3f9d8",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000928
+      },
+      "writtenOn": "2023-04-28T06:41:13Z",
+      "side": 1,
+      "message": "why not using smaller int types?",
+      "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a597b4b_f91f209d",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000928
+      },
+      "writtenOn": "2023-04-28T06:41:13Z",
+      "side": 1,
+      "message": "why i2cConfigLoaded needs o be captured?\nsince its a global variable",
+      "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "662c6835_ca81e68e",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000928
+      },
+      "writtenOn": "2023-04-28T06:41:13Z",
+      "side": 1,
+      "message": "Do we have a resp[0].second.size() method and is it same as checking\nresp[0].second.size() \u003d\u003d 0",
+      "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1743be43_bd3b4681",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000928
+      },
+      "writtenOn": "2023-04-28T06:41:13Z",
+      "side": 1,
+      "message": "here also i2cConfigLoaded",
+      "range": {
+        "startLine": 223,
+        "startChar": 51,
+        "endLine": 223,
+        "endChar": 66
+      },
+      "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56d52885_fbbc37e7",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000928
+      },
+      "writtenOn": "2023-04-28T06:41:13Z",
+      "side": 1,
+      "message": "What does Placeholder code mean ?",
+      "range": {
+        "startLine": 290,
+        "startChar": 26,
+        "endLine": 290,
+        "endChar": 27
+      },
+      "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3f85a88_dfdd961d",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000928
+      },
+      "writtenOn": "2023-04-28T06:41:13Z",
+      "side": 1,
+      "message": "Are we returning -1 as uint8_t here ?",
+      "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
