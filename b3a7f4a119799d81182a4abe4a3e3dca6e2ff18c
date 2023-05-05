@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a96f689d_f50735f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 25
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2023-05-05T09:00:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bac8465e_8a14b66b",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 24
+      },
+      "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c088ab50_7ab3f9d8",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-04-28T06:41:13Z",
       "side": 1,
       "message": "why not using smaller int types?",
+      "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cca478d2_30ee8081",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2023-05-05T09:00:48Z",
+      "side": 1,
+      "message": "It is done in same way in pfr.cpp. I got review comments to do in similar way as in pfr.cpp. Further it is passed in the constructor I2CFile(const int\u0026 i2cBus, const int\u0026 slaveAddr, const int\u0026 flags) which takes int as the arguments.",
+      "parentUuid": "c088ab50_7ab3f9d8",
       "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -58,6 +100,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c013e8f_4e42212c",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2023-05-05T09:00:48Z",
+      "side": 1,
+      "message": "This d-bus call was not done earlier. But got the review comments from two people to add this d-bus call and capture bus and Slav address same way as it done in pfr.cpp.",
+      "parentUuid": "d74a126d_41fab4e9",
+      "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a597b4b_f91f209d",
@@ -75,6 +135,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6fabb77_e60f1c2b",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2023-05-05T09:00:48Z",
+      "side": 1,
+      "message": "Done. Not captured now.",
+      "parentUuid": "4a597b4b_f91f209d",
+      "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "662c6835_ca81e68e",
@@ -88,6 +166,24 @@
       "writtenOn": "2023-04-28T06:41:13Z",
       "side": 1,
       "message": "Do we have a resp[0].second.size() method and is it same as checking\nresp[0].second.size() \u003d\u003d 0",
+      "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db7be062_430c12a0",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2023-05-05T09:00:48Z",
+      "side": 1,
+      "message": "Yes looks like same as checking size. But this code is taken from pfr.cpp. So kept it as it is. Later on maybe changed at both places.",
+      "parentUuid": "662c6835_ca81e68e",
       "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -115,6 +211,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9a353b2_bd827e33",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2023-05-05T09:00:48Z",
+      "side": 1,
+      "message": "Done. Not captured now.",
+      "parentUuid": "1743be43_bd3b4681",
+      "range": {
+        "startLine": 223,
+        "startChar": 51,
+        "endLine": 223,
+        "endChar": 66
+      },
+      "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5644d07a_236e7e92",
@@ -128,6 +248,24 @@
       "writtenOn": "2023-05-02T06:26:48Z",
       "side": 1,
       "message": "I think we need to add one more argument to set OR reset the black out period bit in CPLD.\n\nAfter the BMC busy period is over, there should be another mechanism to reset the bmcBusy bit in the CPLD register to indicate to the CPLD that it is over",
+      "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6051b69c_5a445135",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2023-05-05T09:00:48Z",
+      "side": 1,
+      "message": "done. Added one more argument \u0027bool setReset\u0027. If it is true register will be set to high and if it is false register value will be reset.",
+      "parentUuid": "5644d07a_236e7e92",
       "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -179,6 +317,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d8a20bf_670469dc",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2023-05-05T09:00:48Z",
+      "side": 1,
+      "message": "Done. Removed the statement.",
+      "parentUuid": "9fc46b5e_3e70829a",
+      "range": {
+        "startLine": 290,
+        "startChar": 26,
+        "endLine": 290,
+        "endChar": 27
+      },
+      "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3f85a88_dfdd961d",
@@ -192,6 +354,24 @@
       "writtenOn": "2023-04-28T06:41:13Z",
       "side": 1,
       "message": "Are we returning -1 as uint8_t here ?",
+      "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "398e1fda_788d61c0",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2023-05-05T09:00:48Z",
+      "side": 1,
+      "message": "yes if it is returned -1 than output will be 255.",
+      "parentUuid": "b3f85a88_dfdd961d",
       "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
