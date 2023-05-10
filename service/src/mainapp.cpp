@@ -193,8 +193,8 @@ static void logResiliencyErrorEvent(const uint8_t majorErrorCode,
         return;
     }
 
-    std::string errorStr =
-        it->second.second + "(MinorCode:0x" + toHexString(minorErrorCode) + ")";
+    std::string errorStr = it->second.second + "(MinorCode:0x" +
+                           toHexString(minorErrorCode) + ")";
     std::string msgId = "OpenBMC.0.1." + it->second.first;
     sd_journal_send(
         "MESSAGE=%s", "Platform firmware resiliency error occurred.",
@@ -206,19 +206,19 @@ static void
     handleLastCountChange(std::shared_ptr<sdbusplus::asio::connection> conn,
                           std::string eventName, uint8_t currentCount)
 {
-    sdbusplus::asio::setProperty(
-        *conn, "xyz.openbmc_project.Settings",
-        "/xyz/openbmc_project/pfr/last_events",
-        "xyz.openbmc_project.PFR.LastEvents", eventName, currentCount,
-        [](boost::system::error_code ec) {
-            if (ec)
-            {
-                phosphor::logging::log<phosphor::logging::level::ERR>(
-                    "PFR: Unable to update currentCount",
-                    phosphor::logging::entry("MSG=%s", ec.message().c_str()));
-                return;
-            }
-        });
+    sdbusplus::asio::setProperty(*conn, "xyz.openbmc_project.Settings",
+                                 "/xyz/openbmc_project/pfr/last_events",
+                                 "xyz.openbmc_project.PFR.LastEvents",
+                                 eventName, currentCount,
+                                 [](boost::system::error_code ec) {
+        if (ec)
+        {
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                "PFR: Unable to update currentCount",
+                phosphor::logging::entry("MSG=%s", ec.message().c_str()));
+            return;
+        }
+    });
     return;
 }
 
@@ -234,82 +234,81 @@ static void
             const std::vector<
                 std::pair<std::string, std::variant<std::monostate, uint8_t>>>&
                 properties) {
-            if (ec)
-            {
-                phosphor::logging::log<phosphor::logging::level::ERR>(
-                    "PFR: Unable get PFR last events",
-                    phosphor::logging::entry("MSG=%s", ec.message().c_str()));
-                return;
-            }
-            uint8_t lastRecoveryCount = 0;
-            uint8_t lastPanicCount = 0;
-            uint8_t lastMajorErr = 0;
-            uint8_t lastMinorErr = 0;
+        if (ec)
+        {
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                "PFR: Unable get PFR last events",
+                phosphor::logging::entry("MSG=%s", ec.message().c_str()));
+            return;
+        }
+        uint8_t lastRecoveryCount = 0;
+        uint8_t lastPanicCount = 0;
+        uint8_t lastMajorErr = 0;
+        uint8_t lastMinorErr = 0;
 
-            try
-            {
-                sdbusplus::unpackProperties(
-                    properties, "lastRecoveryCount", lastRecoveryCount,
-                    "lastPanicCount", lastPanicCount, "lastMajorErr",
-                    lastMajorErr, "lastMinorErr", lastMinorErr);
-            }
-            catch (const sdbusplus::exception::UnpackPropertyError& error)
-            {
-                phosphor::logging::log<phosphor::logging::level::ERR>(
-                    "PFR: Unpack error",
-                    phosphor::logging::entry("MSG=%s", error.what()));
-                return;
-            }
+        try
+        {
+            sdbusplus::unpackProperties(
+                properties, "lastRecoveryCount", lastRecoveryCount,
+                "lastPanicCount", lastPanicCount, "lastMajorErr", lastMajorErr,
+                "lastMinorErr", lastMinorErr);
+        }
+        catch (const sdbusplus::exception::UnpackPropertyError& error)
+        {
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                "PFR: Unpack error",
+                phosphor::logging::entry("MSG=%s", error.what()));
+            return;
+        }
 
-            uint8_t currPanicCount = 0;
-            if (0 == readCpldReg(ActionType::panicCount, currPanicCount))
+        uint8_t currPanicCount = 0;
+        if (0 == readCpldReg(ActionType::panicCount, currPanicCount))
+        {
+            if (lastPanicCount != currPanicCount)
             {
-                if (lastPanicCount != currPanicCount)
+                // Update cached data to dbus and log redfish
+                // event by reading reason.
+                handleLastCountChange(conn, "lastPanicCount", currPanicCount);
+                if (currPanicCount)
                 {
-                    // Update cached data to dbus and log redfish
-                    // event by reading reason.
-                    handleLastCountChange(conn, "lastPanicCount",
-                                          currPanicCount);
-                    if (currPanicCount)
-                    {
-                        logLastPanicEvent();
-                    }
+                    logLastPanicEvent();
                 }
             }
+        }
 
-            uint8_t currRecoveryCount = 0;
-            if (0 == readCpldReg(ActionType::recoveryCount, currRecoveryCount))
+        uint8_t currRecoveryCount = 0;
+        if (0 == readCpldReg(ActionType::recoveryCount, currRecoveryCount))
+        {
+            if (lastRecoveryCount != currRecoveryCount)
             {
-                if (lastRecoveryCount != currRecoveryCount)
+                // Update cached data to dbus and log redfish
+                // event by reading reason.
+                handleLastCountChange(conn, "lastRecoveryCount",
+                                      currRecoveryCount);
+                if (currRecoveryCount)
                 {
-                    // Update cached data to dbus and log redfish
-                    // event by reading reason.
-                    handleLastCountChange(conn, "lastRecoveryCount",
-                                          currRecoveryCount);
-                    if (currRecoveryCount)
-                    {
-                        logLastRecoveryEvent();
-                    }
+                    logLastRecoveryEvent();
                 }
             }
+        }
 
-            uint8_t majorErr = 0;
-            uint8_t minorErr = 0;
-            if ((0 == readCpldReg(ActionType::majorError, majorErr)) &&
-                (0 == readCpldReg(ActionType::minorError, minorErr)))
+        uint8_t majorErr = 0;
+        uint8_t minorErr = 0;
+        if ((0 == readCpldReg(ActionType::majorError, majorErr)) &&
+            (0 == readCpldReg(ActionType::minorError, minorErr)))
+        {
+            if ((lastMajorErr != majorErr) || (lastMinorErr != minorErr))
             {
-                if ((lastMajorErr != majorErr) || (lastMinorErr != minorErr))
+                // Update cached data to dbus and log redfish event by
+                // reading reason.
+                handleLastCountChange(conn, "lastMajorErr", majorErr);
+                handleLastCountChange(conn, "lastMinorErr", minorErr);
+                if (majorErr && minorErr)
                 {
-                    // Update cached data to dbus and log redfish event by
-                    // reading reason.
-                    handleLastCountChange(conn, "lastMajorErr", majorErr);
-                    handleLastCountChange(conn, "lastMinorErr", minorErr);
-                    if (majorErr && minorErr)
-                    {
-                        logResiliencyErrorEvent(majorErr, minorErr);
-                    }
+                    logResiliencyErrorEvent(majorErr, minorErr);
                 }
             }
+        }
         });
 }
 
@@ -321,19 +320,19 @@ static void monitorPlatformStateChange(
     stateTimer->expires_after(std::chrono::seconds(pollTimeout));
     stateTimer->async_wait(
         [&server, &conn](const boost::system::error_code& ec) {
-            if (ec == boost::asio::error::operation_aborted)
-            {
-                // Timer reset.
-                return;
-            }
-            if (ec)
-            {
-                // Platform State Monitor - Timer cancelled.
-                return;
-            }
-            checkAndLogEvents(conn);
-            monitorPlatformStateChange(server, conn);
-        });
+        if (ec == boost::asio::error::operation_aborted)
+        {
+            // Timer reset.
+            return;
+        }
+        if (ec)
+        {
+            // Platform State Monitor - Timer cancelled.
+            return;
+        }
+        checkAndLogEvents(conn);
+        monitorPlatformStateChange(server, conn);
+    });
 }
 
 void checkAndSetCheckpoint(sdbusplus::asio::object_server& server,
@@ -343,51 +342,51 @@ void checkAndSetCheckpoint(sdbusplus::asio::object_server& server,
     conn->async_method_call(
         [&server, &conn](boost::system::error_code ec,
                          const std::variant<uint64_t>& value) {
-            if (!ec)
+        if (!ec)
+        {
+            if (std::get<uint64_t>(value))
             {
-                if (std::get<uint64_t>(value))
+                phosphor::logging::log<phosphor::logging::level::INFO>(
+                    "BMC boot completed. Setting checkpoint 9.");
+                if (!finishedSettingChkPoint)
                 {
-                    phosphor::logging::log<phosphor::logging::level::INFO>(
-                        "BMC boot completed. Setting checkpoint 9.");
-                    if (!finishedSettingChkPoint)
-                    {
-                        finishedSettingChkPoint = true;
-                        setBMCBootCheckpoint(bmcBootFinishedChkPoint);
-                    }
-                    return;
+                    finishedSettingChkPoint = true;
+                    setBMCBootCheckpoint(bmcBootFinishedChkPoint);
                 }
+                return;
             }
-            else
+        }
+        else
+        {
+            // Failed to get data from systemd. System might not
+            // be ready yet. Attempt again for data.
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                "aync call failed to get FinishTimestamp.",
+                phosphor::logging::entry("MSG=%s", ec.message().c_str()));
+        }
+        // FIX-ME: Latest up-stream sync caused issue in receiving
+        // StartupFinished signal. Unable to get StartupFinished signal
+        // from systemd1 hence using poll method too, to trigger it
+        // properly.
+        constexpr size_t pollTimeout = 10; // seconds
+        initTimer->expires_after(std::chrono::seconds(pollTimeout));
+        initTimer->async_wait(
+            [&server, &conn](const boost::system::error_code& ec) {
+            if (ec == boost::asio::error::operation_aborted)
             {
-                // Failed to get data from systemd. System might not
-                // be ready yet. Attempt again for data.
-                phosphor::logging::log<phosphor::logging::level::ERR>(
-                    "aync call failed to get FinishTimestamp.",
-                    phosphor::logging::entry("MSG=%s", ec.message().c_str()));
+                // Timer reset.
+                phosphor::logging::log<phosphor::logging::level::INFO>(
+                    "Set boot Checkpoint - Timer aborted or stopped.");
+                return;
             }
-            // FIX-ME: Latest up-stream sync caused issue in receiving
-            // StartupFinished signal. Unable to get StartupFinished signal
-            // from systemd1 hence using poll method too, to trigger it
-            // properly.
-            constexpr size_t pollTimeout = 10; // seconds
-            initTimer->expires_after(std::chrono::seconds(pollTimeout));
-            initTimer->async_wait(
-                [&server, &conn](const boost::system::error_code& ec) {
-                    if (ec == boost::asio::error::operation_aborted)
-                    {
-                        // Timer reset.
-                        phosphor::logging::log<phosphor::logging::level::INFO>(
-                            "Set boot Checkpoint - Timer aborted or stopped.");
-                        return;
-                    }
-                    if (ec)
-                    {
-                        phosphor::logging::log<phosphor::logging::level::ERR>(
-                            "Set boot Checkpoint - async wait error.");
-                        return;
-                    }
-                    checkAndSetCheckpoint(server, conn);
-                });
+            if (ec)
+            {
+                phosphor::logging::log<phosphor::logging::level::ERR>(
+                    "Set boot Checkpoint - async wait error.");
+                return;
+            }
+            checkAndSetCheckpoint(server, conn);
+        });
         },
         "org.freedesktop.systemd1", "/org/freedesktop/systemd1",
         "org.freedesktop.DBus.Properties", "Get",
@@ -405,14 +404,14 @@ void monitorSignals(sdbusplus::asio::object_server& server,
         "member='StartupFinished',path='/org/freedesktop/systemd1',"
         "interface='org.freedesktop.systemd1.Manager'",
         [&server, &conn](sdbusplus::message_t& msg) {
-            if (!finishedSettingChkPoint)
-            {
-                phosphor::logging::log<phosphor::logging::level::INFO>(
-                    "BMC boot completed(StartupFinished). Setting "
-                    "checkpoint 9.");
-                finishedSettingChkPoint = true;
-                setBMCBootCheckpoint(bmcBootFinishedChkPoint);
-            }
+        if (!finishedSettingChkPoint)
+        {
+            phosphor::logging::log<phosphor::logging::level::INFO>(
+                "BMC boot completed(StartupFinished). Setting "
+                "checkpoint 9.");
+            finishedSettingChkPoint = true;
+            setBMCBootCheckpoint(bmcBootFinishedChkPoint);
+        }
         });
     checkAndSetCheckpoint(server, conn);
 
@@ -426,37 +425,36 @@ void monitorSignals(sdbusplus::asio::object_server& server,
         "sender='xyz.openbmc_project.State.Chassis', "
         "arg0namespace='xyz.openbmc_project.State.Chassis'",
         [&server, &conn](sdbusplus::message_t& message) {
-            std::string intfName;
-            std::map<std::string, std::variant<std::string>> properties;
-            message.read(intfName, properties);
+        std::string intfName;
+        std::map<std::string, std::variant<std::string>> properties;
+        message.read(intfName, properties);
 
-            const auto it = properties.find("CurrentPowerState");
-            if (it != properties.end())
+        const auto it = properties.find("CurrentPowerState");
+        if (it != properties.end())
+        {
+            const std::string* state = std::get_if<std::string>(&it->second);
+            if (state != nullptr)
             {
-                const std::string* state =
-                    std::get_if<std::string>(&it->second);
-                if (state != nullptr)
+                if ((*state ==
+                     "xyz.openbmc_project.State.Chassis.PowerState.On") &&
+                    (!stateTimerRunning))
                 {
-                    if ((*state ==
-                         "xyz.openbmc_project.State.Chassis.PowerState.On") &&
-                        (!stateTimerRunning))
-                    {
-                        stateTimerRunning = true;
-                        monitorPlatformStateChange(server, conn);
-                    }
-                    else if ((*state == "xyz.openbmc_project.State.Chassis."
-                                        "PowerState.Off") &&
-                             (stateTimerRunning))
-                    {
-                        stateTimer->cancel();
-                        checkAndLogEvents(conn);
-                        stateTimerRunning = false;
-                    }
+                    stateTimerRunning = true;
+                    monitorPlatformStateChange(server, conn);
                 }
-
-                // Update the D-Bus properties when chassis state changes.
-                updateDbusPropertiesCache();
+                else if ((*state == "xyz.openbmc_project.State.Chassis."
+                                    "PowerState.Off") &&
+                         (stateTimerRunning))
+                {
+                    stateTimer->cancel();
+                    checkAndLogEvents(conn);
+                    stateTimerRunning = false;
+                }
             }
+
+            // Update the D-Bus properties when chassis state changes.
+            updateDbusPropertiesCache();
+        }
         });
 
     // Capture the Host state and Start the monitor timer
@@ -469,39 +467,38 @@ void monitorSignals(sdbusplus::asio::object_server& server,
         "sender='xyz.openbmc_project.State.Chassis', "
         "arg0namespace='xyz.openbmc_project.State.Host'",
         [&server, &conn](sdbusplus::message_t& message) {
-            std::string intfName;
-            std::map<std::string, std::variant<std::string>> properties;
-            message.read(intfName, properties);
+        std::string intfName;
+        std::map<std::string, std::variant<std::string>> properties;
+        message.read(intfName, properties);
 
-            const auto it = properties.find("CurrentHostState");
-            if (it != properties.end())
+        const auto it = properties.find("CurrentHostState");
+        if (it != properties.end())
+        {
+            const std::string* state = std::get_if<std::string>(&it->second);
+            if (state != nullptr)
             {
-                const std::string* state =
-                    std::get_if<std::string>(&it->second);
-                if (state != nullptr)
+                if ((*state ==
+                     "xyz.openbmc_project.State.Host.HostState.Running") &&
+                    (!stateTimerRunning))
                 {
-                    if ((*state ==
-                         "xyz.openbmc_project.State.Host.HostState.Running") &&
-                        (!stateTimerRunning))
-                    {
-                        stateTimerRunning = true;
-                        monitorPlatformStateChange(server, conn);
-                    }
-                    else if (((*state == "xyz.openbmc_project.State.Host."
-                                         "HostState.Off") ||
-                              (*state == "xyz.openbmc_project.State.Host."
-                                         "HostState.Quiesced")) &&
-                             (stateTimerRunning))
-                    {
-                        stateTimer->cancel();
-                        checkAndLogEvents(conn);
-                        stateTimerRunning = false;
-                    }
+                    stateTimerRunning = true;
+                    monitorPlatformStateChange(server, conn);
                 }
-
-                // Update the D-Bus properties when host state changes.
-                updateDbusPropertiesCache();
+                else if (((*state == "xyz.openbmc_project.State.Host."
+                                     "HostState.Off") ||
+                          (*state == "xyz.openbmc_project.State.Host."
+                                     "HostState.Quiesced")) &&
+                         (stateTimerRunning))
+                {
+                    stateTimer->cancel();
+                    checkAndLogEvents(conn);
+                    stateTimerRunning = false;
+                }
             }
+
+            // Update the D-Bus properties when host state changes.
+            updateDbusPropertiesCache();
+        }
         });
 
     // Capture the OS state change and stop monitor timer
@@ -514,40 +511,39 @@ void monitorSignals(sdbusplus::asio::object_server& server,
         "sender='xyz.openbmc_project.State.Chassis', "
         "arg0namespace='xyz.openbmc_project.State.OperatingSystem.Status'",
         [&server, &conn](sdbusplus::message_t& message) {
-            std::string intfName;
-            std::map<std::string, std::variant<std::string>> properties;
-            message.read(intfName, properties);
+        std::string intfName;
+        std::map<std::string, std::variant<std::string>> properties;
+        message.read(intfName, properties);
 
-            const auto it = properties.find("OperatingSystemState");
-            if (it != properties.end())
+        const auto it = properties.find("OperatingSystemState");
+        if (it != properties.end())
+        {
+            const std::string* state = std::get_if<std::string>(&it->second);
+            if (state != nullptr)
             {
-                const std::string* state =
-                    std::get_if<std::string>(&it->second);
-                if (state != nullptr)
+                // The short strings "BootComplete" and "Standby" are
+                // deprecated in favor of the full enum strings
+                // Support for the short strings will be removed in the
+                // future.
+                if (((*state == "BootComplete") ||
+                     (*state == "xyz.openbmc_project.State.OperatingSystem."
+                                "Status.OSStatus.BootComplete") ||
+                     (*state == "Inactive") ||
+                     (*state == "xyz.openbmc_project.State.OperatingSystem."
+                                "Status.OSStatus.Inactive")) &&
+                    (stateTimerRunning))
                 {
-                    // The short strings "BootComplete" and "Standby" are
-                    // deprecated in favor of the full enum strings
-                    // Support for the short strings will be removed in the
-                    // future.
-                    if (((*state == "BootComplete") ||
-                         (*state == "xyz.openbmc_project.State.OperatingSystem."
-                                    "Status.OSStatus.BootComplete") ||
-                         (*state == "Inactive") ||
-                         (*state == "xyz.openbmc_project.State.OperatingSystem."
-                                    "Status.OSStatus.Inactive")) &&
-                        (stateTimerRunning))
-                    {
-                        stateTimer->cancel();
-                        checkAndLogEvents(conn);
-                        stateTimerRunning = false;
-                    }
-                    else if (!stateTimerRunning)
-                    {
-                        stateTimerRunning = true;
-                        monitorPlatformStateChange(server, conn);
-                    }
+                    stateTimer->cancel();
+                    checkAndLogEvents(conn);
+                    stateTimerRunning = false;
+                }
+                else if (!stateTimerRunning)
+                {
+                    stateTimerRunning = true;
+                    monitorPlatformStateChange(server, conn);
                 }
             }
+        }
         });
 
     // First time, check and log events if any.
@@ -560,13 +556,13 @@ static void updateCPLDversion(std::shared_ptr<sdbusplus::asio::connection> conn)
     lg2::info("VERSION INFO - cpld_active - {VER}", "VER", cpldVersion);
     conn->async_method_call(
         [](const boost::system::error_code ec) {
-            if (ec)
-            {
-                phosphor::logging::log<phosphor::logging::level::ERR>(
-                    "Unable to update cpld_active version",
-                    phosphor::logging::entry("MSG=%s", ec.message().c_str()));
-                return;
-            }
+        if (ec)
+        {
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                "Unable to update cpld_active version",
+                phosphor::logging::entry("MSG=%s", ec.message().c_str()));
+            return;
+        }
         },
         "xyz.openbmc_project.Settings",
         "/xyz/openbmc_project/software/cpld_active",
@@ -627,8 +623,8 @@ void checkPFRandAddObjects(sdbusplus::asio::object_server& server,
 
     constexpr size_t timeout = 10; // seconds
     pfrObjTimer->expires_after(std::chrono::seconds(timeout));
-    pfrObjTimer->async_wait([&conn,
-                             &server](const boost::system::error_code& ec) {
+    pfrObjTimer->async_wait(
+        [&conn, &server](const boost::system::error_code& ec) {
         if (ec)
         {
             if (ec == boost::asio::error::operation_aborted)
@@ -695,8 +691,8 @@ int main()
         pfr::pfrConfigObject->updateProvisioningStatus();
         if (pfr::pfrConfigObject->getPfrProvisioned())
         {
-            pfr::pfrPostcodeObject =
-                std::make_unique<pfr::PfrPostcode>(server, conn);
+            pfr::pfrPostcodeObject = std::make_unique<pfr::PfrPostcode>(server,
+                                                                        conn);
         }
     }
 
