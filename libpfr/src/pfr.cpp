@@ -95,66 +95,63 @@ void init(std::shared_ptr<sdbusplus::asio::connection> conn,
     conn->async_method_call(
         [conn, &i2cConfigLoaded](const boost::system::error_code ec,
                                  const GetSubTreeType& resp) {
-            if (ec || resp.size() != 1)
-            {
-                return;
-            }
-            if (resp[0].second.begin() == resp[0].second.end())
-                return;
-            const std::string& objPath = resp[0].first;
-            const std::string& serviceName = resp[0].second.begin()->first;
+        if (ec || resp.size() != 1)
+        {
+            return;
+        }
+        if (resp[0].second.begin() == resp[0].second.end())
+            return;
+        const std::string& objPath = resp[0].first;
+        const std::string& serviceName = resp[0].second.begin()->first;
 
-            const std::string match = "Baseboard/PFR";
-            if (boost::ends_with(objPath, match))
-            {
-                // PFR object found.. check for PFR support
-                conn->async_method_call(
-                    [objPath, serviceName, conn, &i2cConfigLoaded](
-                        boost::system::error_code ec,
-                        const std::vector<std::pair<
-                            std::string, std::variant<std::string, uint64_t>>>&
-                            propertiesList) {
-                        if (ec)
-                        {
-                            phosphor::logging::log<
-                                phosphor::logging::level::ERR>(
-                                "Error to Get PFR properties.",
-                                phosphor::logging::entry("MSG=%s",
-                                                         ec.message().c_str()));
-                            return;
-                        }
+        const std::string match = "Baseboard/PFR";
+        if (boost::ends_with(objPath, match))
+        {
+            // PFR object found.. check for PFR support
+            conn->async_method_call(
+                [objPath, serviceName, conn, &i2cConfigLoaded](
+                    boost::system::error_code ec,
+                    const std::vector<std::pair<
+                        std::string, std::variant<std::string, uint64_t>>>&
+                        propertiesList) {
+                if (ec)
+                {
+                    phosphor::logging::log<phosphor::logging::level::ERR>(
+                        "Error to Get PFR properties.",
+                        phosphor::logging::entry("MSG=%s",
+                                                 ec.message().c_str()));
+                    return;
+                }
 
-                        const uint64_t* i2cBus = nullptr;
-                        const uint64_t* address = nullptr;
+                const uint64_t* i2cBus = nullptr;
+                const uint64_t* address = nullptr;
 
-                        for (const auto& [propName, propVariant] :
-                             propertiesList)
-                        {
-                            if (propName == "Address")
-                            {
-                                address = std::get_if<uint64_t>(&propVariant);
-                            }
-                            else if (propName == "Bus")
-                            {
-                                i2cBus = std::get_if<uint64_t>(&propVariant);
-                            }
-                        }
+                for (const auto& [propName, propVariant] : propertiesList)
+                {
+                    if (propName == "Address")
+                    {
+                        address = std::get_if<uint64_t>(&propVariant);
+                    }
+                    else if (propName == "Bus")
+                    {
+                        i2cBus = std::get_if<uint64_t>(&propVariant);
+                    }
+                }
 
-                        if ((address == nullptr) || (i2cBus == nullptr))
-                        {
-                            phosphor::logging::log<
-                                phosphor::logging::level::ERR>(
-                                "Unable to read the pfr properties");
-                            return;
-                        }
+                if ((address == nullptr) || (i2cBus == nullptr))
+                {
+                    phosphor::logging::log<phosphor::logging::level::ERR>(
+                        "Unable to read the pfr properties");
+                    return;
+                }
 
-                        i2cBusNumber = static_cast<int>(*i2cBus);
-                        i2cSlaveAddress = static_cast<int>(*address);
-                        i2cConfigLoaded = true;
-                    },
-                    serviceName, objPath, "org.freedesktop.DBus.Properties",
-                    "GetAll", "xyz.openbmc_project.Configuration.PFR");
-            }
+                i2cBusNumber = static_cast<int>(*i2cBus);
+                i2cSlaveAddress = static_cast<int>(*address);
+                i2cConfigLoaded = true;
+                },
+                serviceName, objPath, "org.freedesktop.DBus.Properties",
+                "GetAll", "xyz.openbmc_project.Configuration.PFR");
+        }
         },
         "xyz.openbmc_project.ObjectMapper",
         "/xyz/openbmc_project/object_mapper",
@@ -216,8 +213,8 @@ static std::string readVersionFromCPLD(const uint8_t majorReg,
         uint8_t majorVer = cpldDev.i2cReadByteData(majorReg);
         uint8_t minorVer = cpldDev.i2cReadByteData(minorReg);
         // Major and Minor versions should be binary encoded strings.
-        std::string version =
-            std::to_string(majorVer) + "." + std::to_string(minorVer);
+        std::string version = std::to_string(majorVer) + "." +
+                              std::to_string(minorVer);
         return version;
     }
     catch (const std::exception& e)
@@ -414,8 +411,8 @@ std::string readCPLDVersion()
     // When Non-PFR CPLD is present -> <MainPLDMajorMinor.PLDMajorMinor>
     // Example: 2.7
 
-    std::string version =
-        std::to_string(mainCPLDVer) + "." + std::to_string(pldVer) + svnRoTHash;
+    std::string version = std::to_string(mainCPLDVer) + "." +
+                          std::to_string(pldVer) + svnRoTHash;
     return version;
 }
 
