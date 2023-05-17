@@ -33,6 +33,29 @@
       "message": "{}",
       "revId": "b40ea6a10ab4d47e12984e06fbfcf0fb8d56e131",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32deb4b5_fe47e58a",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000410
+      },
+      "writtenOn": "2023-05-17T06:43:13Z",
+      "side": 1,
+      "message": "this is not correct, you will have to reset the lsb explicitly. If you set it to 0x00 then we will write back the top 7 bits with 0, which is not the intended behaviour.\n\nreadValue \u0026\u003d 0b11111110; --\u003e this is the required behaviour.",
+      "range": {
+        "startLine": 291,
+        "startChar": 12,
+        "endLine": 294,
+        "endChar": 13
+      },
+      "revId": "b40ea6a10ab4d47e12984e06fbfcf0fb8d56e131",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }

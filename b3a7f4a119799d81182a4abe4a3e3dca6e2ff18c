@@ -392,6 +392,24 @@
       "parentUuid": "398e1fda_788d61c0",
       "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "485d1d36_8f8560bb",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000410
+      },
+      "writtenOn": "2023-05-17T06:43:13Z",
+      "side": 1,
+      "message": "It is better to throw a DBus exception. 0xFF could still be a valid value read from the CPLD register and it can cause confusion between what is a valid value v/s error response.",
+      "parentUuid": "25a44583_2184ad9b",
+      "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
