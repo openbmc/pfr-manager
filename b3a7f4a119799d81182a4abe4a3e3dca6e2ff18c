@@ -410,6 +410,24 @@
       "parentUuid": "25a44583_2184ad9b",
       "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57137271_8e10ec94",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2023-05-20T11:39:26Z",
+      "side": 1,
+      "message": "Used only throw. As exception message is printed using:\nphosphor::logging::log\u003cphosphor::logging::level::ERR\u003e(\n                    \"Exception caught in mailbox reading.\",\n                    phosphor::logging::entry(\"MSG\u003d%s\", e.what()));",
+      "parentUuid": "485d1d36_8f8560bb",
+      "revId": "b3a7f4a119799d81182a4abe4a3e3dca6e2ff18c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
