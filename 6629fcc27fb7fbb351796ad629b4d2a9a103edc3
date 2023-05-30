@@ -16,6 +16,24 @@
       "message": "can these values be pulled from entity manager config instead of hard coding here?",
       "revId": "6629fcc27fb7fbb351796ad629b4d2a9a103edc3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "904fada2_9e7b7e21",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2023-05-30T08:18:24Z",
+      "side": 1,
+      "message": "It is done in the same way in pfr-manager. Please refer pfr.cpp. Also we are reassigning these values in line number 264, so it does not mater also.",
+      "parentUuid": "3b464862_3fffa907",
+      "revId": "6629fcc27fb7fbb351796ad629b4d2a9a103edc3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
