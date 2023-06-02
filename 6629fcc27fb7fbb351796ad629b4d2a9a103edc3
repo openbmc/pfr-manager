@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e249abdf_b6699ddb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 33
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2023-06-02T04:03:25Z",
+      "side": 1,
+      "message": "These registers are defined in spec - So should not allow user to pass the register values also.\n\nIMO, Just simply defining a Boolean property Like \"BMCBusyPeriod\" should work in this case.\n\nTo get: busctl get-property xyz.openbmc_project.PFR.Manager /xyz/openbmc_project/pfr xyz.openbmc_project.PFR.Mailbox  BMCBusyPeriod\n\nTo set: busctl set-property xyz.openbmc_project.PFR.Manager /xyz/openbmc_project/pfr xyz.openbmc_project.PFR.Mailbox  BMCBusyPeriod b true\n\nIf there is other reasons for implemneting it as method and have separate methods for read and write do let me know.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 151
+      },
+      "revId": "6629fcc27fb7fbb351796ad629b4d2a9a103edc3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b464862_3fffa907",
         "filename": "service/src/pfr_mgr.cpp",
         "patchSetId": 33
@@ -32,6 +55,64 @@
       "side": 1,
       "message": "It is done in the same way in pfr-manager. Please refer pfr.cpp. Also we are reassigning these values in line number 264, so it does not mater also.",
       "parentUuid": "3b464862_3fffa907",
+      "revId": "6629fcc27fb7fbb351796ad629b4d2a9a103edc3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c9ec7a8_813a1766",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2023-06-02T04:03:25Z",
+      "side": 1,
+      "message": "Yeah, Its default value which is overridden by fetching the values from entity-manager.",
+      "parentUuid": "904fada2_9e7b7e21",
+      "revId": "6629fcc27fb7fbb351796ad629b4d2a9a103edc3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f82bd9b6_0afa53bb",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2023-06-02T04:03:25Z",
+      "side": 1,
+      "message": "This register value should be moved to common place which is in pfr.cpp.",
+      "revId": "6629fcc27fb7fbb351796ad629b4d2a9a103edc3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e850e124_fda09318",
+        "filename": "service/src/pfr_mgr.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2023-06-02T04:03:25Z",
+      "side": 1,
+      "message": "All this code can be moved to pfr.cpp and use common  framework defined already.\n\nCheck \"int getPlatformState(uint8_t\u0026 state)\" for referrence - Similar way you can define get \u0026 set.",
+      "range": {
+        "startLine": 285,
+        "startChar": 1,
+        "endLine": 333,
+        "endChar": 32
+      },
       "revId": "6629fcc27fb7fbb351796ad629b4d2a9a103edc3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
