@@ -96,6 +96,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "977d4fc9_9cfeb94b",
+        "filename": "libpfr/inc/pfr.hpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1001403
+      },
+      "writtenOn": "2023-06-02T15:18:34Z",
+      "side": 1,
+      "message": "\u003e I tried yo use extern but got build on using extern. So used the dbus call by taking reference from pfr.cpp.",
+      "parentUuid": "2c27367c_b7e502d5",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 32
+      },
+      "revId": "0cb26e3897295b90c775b876d478a41ed1d7e0ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e879f3c_0e3f8c38",
