@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9e33136_03b4ac97",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1000410
+      },
+      "writtenOn": "2023-06-05T06:23:21Z",
+      "side": 1,
+      "message": "nit: This method cannot set any MBR register in general. We can rename the method as setBMCBusy(bool setValue), and then call a generic method to setMBR.\n\n\ni.e. it would look something like -\n\nstatic bool setMBRegister(uint32_t regOffset, uint8_t regValue)\n{\n\n   try \n   {\n       I2CFile mailDev(i2cBusNumber, i2cSlaveAddress, O_RDWR | O_CLOEXEC);\n            I2CFile mailDev(i2cBusNumber, i2cSlaveAddress, O_RDWR | O_CLOEXEC);\n        mailDev.i2cWriteByteData(regOffset, regValue);\n        return true;\n   }\n   catch(...)\n   {\n       //log Error\n       return false;\n   }\n }\n\nint getMBRegister(uint32_t regAddr, uint8_t\u0026 mailBoxReply)\n{\n    // Read from PFR CPLD\u0027s mailbox register\n    try\n    {\n        I2CFile mailReadDev(i2cBusNumber, i2cSlaveAddress, O_RDWR | O_CLOEXEC);\n\n        mailBoxReply \u003d mailReadDev.i2cReadByteData(regAddr);\n    }\n    catch (const std::exception\u0026 e)\n    {\n        phosphor::logging::log\u003cphosphor::logging::level::ERR\u003e(\n            \"Exception caught in mailbox reading.\",\n            phosphor::logging::entry(\"MSG\u003d%s\", e.what()));\n        return -1;\n    }\n    return 0;\n}\n\n\nint setBMCBusy(bool setValue)\n{\n    uint32_t bmcBusyReg \u003d 0x63;\n    uint8_t valHigh \u003d 0x01;\n    uint8_t mailBoxReply \u003d 0;\n    \n    if(getMBRegister(getMBRegister,mailBoxReply)\n    {\n        return -1;\n    }\n    uint8_t readValue \u003d mailBoxReply | valHigh;\n    if (setReset \u003d\u003d false)\n    {\n            readValue \u0026\u003d 0b11111110;\n    }\n    if(!setMBRegister(bmcBusyReg , readValue)\n    {\n        return -1;\n    }\n    return 0;\n}",
+      "range": {
+        "startLine": 602,
+        "startChar": 4,
+        "endLine": 602,
+        "endChar": 17
+      },
+      "revId": "0a0bf574466d522a96b21dbee299962da657c15d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cafa3337_c232bd0f",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1000410
+      },
+      "writtenOn": "2023-06-05T06:23:21Z",
+      "side": 1,
+      "message": "DEBUG.\n\nAlso, it is good to log whether we set a 1 or a 0 (i.e. different log for setting the bit \u0026 resetting the bit)",
+      "range": {
+        "startLine": 623,
+        "startChar": 57,
+        "endLine": 623,
+        "endChar": 61
+      },
+      "revId": "0a0bf574466d522a96b21dbee299962da657c15d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ce57970_529b8628",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1000410
+      },
+      "writtenOn": "2023-06-05T06:23:21Z",
+      "side": 1,
+      "message": "return -1 ?",
+      "revId": "0a0bf574466d522a96b21dbee299962da657c15d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
