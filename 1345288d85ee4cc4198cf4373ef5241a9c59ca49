@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66265ce7_ee3c906e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 39
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000410
+      },
+      "writtenOn": "2023-06-08T04:10:53Z",
+      "side": 1,
+      "message": "nit: Please capture the reasoning for exposing the ReadMBRegister D-Bus method too (ReadMBRegister D-Bus method is exposed in order to facilitate OEM IPMI commands to read the mail box register values)",
+      "revId": "1345288d85ee4cc4198cf4373ef5241a9c59ca49",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
