@@ -72,6 +72,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bf0de06_b9118d4d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 33
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2023-06-12T10:40:47Z",
+      "side": 1,
+      "message": "Ok, That make sense for now. So marking it reslved.",
+      "parentUuid": "da842969_15169b7e",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 151
+      },
+      "revId": "6629fcc27fb7fbb351796ad629b4d2a9a103edc3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b464862_3fffa907",

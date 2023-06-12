@@ -16,6 +16,41 @@
       "message": "Please change it to BMCBusy Period (for a better inclusive terminology)",
       "revId": "dea0dca125147d8107ef67535f07385e587c374f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a703aa6_4175109e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 40
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2023-06-12T10:40:47Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "899e3651_2f479608",
+      "revId": "dea0dca125147d8107ef67535f07385e587c374f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a142a2bd_8f94002f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 40
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2023-06-12T10:40:47Z",
+      "side": 1,
+      "message": "Code lgtm, please update commit message for removing black out period.",
+      "revId": "dea0dca125147d8107ef67535f07385e587c374f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
