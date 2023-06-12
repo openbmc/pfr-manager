@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "899e3651_2f479608",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 40
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000410
+      },
+      "writtenOn": "2023-06-12T06:39:36Z",
+      "side": 1,
+      "message": "Please change it to BMCBusy Period (for a better inclusive terminology)",
+      "revId": "dea0dca125147d8107ef67535f07385e587c374f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
