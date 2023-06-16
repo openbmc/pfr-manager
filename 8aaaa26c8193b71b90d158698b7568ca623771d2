@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d00d892d_603d6197",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2023-06-16T17:00:37Z",
+      "side": 1,
+      "message": "I see some open comments, Is this change is still worked upon?",
+      "revId": "8aaaa26c8193b71b90d158698b7568ca623771d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
