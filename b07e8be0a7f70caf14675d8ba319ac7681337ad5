@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a530f2c9_e7ccb1a3",
+        "filename": "service/inc/pfr_mgr.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2023-06-20T14:09:39Z",
+      "side": 1,
+      "message": "authentication",
+      "range": {
+        "startLine": 127,
+        "startChar": 26,
+        "endLine": 127,
+        "endChar": 39
+      },
+      "revId": "b07e8be0a7f70caf14675d8ba319ac7681337ad5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7376387_d12c40fd",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2023-06-20T14:09:39Z",
+      "side": 1,
+      "message": "authentication",
+      "range": {
+        "startLine": 122,
+        "startChar": 25,
+        "endLine": 122,
+        "endChar": 38
+      },
+      "revId": "b07e8be0a7f70caf14675d8ba319ac7681337ad5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fca5447_dc066eee",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2023-06-20T14:09:39Z",
+      "side": 1,
+      "message": "can this be changed to \"Image copy Failed\" if its related to firmware update.",
+      "range": {
+        "startLine": 126,
+        "startChar": 44,
+        "endLine": 126,
+        "endChar": 50
+      },
+      "revId": "b07e8be0a7f70caf14675d8ba319ac7681337ad5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
