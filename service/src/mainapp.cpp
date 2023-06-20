@@ -78,7 +78,10 @@ static const boost::container::flat_map<uint8_t,
          {"BMCFirmwareRecoveryReason",
           "BMC recovery image authentication failure"}},
         {0x09, {"BMCFirmwareRecoveryReason", "BMC launch failure"}},
-        {0x0A, {"CPLDFirmwareRecoveryReason", "CPLD watchdog expired"}}};
+        {0x0A, {"CPLDFirmwareRecoveryReason", "CPLD watchdog expired"}},
+        {0x0B, {"BMCFirmwareRecoveryReason", "BMC attestation failure"}},
+        {0x0C, {"FirmwareResiliencyError", "CPU0  attestation failure"}},
+        {0x0D, {"FirmwareResiliencyError", "CPU1  attestation failure"}}};
 
 // Panic Reason map.
 // {<CPLD association>, {<Redfish MessageID>, <Panic reason> })
@@ -90,10 +93,11 @@ static const boost::container::flat_map<uint8_t,
         {0x03, {"BMCFirmwarePanicReason", "BMC reset detected"}},
         {0x04, {"BMCFirmwarePanicReason", "BMC watchdog expired"}},
         {0x05, {"MEFirmwarePanicReason", "ME watchdog expired"}},
-        {0x06, {"BIOSFirmwarePanicReason", "ACM watchdog expired"}},
+        {0x06, {"BIOSFirmwarePanicReason", "ACM/IBB/OBB WDT expired"}},
         {0x09,
          {"BIOSFirmwarePanicReason",
-          "ACM or IBB or OBB authentication failure"}}};
+          "ACM or IBB or OBB authentication failure"}},
+        {0x0A, {"FirmwareResiliencyError", "Attestation failure"}}};
 
 // Firmware resiliency major map.
 // {<CPLD association>, {<Redfish MessageID>, <Error reason> })
@@ -104,8 +108,22 @@ static const boost::container::flat_map<uint8_t,
          {"BMCFirmwareResiliencyError", "BMC image authentication failed"}},
         {0x02,
          {"BIOSFirmwareResiliencyError", "BIOS image authentication failed"}},
-        {0x03, {"BIOSFirmwareResiliencyError", "Update from BIOS failed"}},
-        {0x04, {"BMCFirmwareResiliencyError", "Update from BMC failed"}}};
+	 {0x03,
+         {"BIOSFirmwareResiliencyError", "in-band and oob update failure"}},
+        {0x04, {"BMCFirmwareResiliencyError", "Communication setup failed"}},
+        {0x05,
+         {"FirmwareResiliencyError",
+          "Attestation measurement mismatch-Attestation failure"}},
+        {0x06, {"FirmwareResiliencyError", "Attestation challenge timeout"}},
+        {0x07, {"FirmwareResiliencyError", "SPDM protocol timeout"}},
+        {0x08, {"FirmwareResiliencyError", "I2c Communication failure"}},
+        {0x09,
+         {"CPLDFirmwareResiliencyError",
+          "Combined CPLD authenication failure"}},
+        {0x0A, {"CPLDFirmwareResiliencyError", "Combined CPLD update failure"}},
+        {0x0B,
+         {"CPLDFirmwareResiliencyError", "Combined CPLD recovery failure"}},
+        {0x10, {"FirmwareResiliencyError", "MEMCPY Failed"}}};
 
 static void updateDbusPropertiesCache()
 {
