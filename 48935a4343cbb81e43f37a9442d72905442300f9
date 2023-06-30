@@ -1,0 +1,7 @@
+Code-Review+2: AppaRao Puli <apparao.puli@intel.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Jason Bills <jason.m.bills@linux.intel.com>
+Submitted-at: Fri, 30 Jun 2023 21:11:41 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/pfr-manager/+/64505
+Project: openbmc/pfr-manager
+Branch: refs/heads/master
