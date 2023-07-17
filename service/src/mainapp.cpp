@@ -31,7 +31,8 @@ static bool i2cConfigLoaded = false;
 static int retrCount = 10;
 
 static bool stateTimerRunning = false;
-bool finishedSettingChkPoint = false;
+bool bmcBootCompleteChkPointDone = false;
+bool unProvChkPointStatus = false;
 static constexpr uint8_t bmcBootFinishedChkPoint = 0x09;
 
 std::unique_ptr<boost::asio::steady_timer> stateTimer = nullptr;
@@ -366,10 +367,9 @@ void checkAndSetCheckpoint(sdbusplus::asio::object_server& server,
             {
                 phosphor::logging::log<phosphor::logging::level::INFO>(
                     "BMC boot completed. Setting checkpoint 9.");
-                if (!finishedSettingChkPoint)
+                if (!bmcBootCompleteChkPointDone)
                 {
-                    finishedSettingChkPoint = true;
-                    setBMCBootCheckpoint(bmcBootFinishedChkPoint);
+                    setBMCBootCompleteChkPoint(bmcBootFinishedChkPoint);
                 }
                 return;
             }
@@ -422,13 +422,12 @@ void monitorSignals(sdbusplus::asio::object_server& server,
         "member='StartupFinished',path='/org/freedesktop/systemd1',"
         "interface='org.freedesktop.systemd1.Manager'",
         [&server, &conn](sdbusplus::message_t& msg) {
-        if (!finishedSettingChkPoint)
+        if (!bmcBootCompleteChkPointDone)
         {
             phosphor::logging::log<phosphor::logging::level::INFO>(
                 "BMC boot completed(StartupFinished). Setting "
                 "checkpoint 9.");
-            finishedSettingChkPoint = true;
-            setBMCBootCheckpoint(bmcBootFinishedChkPoint);
+            setBMCBootCompleteChkPoint(bmcBootFinishedChkPoint);
         }
         });
     checkAndSetCheckpoint(server, conn);
@@ -590,7 +589,8 @@ static void updateCPLDversion(std::shared_ptr<sdbusplus::asio::connection> conn)
     return;
 }
 
-void checkPfrInterface(std::shared_ptr<sdbusplus::asio::connection> conn)
+void checkPfrInterface(std::shared_ptr<sdbusplus::asio::connection> conn,
+                       sdbusplus::asio::object_server& server)
 {
     if (!i2cConfigLoaded)
     {
@@ -614,9 +614,9 @@ void checkPfrInterface(std::shared_ptr<sdbusplus::asio::connection> conn)
     {
         retrCount = 0;
 
-        bool locked = false;
         bool prov = false;
         bool support = false;
+        bool locked = false;
         pfr::getProvisioningStatus(locked, prov, support);
         if (support && prov)
         {
@@ -627,17 +627,15 @@ void checkPfrInterface(std::shared_ptr<sdbusplus::asio::connection> conn)
         }
         else
         {
-            // pfr not supported, stop the service
-            phosphor::logging::log<phosphor::logging::level::INFO>(
-                "PFR not Supported. Hence stop the service");
-            std::exit(EXIT_SUCCESS);
+            unProvChkPointStatus = true;
+            pfr::monitorSignals(server, conn);
         }
     }
 }
 void checkPFRandAddObjects(sdbusplus::asio::object_server& server,
                            std::shared_ptr<sdbusplus::asio::connection>& conn)
 {
-    checkPfrInterface(conn);
+    checkPfrInterface(conn, server);
 
     constexpr size_t timeout = 10; // seconds
     pfrObjTimer->expires_after(std::chrono::seconds(timeout));
