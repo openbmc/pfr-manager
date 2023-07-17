@@ -54,7 +54,7 @@ int getProvisioningStatus(bool& ufmLocked, bool& ufmProvisioned,
 int getPlatformState(uint8_t& state);
 int readCpldReg(const ActionType& action, uint8_t& value);
 std::string readCPLDVersion();
-int setBMCBootCheckpoint(const uint8_t checkPoint);
+int setBMCBootCompleteChkPoint(const uint8_t checkPoint);
 void init(std::shared_ptr<sdbusplus::asio::connection> conn,
           bool& i2cConfigLoaded);
 int setBMCBusy(bool setValue);
