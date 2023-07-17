@@ -82,6 +82,8 @@ static const std::array<std::string, 8> mainCPLDGpioLines = {
     "MAIN_PLD_MINOR_REV_BIT1", "MAIN_PLD_MINOR_REV_BIT0"};
 
 bool exceptionFlag = true;
+extern bool bmcBootCompleteChkPointDone;
+extern bool unProvChkPointStatus;
 
 void init(std::shared_ptr<sdbusplus::asio::connection> conn,
           bool& i2cConfigLoaded)
@@ -525,7 +527,7 @@ int readCpldReg(const ActionType& action, uint8_t& value)
     }
 }
 
-int setBMCBootCheckpoint(const uint8_t checkPoint)
+int setBMCBootCompleteChkPoint(const uint8_t checkPoint)
 {
     uint8_t bmcBootCheckpointReg = bmcBootCheckpoint;
 
@@ -557,6 +559,14 @@ int setBMCBootCheckpoint(const uint8_t checkPoint)
         cpldDev.i2cWriteByteData(bmcBootCheckpointReg, checkPoint);
         phosphor::logging::log<phosphor::logging::level::INFO>(
             "Successfully set the PFR CPLD checkpoint 9.");
+        bmcBootCompleteChkPointDone = true;
+        if (unProvChkPointStatus)
+        {
+            unProvChkPointStatus = false;
+            phosphor::logging::log<phosphor::logging::level::INFO>(
+                "PFR not Supported. Hence stop the service");
+            std::exit(EXIT_SUCCESS);
+        }
         return 0;
     }
     catch (const std::exception& e)
