@@ -88,6 +88,8 @@ static const std::array<std::string, 8> pldGpioLines = {
     "SGPIO_PLD_MINOR_REV_BIT1", "SGPIO_PLD_MINOR_REV_BIT0"};
 
 bool exceptionFlag = true;
+extern bool prov ;
+extern bool support ;
 
 void init(std::shared_ptr<sdbusplus::asio::connection> conn,
           bool& i2cConfigLoaded)
@@ -585,6 +587,12 @@ int setBMCBootCheckpoint(const uint8_t checkPoint)
         cpldDev.i2cWriteByteData(bmcBootCheckpointReg, checkPoint);
         phosphor::logging::log<phosphor::logging::level::INFO>(
             "Successfully set the PFR CPLD checkpoint 9.");
+        if (!(support && prov))
+        {
+            phosphor::logging::log<phosphor::logging::level::INFO>(
+               "PFR not Supported. Hence stop the service");
+            std::exit(EXIT_SUCCESS);
+        }
         return 0;
     }
     catch (const std::exception& e)
