@@ -81,12 +81,6 @@ static const std::array<std::string, 8> mainCPLDGpioLines = {
     "MAIN_PLD_MINOR_REV_BIT3", "MAIN_PLD_MINOR_REV_BIT2",
     "MAIN_PLD_MINOR_REV_BIT1", "MAIN_PLD_MINOR_REV_BIT0"};
 
-static const std::array<std::string, 8> pldGpioLines = {
-    "SGPIO_PLD_MAJOR_REV_BIT3", "SGPIO_PLD_MAJOR_REV_BIT2",
-    "SGPIO_PLD_MAJOR_REV_BIT1", "SGPIO_PLD_MAJOR_REV_BIT0",
-    "SGPIO_PLD_MINOR_REV_BIT3", "SGPIO_PLD_MINOR_REV_BIT2",
-    "SGPIO_PLD_MINOR_REV_BIT1", "SGPIO_PLD_MINOR_REV_BIT0"};
-
 bool exceptionFlag = true;
 
 void init(std::shared_ptr<sdbusplus::asio::connection> conn,
@@ -330,10 +324,8 @@ std::string readCPLDVersion()
 {
     // CPLD SGPIO lines
     gpiod::line mainCPLDLine;
-    gpiod::line pldLine;
-    // read main pld and pld version
+    // read main pld version
     uint8_t mainCPLDVer = 0;
-    uint8_t pldVer = 0;
     // main CPLD
     for (const auto& gLine : mainCPLDGpioLines)
     {
@@ -349,25 +341,6 @@ std::string readCPLDVersion()
                 "Failed to read GPIO line: ",
                 phosphor::logging::entry("MSG=%s", gLine.c_str()));
             mainCPLDVer = 0;
-            break;
-        }
-    }
-
-    // pld lines
-    for (const auto& gLine : pldGpioLines)
-    {
-        uint8_t value = 0;
-        if (getGPIOInput(gLine, pldLine, &value))
-        {
-            pldVer <<= 1;
-            pldVer = pldVer | value;
-        }
-        else
-        {
-            phosphor::logging::log<phosphor::logging::level::ERR>(
-                "Failed to read GPIO line: ",
-                phosphor::logging::entry("MSG=%s", gLine.c_str()));
-            pldVer = 0;
             break;
         }
     }
@@ -405,14 +378,13 @@ std::string readCPLDVersion()
 
     // CPLD version format:
     // When PFR CPLD is present
-    // <MainPLDMajorMinor.PLDMajorMinor>-<SVN.RoT>-<CPLD-Hash>
-    // Example: 2.7-1.1-<Hash string>
+    // <MainPLDMajorMinor>-<SVN.RoT>-<CPLD-Hash>
+    // Example: 2-1.1-<Hash string>
 
-    // When Non-PFR CPLD is present -> <MainPLDMajorMinor.PLDMajorMinor>
-    // Example: 2.7
+    // When Non-PFR CPLD is present -> <MainPLDMajorMinor>
+    // Example: 2
 
-    std::string version = std::to_string(mainCPLDVer) + "." +
-                          std::to_string(pldVer) + svnRoTHash;
+    std::string version = std::to_string(mainCPLDVer) + svnRoTHash;
     return version;
 }
 
