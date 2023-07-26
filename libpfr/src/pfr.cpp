@@ -75,18 +75,6 @@ static constexpr const uint32_t verOffsetInPFM = 0x406;
 static constexpr const uint32_t buildNumOffsetInPFM = 0x40C;
 static constexpr const uint32_t buildHashOffsetInPFM = 0x40D;
 
-static const std::array<std::string, 8> mainCPLDGpioLines = {
-    "MAIN_PLD_MAJOR_REV_BIT3", "MAIN_PLD_MAJOR_REV_BIT2",
-    "MAIN_PLD_MAJOR_REV_BIT1", "MAIN_PLD_MAJOR_REV_BIT0",
-    "MAIN_PLD_MINOR_REV_BIT3", "MAIN_PLD_MINOR_REV_BIT2",
-    "MAIN_PLD_MINOR_REV_BIT1", "MAIN_PLD_MINOR_REV_BIT0"};
-
-static const std::array<std::string, 8> pldGpioLines = {
-    "SGPIO_PLD_MAJOR_REV_BIT3", "SGPIO_PLD_MAJOR_REV_BIT2",
-    "SGPIO_PLD_MAJOR_REV_BIT1", "SGPIO_PLD_MAJOR_REV_BIT0",
-    "SGPIO_PLD_MINOR_REV_BIT3", "SGPIO_PLD_MINOR_REV_BIT2",
-    "SGPIO_PLD_MINOR_REV_BIT1", "SGPIO_PLD_MINOR_REV_BIT0"};
-
 bool exceptionFlag = true;
 
 void init(std::shared_ptr<sdbusplus::asio::connection> conn,
@@ -328,51 +316,7 @@ static bool getGPIOInput(const std::string& name, gpiod::line& gpioLine,
 
 std::string readCPLDVersion()
 {
-    // CPLD SGPIO lines
-    gpiod::line mainCPLDLine;
-    gpiod::line pldLine;
-    // read main pld and pld version
-    uint8_t mainCPLDVer = 0;
-    uint8_t pldVer = 0;
-    // main CPLD
-    for (const auto& gLine : mainCPLDGpioLines)
-    {
-        uint8_t value = 0;
-        if (getGPIOInput(gLine, mainCPLDLine, &value))
-        {
-            mainCPLDVer <<= 1;
-            mainCPLDVer = mainCPLDVer | value;
-        }
-        else
-        {
-            phosphor::logging::log<phosphor::logging::level::ERR>(
-                "Failed to read GPIO line: ",
-                phosphor::logging::entry("MSG=%s", gLine.c_str()));
-            mainCPLDVer = 0;
-            break;
-        }
-    }
-
-    // pld lines
-    for (const auto& gLine : pldGpioLines)
-    {
-        uint8_t value = 0;
-        if (getGPIOInput(gLine, pldLine, &value))
-        {
-            pldVer <<= 1;
-            pldVer = pldVer | value;
-        }
-        else
-        {
-            phosphor::logging::log<phosphor::logging::level::ERR>(
-                "Failed to read GPIO line: ",
-                phosphor::logging::entry("MSG=%s", gLine.c_str()));
-            pldVer = 0;
-            break;
-        }
-    }
-
-    std::string svnRoTHash = "";
+    std::string version = "";
 
     // check if reg 0x00 read 0xde
     uint8_t cpldRoTValue = 0;
@@ -395,7 +339,7 @@ std::string readCPLDVersion()
 
         // read CPLD hash
         std::string cpldHash = readCPLDHash();
-        svnRoTHash = "-" + svnRoTver + "-" + cpldHash;
+        version = svnRoTver + "-" + cpldHash;
     }
     else
     {
@@ -405,14 +349,9 @@ std::string readCPLDVersion()
 
     // CPLD version format:
     // When PFR CPLD is present
-    // <MainPLDMajorMinor.PLDMajorMinor>-<SVN.RoT>-<CPLD-Hash>
-    // Example: 2.7-1.1-<Hash string>
+    // <SVN.RoT>-<CPLD-Hash>
+    // Example: 1.1-<Hash string>
 
-    // When Non-PFR CPLD is present -> <MainPLDMajorMinor.PLDMajorMinor>
-    // Example: 2.7
-
-    std::string version = std::to_string(mainCPLDVer) + "." +
-                          std::to_string(pldVer) + svnRoTHash;
     return version;
 }
 
