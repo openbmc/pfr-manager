@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "311e08d3_d46a619d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2023-07-27T05:25:37Z",
+      "side": 1,
+      "message": "I searched and did not find these lines even in the EGS code. This code has been lying without any use. PFR team confirmed we don\u0027t need it for fetching the PFR CPLD Version. Hence, removing this code all together. The format now expected is \n\u003cMainPLDMajorMinor\u003e-\u003cSVN.RoT\u003e-\u003cCPLD-Hash\u003e",
+      "parentUuid": "2b3741d1_b7edcd0a",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 46
+      },
+      "revId": "2a60ba5f3325cc2e41008ebabd71f876fc5fed23",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e38bb85a_0dc7d76c",
         "filename": "libpfr/src/pfr.cpp",
         "patchSetId": 1
