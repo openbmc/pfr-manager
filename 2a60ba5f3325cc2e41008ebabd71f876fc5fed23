@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f485baf9_adc22af5",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2023-07-27T05:32:03Z",
+      "side": 1,
+      "message": "it is defined in the aspeed-bmc-intel-bhs.dtsi file, but it is unused as of now. The discussion with the PFR CPLD team is still ongoing which will be tracked as part of new HSD. As of now, we plan to keep it as is.",
+      "parentUuid": "e38bb85a_0dc7d76c",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 58
+      },
+      "revId": "2a60ba5f3325cc2e41008ebabd71f876fc5fed23",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0c7d7bd_94318e19",
         "filename": "libpfr/src/pfr.cpp",
         "patchSetId": 1
