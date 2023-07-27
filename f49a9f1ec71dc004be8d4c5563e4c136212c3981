@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41f4ff8f_9bc50717",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000559
+      },
+      "writtenOn": "2023-07-27T14:55:01Z",
+      "side": 1,
+      "message": "Make sense to me to remove the never available GPIO",
+      "revId": "f49a9f1ec71dc004be8d4c5563e4c136212c3981",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
