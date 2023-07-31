@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a162294_d9e6d8d1",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2023-07-31T15:09:41Z",
+      "side": 1,
+      "message": "please avoid the service exit here, and please follow below comment to optimize this function.",
+      "range": {
+        "startLine": 371,
+        "startChar": 1,
+        "endLine": 388,
+        "endChar": 17
+      },
+      "revId": "bbf6a4f6724fd506700994cf686a8ed54de19f7a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa7e2244_f6bc7e5b",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2023-07-31T15:09:41Z",
+      "side": 1,
+      "message": "you can move this code to \"checkAndSetCheckpoint\" so that boot complete signal match and boot finish timestamp checking code will be in the same flow and you can set the boot complete checkpoint if any one of the condition becomes true.",
+      "range": {
+        "startLine": 432,
+        "startChar": 3,
+        "endLine": 448,
+        "endChar": 11
+      },
+      "revId": "bbf6a4f6724fd506700994cf686a8ed54de19f7a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d698ec75_2ce36d60",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2023-07-31T15:09:41Z",
+      "side": 1,
+      "message": "please call \"checkAndSetCheckpoint\" function from here and retain the service exit.",
+      "revId": "bbf6a4f6724fd506700994cf686a8ed54de19f7a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
