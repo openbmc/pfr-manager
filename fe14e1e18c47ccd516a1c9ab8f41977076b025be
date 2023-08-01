@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85524dab_bde35a60",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1001213
+      },
+      "writtenOn": "2023-08-01T13:50:25Z",
+      "side": 1,
+      "message": "Please move this code to setBMCBotCheckpoint . If signal matching is happening first , mailbox update will fail.",
+      "revId": "fe14e1e18c47ccd516a1c9ab8f41977076b025be",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
