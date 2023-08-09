@@ -571,19 +571,19 @@ void monitorSignals(sdbusplus::asio::object_server& server,
 static void updateCPLDversion(std::shared_ptr<sdbusplus::asio::connection> conn)
 {
     std::string cpldVersion = pfr::readCPLDVersion();
-    lg2::info("VERSION INFO - cpld_active - {VER}", "VER", cpldVersion);
+    lg2::info("VERSION INFO - ROT_Firmware - {VER}", "VER", cpldVersion);
     conn->async_method_call(
         [](const boost::system::error_code ec) {
         if (ec)
         {
             phosphor::logging::log<phosphor::logging::level::ERR>(
-                "Unable to update cpld_active version",
+                "Unable to update ROT_Firmware version",
                 phosphor::logging::entry("MSG=%s", ec.message().c_str()));
             return;
         }
         },
         "xyz.openbmc_project.Settings",
-        "/xyz/openbmc_project/software/cpld_active",
+        "/xyz/openbmc_project/software/ROT_Firmware",
         "org.freedesktop.DBus.Properties", "Set",
         "xyz.openbmc_project.Software.Version", "Version",
         std::variant<std::string>(cpldVersion));
@@ -667,7 +667,7 @@ void checkPFRandAddObjects(sdbusplus::asio::object_server& server,
 
             // Update the D-Bus properties.
             updateDbusPropertiesCache();
-            // Update CPLD Version to cpld_active object in settings.
+            // Update CPLD Version to ROT_Firmware object in settings.
             updateCPLDversion(conn);
         }
         retrCount--;
@@ -688,7 +688,7 @@ int main()
 
     pfr::checkPFRandAddObjects(server, conn);
 
-    // Update CPLD Version to cpld_active object in settings.
+    // Update CPLD Version to ROT_Firmware object in settings.
     pfr::updateCPLDversion(conn);
 
     server.add_manager("/xyz/openbmc_project/pfr");
