@@ -1,7 +1,9 @@
 /*
 // Copyright (c) 2019 Intel Corporation
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
+// Licensed under the Apache License, 
+
+2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
@@ -74,12 +76,6 @@ static constexpr const uint32_t pfmBaseOffsetInImage = 0x400;
 static constexpr const uint32_t verOffsetInPFM = 0x406;
 static constexpr const uint32_t buildNumOffsetInPFM = 0x40C;
 static constexpr const uint32_t buildHashOffsetInPFM = 0x40D;
-
-static const std::array<std::string, 8> mainCPLDGpioLines = {
-    "MAIN_PLD_MAJOR_REV_BIT3", "MAIN_PLD_MAJOR_REV_BIT2",
-    "MAIN_PLD_MAJOR_REV_BIT1", "MAIN_PLD_MAJOR_REV_BIT0",
-    "MAIN_PLD_MINOR_REV_BIT3", "MAIN_PLD_MINOR_REV_BIT2",
-    "MAIN_PLD_MINOR_REV_BIT1", "MAIN_PLD_MINOR_REV_BIT0"};
 
 bool exceptionFlag = true;
 
@@ -322,30 +318,8 @@ static bool getGPIOInput(const std::string& name, gpiod::line& gpioLine,
 
 std::string readCPLDVersion()
 {
-    // CPLD SGPIO lines
-    gpiod::line mainCPLDLine;
-    // read main pld version
-    uint8_t mainCPLDVer = 0;
-    // main CPLD
-    for (const auto& gLine : mainCPLDGpioLines)
-    {
-        uint8_t value = 0;
-        if (getGPIOInput(gLine, mainCPLDLine, &value))
-        {
-            mainCPLDVer <<= 1;
-            mainCPLDVer = mainCPLDVer | value;
-        }
-        else
-        {
-            phosphor::logging::log<phosphor::logging::level::ERR>(
-                "Failed to read GPIO line: ",
-                phosphor::logging::entry("MSG=%s", gLine.c_str()));
-            mainCPLDVer = 0;
-            break;
-        }
-    }
-
     std::string svnRoTHash = "";
+    std::string version = "unknown";
 
     // check if reg 0x00 read 0xde
     uint8_t cpldRoTValue = 0;
@@ -368,12 +342,11 @@ std::string readCPLDVersion()
 
         // read CPLD hash
         std::string cpldHash = readCPLDHash();
-        svnRoTHash = "-" + svnRoTver + "-" + cpldHash;
+        version = svnRoTver + "-" + cpldHash;
     }
     else
     {
-        phosphor::logging::log<phosphor::logging::level::INFO>(
-            "PFR-CPLD not present.");
+        phosphor::logging::log<phosphor::logging::level::INFO>("PFR-CPLD NA.");
     }
 
     // CPLD version format:
@@ -381,10 +354,6 @@ std::string readCPLDVersion()
     // <MainPLDMajorMinor>-<SVN.RoT>-<CPLD-Hash>
     // Example: 2-1.1-<Hash string>
 
-    // When Non-PFR CPLD is present -> <MainPLDMajorMinor>
-    // Example: 2
-
-    std::string version = std::to_string(mainCPLDVer) + svnRoTHash;
     return version;
 }
 
