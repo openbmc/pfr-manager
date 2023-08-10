@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2167b7e5_9f151745",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2023-08-10T12:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97bc12c3_2c9dbded",
+      "revId": "60634c66c6343e2deca8bd5f944b6e1b6c4d1d8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d5020b3_7f5529a8",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-08-10T05:30:59Z",
       "side": 1,
       "message": "// read RoT Rev and RoT SVN",
+      "range": {
+        "startLine": 340,
+        "startChar": 10,
+        "endLine": 340,
+        "endChar": 35
+      },
+      "revId": "60634c66c6343e2deca8bd5f944b6e1b6c4d1d8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f6ecffa_5caffbce",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2023-08-10T12:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d5020b3_7f5529a8",
       "range": {
         "startLine": 340,
         "startChar": 10,
@@ -110,6 +152,78 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "274c0e24_9745729e",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2023-08-10T12:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32bfa5b9_b5e7ba6a",
+      "range": {
+        "startLine": 341,
+        "startChar": 52,
+        "endLine": 341,
+        "endChar": 67
+      },
+      "revId": "60634c66c6343e2deca8bd5f944b6e1b6c4d1d8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8963862_4777a919",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2023-08-10T12:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62234bf0_d67a07fe",
+      "range": {
+        "startLine": 341,
+        "startChar": 20,
+        "endLine": 341,
+        "endChar": 29
+      },
+      "revId": "60634c66c6343e2deca8bd5f944b6e1b6c4d1d8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afd4de06_13e5d81b",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2023-08-10T12:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae684559_2b371e8e",
+      "range": {
+        "startLine": 341,
+        "startChar": 68,
+        "endLine": 341,
+        "endChar": 78
+      },
+      "revId": "60634c66c6343e2deca8bd5f944b6e1b6c4d1d8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "551fb426_99c0392b",
@@ -123,6 +237,30 @@
       "writtenOn": "2023-08-10T05:30:59Z",
       "side": 1,
       "message": "rotRevSVN",
+      "range": {
+        "startLine": 345,
+        "startChar": 18,
+        "endLine": 345,
+        "endChar": 27
+      },
+      "revId": "60634c66c6343e2deca8bd5f944b6e1b6c4d1d8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fb1da6b_8afcea69",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2023-08-10T12:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "551fb426_99c0392b",
       "range": {
         "startLine": 345,
         "startChar": 18,
@@ -156,6 +294,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8fb743d_f3ce9f99",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2023-08-10T12:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0eb962d_f4933251",
+      "range": {
+        "startLine": 352,
+        "startChar": 7,
+        "endLine": 352,
+        "endChar": 19
+      },
+      "revId": "60634c66c6343e2deca8bd5f944b6e1b6c4d1d8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8b688b4_4c7bfb49",
@@ -169,6 +331,30 @@
       "writtenOn": "2023-08-10T05:30:59Z",
       "side": 1,
       "message": "// \u003cRoTRev.RoTSVN\u003e-\u003cRoT HASH\u003e",
+      "range": {
+        "startLine": 353,
+        "startChar": 7,
+        "endLine": 355,
+        "endChar": 35
+      },
+      "revId": "60634c66c6343e2deca8bd5f944b6e1b6c4d1d8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eeef04a0_727b443d",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2023-08-10T12:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8b688b4_4c7bfb49",
       "range": {
         "startLine": 353,
         "startChar": 7,
@@ -202,6 +388,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c4a104f_28f5edc2",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2023-08-10T12:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "241c2ca4_bb9b3ed9",
+      "range": {
+        "startLine": 51,
+        "startChar": 25,
+        "endLine": 51,
+        "endChar": 38
+      },
+      "revId": "60634c66c6343e2deca8bd5f944b6e1b6c4d1d8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0cee6d9_3b47695b",
@@ -215,6 +425,30 @@
       "writtenOn": "2023-08-10T05:30:59Z",
       "side": 1,
       "message": "rot_fw_active",
+      "range": {
+        "startLine": 574,
+        "startChar": 30,
+        "endLine": 574,
+        "endChar": 42
+      },
+      "revId": "60634c66c6343e2deca8bd5f944b6e1b6c4d1d8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05579707_596fb621",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2023-08-10T12:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0cee6d9_3b47695b",
       "range": {
         "startLine": 574,
         "startChar": 30,
@@ -248,6 +482,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbb18b11_5a36d9ad",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2023-08-10T12:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26099d6e_08abf35e",
+      "range": {
+        "startLine": 580,
+        "startChar": 34,
+        "endLine": 580,
+        "endChar": 46
+      },
+      "revId": "60634c66c6343e2deca8bd5f944b6e1b6c4d1d8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c73e6006_0a7e4b37",
@@ -261,6 +519,30 @@
       "writtenOn": "2023-08-10T05:30:59Z",
       "side": 1,
       "message": "rot_fw_active",
+      "range": {
+        "startLine": 586,
+        "startChar": 39,
+        "endLine": 586,
+        "endChar": 51
+      },
+      "revId": "60634c66c6343e2deca8bd5f944b6e1b6c4d1d8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab301818_89ce265a",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2023-08-10T12:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c73e6006_0a7e4b37",
       "range": {
         "startLine": 586,
         "startChar": 39,
