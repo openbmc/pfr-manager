@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74ca0fe6_92c7750d",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1001213
+      },
+      "writtenOn": "2023-08-14T11:26:43Z",
+      "side": 1,
+      "message": "what is a use of this variable ?",
+      "revId": "9caa6a3741cee32ab706cd381bc123709727f015",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
