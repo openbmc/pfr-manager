@@ -16,6 +16,24 @@
       "message": "what is a use of this variable ?",
       "revId": "9caa6a3741cee32ab706cd381bc123709727f015",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a331c9e_7c3b86fb",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1001803
+      },
+      "writtenOn": "2023-08-14T12:12:44Z",
+      "side": 1,
+      "message": "As per offline discussion with Vikram suggested to rename variable   finishedSettingChkPoint to BMCBootCompleteChkPointDone",
+      "parentUuid": "74ca0fe6_92c7750d",
+      "revId": "9caa6a3741cee32ab706cd381bc123709727f015",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }

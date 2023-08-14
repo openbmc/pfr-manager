@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a051ebc_b30438ba",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1001803
+      },
+      "writtenOn": "2023-08-14T12:12:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4ce2ee40_c2911856",
+      "revId": "bbf6a4f6724fd506700994cf686a8ed54de19f7a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a162294_d9e6d8d1",
