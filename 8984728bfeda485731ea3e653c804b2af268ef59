@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44ef5d06_5be4d067",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1001803
+      },
+      "writtenOn": "2023-08-16T12:37:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89d20ee4_b3b71a78",
+      "range": {
+        "startLine": 567,
+        "startChar": 17,
+        "endLine": 567,
+        "endChar": 35
+      },
+      "revId": "8984728bfeda485731ea3e653c804b2af268ef59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84deea35_b0d227b7",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-08-14T12:22:07Z",
       "side": 1,
       "message": "why this line position got altered ?",
+      "revId": "8984728bfeda485731ea3e653c804b2af268ef59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3240ffc_9aebac11",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1001803
+      },
+      "writtenOn": "2023-08-16T12:37:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84deea35_b0d227b7",
       "revId": "8984728bfeda485731ea3e653c804b2af268ef59",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
