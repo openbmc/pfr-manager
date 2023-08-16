@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "89d20ee4_b3b71a78",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2023-08-16T05:47:53Z",
+      "side": 1,
+      "message": "\"PFR is not provisioned, hence exit the service.\"",
+      "range": {
+        "startLine": 567,
+        "startChar": 17,
+        "endLine": 567,
+        "endChar": 35
+      },
+      "revId": "8984728bfeda485731ea3e653c804b2af268ef59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "84deea35_b0d227b7",
         "filename": "service/src/mainapp.cpp",
         "patchSetId": 11
