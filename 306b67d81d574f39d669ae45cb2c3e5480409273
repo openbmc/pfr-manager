@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d4331d32_824f3f1a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2023-08-17T10:12:53Z",
+      "side": 1,
+      "message": "The validation team has been informed about these changes. We are in loop with them to update the changes to them.",
+      "parentUuid": "76990dc2_90cb5483",
+      "range": {
+        "startLine": 11,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 60
+      },
+      "revId": "306b67d81d574f39d669ae45cb2c3e5480409273",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "95afb105_d9aafd7e",
         "filename": "libpfr/src/pfr.cpp",
         "patchSetId": 7
@@ -37,6 +61,24 @@
       "writtenOn": "2023-08-17T09:53:48Z",
       "side": 1,
       "message": "Why this logs i shortened, This is not giving descriptive information. Better to keep original or describe with proper error.",
+      "revId": "306b67d81d574f39d669ae45cb2c3e5480409273",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "561ccfd2_027da70e",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2023-08-17T10:12:53Z",
+      "side": 1,
+      "message": "This was a suggestion from Vikram. Incase of failures, the version will be returned as \"unknown\". Restoring the original log.\n\nQuoting Vikram\u0027s comment - \" “PFR-CPLD not present” is a log message. I think, the version will not be populated when the read fails. We can populate it as “NA” in case of version read failures.\"",
+      "parentUuid": "95afb105_d9aafd7e",
       "revId": "306b67d81d574f39d669ae45cb2c3e5480409273",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
