@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d64060fa_6b3fca9f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2023-08-17T11:01:07Z",
+      "side": 1,
+      "message": "Thanks for confirmation.",
+      "parentUuid": "d4331d32_824f3f1a",
+      "range": {
+        "startLine": 11,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 60
+      },
+      "revId": "306b67d81d574f39d669ae45cb2c3e5480409273",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "95afb105_d9aafd7e",
         "filename": "libpfr/src/pfr.cpp",
         "patchSetId": 7
@@ -79,6 +103,24 @@
       "side": 1,
       "message": "This was a suggestion from Vikram. Incase of failures, the version will be returned as \"unknown\". Restoring the original log.\n\nQuoting Vikram\u0027s comment - \" “PFR-CPLD not present” is a log message. I think, the version will not be populated when the read fails. We can populate it as “NA” in case of version read failures.\"",
       "parentUuid": "95afb105_d9aafd7e",
+      "revId": "306b67d81d574f39d669ae45cb2c3e5480409273",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acca0a43_df9647ba",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2023-08-17T11:01:07Z",
+      "side": 1,
+      "message": "Probability he would have thought this is version printing but printing version is in another place, This is debug log for i2c failures.\n\nAnyway, I see its addressed. LGTM",
+      "parentUuid": "561ccfd2_027da70e",
       "revId": "306b67d81d574f39d669ae45cb2c3e5480409273",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
