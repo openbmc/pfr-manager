@@ -77,6 +77,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22a6a7ba_617165b0",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1001803
+      },
+      "writtenOn": "2023-08-18T08:15:44Z",
+      "side": 1,
+      "message": "With suggested Changes pfr service is existing ,before setting checkpoint in unprovisioned mode",
+      "parentUuid": "5a162294_d9e6d8d1",
+      "range": {
+        "startLine": 371,
+        "startChar": 1,
+        "endLine": 388,
+        "endChar": 17
+      },
+      "revId": "bbf6a4f6724fd506700994cf686a8ed54de19f7a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa7e2244_f6bc7e5b",
@@ -100,6 +124,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e814b298_688c14a3",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1001803
+      },
+      "writtenOn": "2023-08-18T08:15:44Z",
+      "side": 1,
+      "message": "With suggested Changes pfr service is existing ,before setting checkpoint in unprovisioned mode.",
+      "parentUuid": "fa7e2244_f6bc7e5b",
+      "range": {
+        "startLine": 432,
+        "startChar": 3,
+        "endLine": 448,
+        "endChar": 11
+      },
+      "revId": "bbf6a4f6724fd506700994cf686a8ed54de19f7a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d698ec75_2ce36d60",
@@ -113,6 +161,24 @@
       "writtenOn": "2023-07-31T15:09:41Z",
       "side": 1,
       "message": "please call \"checkAndSetCheckpoint\" function from here and retain the service exit.",
+      "revId": "bbf6a4f6724fd506700994cf686a8ed54de19f7a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1a2741c_37873dea",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1001803
+      },
+      "writtenOn": "2023-08-18T08:15:44Z",
+      "side": 1,
+      "message": "With suggested Changes pfr service is existing ,before setting checkpoint in unprovisioned mode",
+      "parentUuid": "d698ec75_2ce36d60",
       "revId": "bbf6a4f6724fd506700994cf686a8ed54de19f7a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
