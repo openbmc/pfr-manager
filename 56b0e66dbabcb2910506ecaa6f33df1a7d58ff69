@@ -1,0 +1,9 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+2: AppaRao Puli <apparao.puli@intel.com>
+Code-Review+1: Vikram Bodireddy <vikram.bodireddy@linux.intel.com>
+Code-Review+1: Zhikui Ren <zhikui.ren@intel.com>
+Submitted-by: ankita prasad <ankita.prasad@intel.com>
+Submitted-at: Tue, 22 Aug 2023 15:24:43 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/pfr-manager/+/65832
+Project: openbmc/pfr-manager
+Branch: refs/heads/master
