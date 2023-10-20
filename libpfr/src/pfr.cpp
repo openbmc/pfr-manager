@@ -138,11 +138,11 @@ void init(std::shared_ptr<sdbusplus::asio::connection> conn,
                 i2cBusNumber = static_cast<int>(*i2cBus);
                 i2cSlaveAddress = static_cast<int>(*address);
                 i2cConfigLoaded = true;
-                },
+            },
                 serviceName, objPath, "org.freedesktop.DBus.Properties",
                 "GetAll", "xyz.openbmc_project.Configuration.PFR");
         }
-        },
+    },
         "xyz.openbmc_project.ObjectMapper",
         "/xyz/openbmc_project/object_mapper",
         "xyz.openbmc_project.ObjectMapper", "GetSubTree",

@@ -70,7 +70,7 @@ PfrVersion::PfrVersion(sdbusplus::asio::object_server& srv_,
                 }
             }
             return 0;
-            });
+        });
 
         versionIface->initialize();
     }
@@ -278,7 +278,7 @@ PfrPostcode::PfrPostcode(sdbusplus::asio::object_server& srv_,
                 }
             }
             return 0;
-            },
+        },
             [this](uint8_t& propertyValue) {
             updatePostcode();
             propertyValue = postcode;
