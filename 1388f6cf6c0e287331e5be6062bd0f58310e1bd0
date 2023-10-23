@@ -22,6 +22,30 @@
       },
       "revId": "1388f6cf6c0e287331e5be6062bd0f58310e1bd0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6829efd_e08c7793",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-10-23T02:36:10Z",
+      "side": 1,
+      "message": "This is due to the lambda indentation setting as OuterScope having a change between clang-16 and clang-17.",
+      "parentUuid": "c0b3723d_6fa0a8aa",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 67
+      },
+      "revId": "1388f6cf6c0e287331e5be6062bd0f58310e1bd0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
