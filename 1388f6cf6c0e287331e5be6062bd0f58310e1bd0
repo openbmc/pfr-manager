@@ -46,6 +46,30 @@
       },
       "revId": "1388f6cf6c0e287331e5be6062bd0f58310e1bd0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6f4ea3b_60a33a79",
+        "filename": "libpfr/src/pfr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2023-10-26T15:04:09Z",
+      "side": 1,
+      "message": "Thanks for clarification, It doesn\u0027t look good but i think no choice either. So going ahead with Approval.",
+      "parentUuid": "a6829efd_e08c7793",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 67
+      },
+      "revId": "1388f6cf6c0e287331e5be6062bd0f58310e1bd0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
