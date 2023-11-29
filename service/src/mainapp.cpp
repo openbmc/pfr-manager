@@ -152,6 +152,10 @@ static void logLastRecoveryEvent()
     if (it == recoveryReasonMap.end())
     {
         // No matching found. So just return without logging event.
+        std::string Recoveryreason = toHexString(reason);
+        lg2::info(
+            "Platform firmware recovery occurred-Recoveryreason : 0x{VER} ",
+            "VER", Recoveryreason);
         return;
     }
     std::string msgId = "OpenBMC.0.1." + it->second.first;
@@ -173,6 +177,9 @@ static void logLastPanicEvent()
     if (it == panicReasonMap.end())
     {
         // No matching found. So just return without logging event.
+        std::string Panicreason = toHexString(reason);
+        lg2::info("Platform firmware panic occurred-Panicreason : 0x{VER} ",
+                  "VER", Panicreason);
         return;
     }
 
@@ -203,12 +210,24 @@ static void logResiliencyErrorEvent(const uint8_t majorErrorCode,
         else if (it == majorErrorCodeMap.end())
         {
             // No matching found. So just return without logging event.
+            std::string Majorreason = toHexString(majorErrorCode) +
+                                      ", MinorCode : 0x" +
+                                      toHexString(minorErrorCode);
+            lg2::info(
+                "Platform firmware resiliency error occurred-MajorCode : 0x{VER} ",
+                "VER", Majorreason);
             return;
         }
     }
     else if (it == majorErrorCodeMap.end())
     {
         // No matching found. So just return without logging event.
+        std::string Majorreason = toHexString(majorErrorCode) +
+                                  ", MinorCode : 0x" +
+                                  toHexString(minorErrorCode);
+        lg2::info(
+            "Platform firmware resiliency error occurred-MajorCode : 0x{VER} ",
+            "VER", Majorreason);
         return;
     }
 
@@ -328,7 +347,7 @@ static void
                 }
             }
         }
-    });
+        });
 }
 
 static void monitorPlatformStateChange(
@@ -405,7 +424,7 @@ void checkAndSetCheckpoint(sdbusplus::asio::object_server& server,
             }
             checkAndSetCheckpoint(server, conn);
         });
-    },
+        },
         "org.freedesktop.systemd1", "/org/freedesktop/systemd1",
         "org.freedesktop.DBus.Properties", "Get",
         "org.freedesktop.systemd1.Manager", "FinishTimestamp");
@@ -429,7 +448,7 @@ void monitorSignals(sdbusplus::asio::object_server& server,
                 "checkpoint 9.");
             setBMCBootCompleteChkPoint(bmcBootFinishedChkPoint);
         }
-    });
+        });
     checkAndSetCheckpoint(server, conn);
 
     // Capture the Chassis state and Start the monitor timer
@@ -472,7 +491,7 @@ void monitorSignals(sdbusplus::asio::object_server& server,
             // Update the D-Bus properties when chassis state changes.
             updateDbusPropertiesCache();
         }
-    });
+        });
 
     // Capture the Host state and Start the monitor timer
     // if state changed to 'Running'. Run timer until OS boot.
@@ -516,7 +535,7 @@ void monitorSignals(sdbusplus::asio::object_server& server,
             // Update the D-Bus properties when host state changes.
             updateDbusPropertiesCache();
         }
-    });
+        });
 
     // Capture the OS state change and stop monitor timer
     // if OS boots completly or becomes Inactive.
@@ -561,7 +580,7 @@ void monitorSignals(sdbusplus::asio::object_server& server,
                 }
             }
         }
-    });
+        });
 
     // First time, check and log events if any.
     checkAndLogEvents(conn);
@@ -580,7 +599,7 @@ static void updateCPLDversion(std::shared_ptr<sdbusplus::asio::connection> conn)
                 phosphor::logging::entry("MSG=%s", ec.message().c_str()));
             return;
         }
-    },
+        },
         "xyz.openbmc_project.Settings",
         "/xyz/openbmc_project/software/rot_fw_active",
         "org.freedesktop.DBus.Properties", "Set",
