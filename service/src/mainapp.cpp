@@ -152,6 +152,10 @@ static void logLastRecoveryEvent()
     if (it == recoveryReasonMap.end())
     {
         // No matching found. So just return without logging event.
+        std::string Recoveryreason = toHexString(reason);
+        lg2::info(
+            "Platform firmware recovery occurred-Recoveryreason : 0x{VER} ",
+            "VER", Recoveryreason);
         return;
     }
     std::string msgId = "OpenBMC.0.1." + it->second.first;
@@ -173,6 +177,9 @@ static void logLastPanicEvent()
     if (it == panicReasonMap.end())
     {
         // No matching found. So just return without logging event.
+        std::string Panicreason = toHexString(reason);
+        lg2::info("Platform firmware panic occurred-Panicreason : 0x{VER} ",
+                  "VER", Panicreason);
         return;
     }
 
@@ -203,12 +210,24 @@ static void logResiliencyErrorEvent(const uint8_t majorErrorCode,
         else if (it == majorErrorCodeMap.end())
         {
             // No matching found. So just return without logging event.
+            std::string Majorreason = toHexString(majorErrorCode) +
+                                      ", MinorCode : 0x" +
+                                      toHexString(minorErrorCode);
+            lg2::info(
+                "Platform firmware resiliency error occurred-MajorCode : 0x{VER} ",
+                "VER", Majorreason);
             return;
         }
     }
     else if (it == majorErrorCodeMap.end())
     {
         // No matching found. So just return without logging event.
+        std::string Majorreason = toHexString(majorErrorCode) +
+                                  ", MinorCode : 0x" +
+                                  toHexString(minorErrorCode);
+        lg2::info(
+            "Platform firmware resiliency error occurred-MajorCode : 0x{VER} ",
+            "VER", Majorreason);
         return;
     }
 

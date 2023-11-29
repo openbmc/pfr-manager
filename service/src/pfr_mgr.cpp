@@ -311,7 +311,8 @@ void PfrPostcode::updatePostcode()
         auto it = postcodeMap.find(postcode);
         if (it == postcodeMap.end())
         {
-            pfrPostcodeIface->set_property(postcodeStrProp, postcodeStrDefault);
+            pfrPostcodeIface->set_property(postcodeStrProp,
+                                           std::string(postcodeStrDefault));
         }
         else
         {
