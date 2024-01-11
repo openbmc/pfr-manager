@@ -566,7 +566,7 @@ static bool setMBRegister(uint32_t regOffset, uint8_t regValue)
 int setBMCBusy(bool setValue)
 {
     uint32_t bmcBusyReg = 0x63;
-    uint8_t valHigh = 0x01;
+    uint8_t valHigh = 0x80;
     uint8_t mailBoxReply = 0;
 
     if (getMBRegister(bmcBusyReg, mailBoxReply))
@@ -574,9 +574,10 @@ int setBMCBusy(bool setValue)
         return -1;
     }
     uint8_t readValue = mailBoxReply | valHigh;
+  
     if (setValue == false)
     {
-        readValue &= 0b11111110;
+        readValue &= 0b01111111;
     }
     if (!setMBRegister(bmcBusyReg, readValue))
     {
