@@ -580,8 +580,7 @@ static void updateCPLDversion(std::shared_ptr<sdbusplus::asio::connection> conn)
                 phosphor::logging::entry("MSG=%s", ec.message().c_str()));
             return;
         }
-    },
-        "xyz.openbmc_project.Settings",
+    }, "xyz.openbmc_project.Settings",
         "/xyz/openbmc_project/software/rot_fw_active",
         "org.freedesktop.DBus.Properties", "Set",
         "xyz.openbmc_project.Software.Version", "Version",

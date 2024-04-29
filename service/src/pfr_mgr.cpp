@@ -39,8 +39,7 @@ PfrVersion::PfrVersion(sdbusplus::asio::object_server& srv_,
                        std::shared_ptr<sdbusplus::asio::connection>& conn_,
                        const std::string& path_, const ImageType& imgType_,
                        const std::string& purpose_) :
-    server(srv_),
-    conn(conn_), path(path_), imgType(imgType_), purpose(purpose_)
+    server(srv_), conn(conn_), path(path_), imgType(imgType_), purpose(purpose_)
 {
     version = getFirmwareVersion(imgType);
 
@@ -135,8 +134,7 @@ void PfrVersion::updateVersion()
 
 PfrConfig::PfrConfig(sdbusplus::asio::object_server& srv_,
                      std::shared_ptr<sdbusplus::asio::connection>& conn_) :
-    server(srv_),
-    conn(conn_)
+    server(srv_), conn(conn_)
 {
     pfrCfgIface = server.add_interface("/xyz/openbmc_project/pfr",
                                        "xyz.openbmc_project.PFR.Attributes");
@@ -251,8 +249,7 @@ static constexpr const char* postcodeIface =
 
 PfrPostcode::PfrPostcode(sdbusplus::asio::object_server& srv_,
                          std::shared_ptr<sdbusplus::asio::connection>& conn_) :
-    server(srv_),
-    conn(conn_)
+    server(srv_), conn(conn_)
 {
     if (getPlatformState(postcode) < 0)
     {
@@ -278,8 +275,7 @@ PfrPostcode::PfrPostcode(sdbusplus::asio::object_server& srv_,
                 }
             }
             return 0;
-        },
-            [this](uint8_t& propertyValue) {
+        }, [this](uint8_t& propertyValue) {
             updatePostcode();
             propertyValue = postcode;
             return propertyValue;
