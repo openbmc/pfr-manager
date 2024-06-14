@@ -33,6 +33,23 @@
       "message": "Please abandon this PR as it is already tracked with:\n https://gerrit.openbmc.org/c/openbmc/pfr-manager/+/68793",
       "revId": "ca8aaccfedeef801173433f50ca025848584a423",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49859129_8242abb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-06-14T13:44:45Z",
+      "side": 1,
+      "message": "This is reviewed as part of https://gerrit.openbmc.org/c/openbmc/pfr-manager/+/71288. So going ahead with +2.",
+      "revId": "ca8aaccfedeef801173433f50ca025848584a423",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
