@@ -50,6 +50,23 @@
       "message": "This is reviewed as part of https://gerrit.openbmc.org/c/openbmc/pfr-manager/+/71288. So going ahead with +2.",
       "revId": "ca8aaccfedeef801173433f50ca025848584a423",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93135731_bb36876f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-06-14T13:50:20Z",
+      "side": 1,
+      "message": "Hi Patrick, This patch (Other patches too) in this repo are unable to \"submit\" . Looks like there is some settings changed. Can you please help here?",
+      "revId": "ca8aaccfedeef801173433f50ca025848584a423",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
