@@ -67,6 +67,23 @@
       "message": "Hi Patrick, This patch (Other patches too) in this repo are unable to \"submit\" . Looks like there is some settings changed. Can you please help here?",
       "revId": "ca8aaccfedeef801173433f50ca025848584a423",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03062282_7fe72a33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-06-14T14:29:07Z",
+      "side": 1,
+      "message": "Adding Andrew.  In the past we\u0027ve had some issues with syntax in OWNERS files.  I thought those were mostly resolved but maybe pfr-manager got missed.",
+      "revId": "ca8aaccfedeef801173433f50ca025848584a423",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
