@@ -519,7 +519,7 @@ void monitorSignals(sdbusplus::asio::object_server& server,
     });
 
     // Capture the OS state change and stop monitor timer
-    // if OS boots completly or becomes Inactive.
+    // if OS boots completely or becomes Inactive.
     // start timer in other cases to mnitor states.
     static auto matchOsState = sdbusplus::bus::match_t(
         static_cast<sdbusplus::bus_t&>(*conn),
