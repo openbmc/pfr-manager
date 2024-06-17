@@ -84,6 +84,24 @@
       "message": "Adding Andrew.  In the past we\u0027ve had some issues with syntax in OWNERS files.  I thought those were mostly resolved but maybe pfr-manager got missed.",
       "revId": "ca8aaccfedeef801173433f50ca025848584a423",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10598920_453241e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-06-17T20:25:20Z",
+      "side": 1,
+      "message": "I saw this in service-config-manager as well. AppaRao it seems your email has changed in gerrit. The OWNERS files have apparao.puli@linux.intel.com for you but your email now is apparao.puli@intel.com. Can you move back to the old one as your gerrit preferred email? If not, you need to get the OWNERS files updated.",
+      "parentUuid": "03062282_7fe72a33",
+      "revId": "ca8aaccfedeef801173433f50ca025848584a423",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
