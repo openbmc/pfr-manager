@@ -1,0 +1,9 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+2: AppaRao Puli <apparao.puli@linux.intel.com>
+Code-Review+1: Jayaprakash Mutyala <mutyalax.jayaprakash@intel.com>
+Submitted-by: AppaRao Puli <apparao.puli@linux.intel.com>
+Submitted-at: Thu, 20 Jun 2024 09:44:42 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/pfr-manager/+/71288
+Comments-Total: 6
+Project: openbmc/pfr-manager
+Branch: refs/heads/master
