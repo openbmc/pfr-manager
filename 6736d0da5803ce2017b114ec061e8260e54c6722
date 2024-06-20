@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c222777b_b344ab9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-06-20T10:10:12Z",
+      "side": 1,
+      "message": "Is CI build failure is due to build environment using clang-format 17? Please clarify.\n\nchange lgtm and assuming build failure is due to compatibility, Going ahead with +2",
+      "revId": "6736d0da5803ce2017b114ec061e8260e54c6722",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
