@@ -628,7 +628,6 @@ void checkPfrInterface(std::shared_ptr<sdbusplus::asio::connection> conn,
         else
         {
             unProvChkPointStatus = true;
-            pfr::monitorSignals(server, conn);
         }
     }
 }
