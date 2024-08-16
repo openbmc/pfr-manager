@@ -39,8 +39,7 @@ PfrVersion::PfrVersion(sdbusplus::asio::object_server& srv_,
                        std::shared_ptr<sdbusplus::asio::connection>& conn_,
                        const std::string& path_, const ImageType& imgType_,
                        const std::string& purpose_) :
-    server(srv_),
-    conn(conn_), path(path_), imgType(imgType_), purpose(purpose_)
+    server(srv_), conn(conn_), path(path_), imgType(imgType_), purpose(purpose_)
 {
     version = getFirmwareVersion(imgType);
 
@@ -50,8 +49,8 @@ PfrVersion::PfrVersion(sdbusplus::asio::object_server& srv_,
     }
 
     std::string objPath = "/xyz/openbmc_project/software/" + path;
-    versionIface = server.add_interface(objPath,
-                                        "xyz.openbmc_project.Software.Version");
+    versionIface =
+        server.add_interface(objPath, "xyz.openbmc_project.Software.Version");
 
     if (versionIface != nullptr)
     {
@@ -60,17 +59,17 @@ PfrVersion::PfrVersion(sdbusplus::asio::object_server& srv_,
             versionStr, version,
             // Override set
             [this](const std::string& req, std::string& propertyValue) {
-            if (internalSet)
-            {
-                if (req != propertyValue)
+                if (internalSet)
                 {
-                    version = req;
-                    propertyValue = req;
-                    return 1;
+                    if (req != propertyValue)
+                    {
+                        version = req;
+                        propertyValue = req;
+                        return 1;
+                    }
                 }
-            }
-            return 0;
-        });
+                return 0;
+            });
 
         versionIface->initialize();
     }
@@ -135,8 +134,7 @@ void PfrVersion::updateVersion()
 
 PfrConfig::PfrConfig(sdbusplus::asio::object_server& srv_,
                      std::shared_ptr<sdbusplus::asio::connection>& conn_) :
-    server(srv_),
-    conn(conn_)
+    server(srv_), conn(conn_)
 {
     pfrCfgIface = server.add_interface("/xyz/openbmc_project/pfr",
                                        "xyz.openbmc_project.PFR.Attributes");
@@ -149,47 +147,47 @@ PfrConfig::PfrConfig(sdbusplus::asio::object_server& srv_,
     pfrCfgIface->register_property(ufmProvisionedStr, ufmProvisioned,
                                    // Override set
                                    [this](const bool req, bool propertyValue) {
-        if (internalSet)
-        {
-            if (req != propertyValue)
-            {
-                ufmProvisioned = req;
-                propertyValue = req;
-                return 1;
-            }
-        }
-        return 0;
-    });
+                                       if (internalSet)
+                                       {
+                                           if (req != propertyValue)
+                                           {
+                                               ufmProvisioned = req;
+                                               propertyValue = req;
+                                               return 1;
+                                           }
+                                       }
+                                       return 0;
+                                   });
 
     pfrCfgIface->register_property(ufmLockedStr, ufmLocked,
                                    // Override set
                                    [this](const bool req, bool propertyValue) {
-        if (internalSet)
-        {
-            if (req != propertyValue)
-            {
-                ufmLocked = req;
-                propertyValue = req;
-                return 1;
-            }
-        }
-        return 0;
-    });
+                                       if (internalSet)
+                                       {
+                                           if (req != propertyValue)
+                                           {
+                                               ufmLocked = req;
+                                               propertyValue = req;
+                                               return 1;
+                                           }
+                                       }
+                                       return 0;
+                                   });
 
     pfrCfgIface->register_property(ufmSupportStr, ufmSupport,
                                    // Override set
                                    [this](const bool req, bool propertyValue) {
-        if (internalSet)
-        {
-            if (req != propertyValue)
-            {
-                ufmSupport = req;
-                propertyValue = req;
-                return 1;
-            }
-        }
-        return 0;
-    });
+                                       if (internalSet)
+                                       {
+                                           if (req != propertyValue)
+                                           {
+                                               ufmSupport = req;
+                                               propertyValue = req;
+                                               return 1;
+                                           }
+                                       }
+                                       return 0;
+                                   });
 
     pfrCfgIface->initialize();
 
@@ -251,16 +249,15 @@ static constexpr const char* postcodeIface =
 
 PfrPostcode::PfrPostcode(sdbusplus::asio::object_server& srv_,
                          std::shared_ptr<sdbusplus::asio::connection>& conn_) :
-    server(srv_),
-    conn(conn_)
+    server(srv_), conn(conn_)
 {
     if (getPlatformState(postcode) < 0)
     {
         postcode = 0;
     }
 
-    pfrPostcodeIface = server.add_interface("/xyz/openbmc_project/pfr",
-                                            postcodeIface);
+    pfrPostcodeIface =
+        server.add_interface("/xyz/openbmc_project/pfr", postcodeIface);
 
     if (pfrPostcodeIface != nullptr)
     {
@@ -268,22 +265,22 @@ PfrPostcode::PfrPostcode(sdbusplus::asio::object_server& srv_,
             postcodeDataProp, postcode,
             // Override set
             [this](const uint8_t req, uint8_t& propertyValue) {
-            if (internalSet)
-            {
-                if (req != propertyValue)
+                if (internalSet)
                 {
-                    postcode = req;
-                    propertyValue = req;
-                    return 1;
+                    if (req != propertyValue)
+                    {
+                        postcode = req;
+                        propertyValue = req;
+                        return 1;
+                    }
                 }
-            }
-            return 0;
-        },
+                return 0;
+            },
             [this](uint8_t& propertyValue) {
-            updatePostcode();
-            propertyValue = postcode;
-            return propertyValue;
-        });
+                updatePostcode();
+                propertyValue = postcode;
+                return propertyValue;
+            });
 
         pfrPostcodeIface->register_property(postcodeStrProp,
                                             std::string(postcodeStrDefault));
