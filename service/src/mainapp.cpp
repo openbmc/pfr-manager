@@ -708,12 +708,8 @@ int main()
 
     if (pfr::pfrConfigObject)
     {
-        pfr::pfrConfigObject->updateProvisioningStatus();
-        if (pfr::pfrConfigObject->getPfrProvisioned())
-        {
-            pfr::pfrPostcodeObject =
-                std::make_unique<pfr::PfrPostcode>(server, conn);
-        }
+        // Create PFR post code interface
+        pfr::pfrPostcodeObject = std::make_unique<pfr::PfrPostcode>(server, conn);
     }
 
     conn->request_name("xyz.openbmc_project.PFR.Manager");
