@@ -146,7 +146,7 @@ PfrConfig::PfrConfig(sdbusplus::asio::object_server& srv_,
 
     pfrCfgIface->register_property(ufmProvisionedStr, ufmProvisioned,
                                    // Override set
-                                   [this](const bool req, bool propertyValue) {
+                                   [this](const bool req, bool& propertyValue) {
                                        if (internalSet)
                                        {
                                            if (req != propertyValue)
@@ -161,7 +161,7 @@ PfrConfig::PfrConfig(sdbusplus::asio::object_server& srv_,
 
     pfrCfgIface->register_property(ufmLockedStr, ufmLocked,
                                    // Override set
-                                   [this](const bool req, bool propertyValue) {
+                                   [this](const bool req, bool& propertyValue) {
                                        if (internalSet)
                                        {
                                            if (req != propertyValue)
@@ -176,7 +176,7 @@ PfrConfig::PfrConfig(sdbusplus::asio::object_server& srv_,
 
     pfrCfgIface->register_property(ufmSupportStr, ufmSupport,
                                    // Override set
-                                   [this](const bool req, bool propertyValue) {
+                                   [this](const bool req, bool& propertyValue) {
                                        if (internalSet)
                                        {
                                            if (req != propertyValue)
