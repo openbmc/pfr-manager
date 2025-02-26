@@ -680,7 +680,7 @@ void checkPFRandAddObjects(sdbusplus::asio::object_server& server,
 int main()
 {
     // setup connection to dbus
-    boost::asio::io_service io;
+    boost::asio::io_context io;
     auto conn = std::make_shared<sdbusplus::asio::connection>(io);
     pfr::stateTimer = std::make_unique<boost::asio::steady_timer>(io);
     pfr::initTimer = std::make_unique<boost::asio::steady_timer>(io);
