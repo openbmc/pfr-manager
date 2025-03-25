@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bbe9374_d6e83cc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002108
+      },
+      "writtenOn": "2025-03-25T06:25:13Z",
+      "side": 1,
+      "message": "Resolving this build issue also requires this commit for now.\nhttps://gerrit.openbmc.org/c/openbmc/pfr-manager/+/79154",
+      "revId": "630a7e7e604e4c73807bb696c4463541f6b8e4ee",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
