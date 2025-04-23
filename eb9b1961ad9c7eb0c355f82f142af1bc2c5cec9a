@@ -1,0 +1,9 @@
+Code-Review+1: Vikram Bodireddy <vikram.bodireddy@intel.com>
+Code-Review+2: Jason Bills <jason.m.bills@linux.intel.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Jason Bills <jason.m.bills@linux.intel.com>
+Submitted-at: Wed, 23 Apr 2025 14:29:49 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/pfr-manager/+/79154
+Comments-Total: 3
+Project: openbmc/pfr-manager
+Branch: refs/heads/master
