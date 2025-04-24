@@ -221,9 +221,9 @@ static void logResiliencyErrorEvent(const uint8_t majorErrorCode,
         "REDFISH_MESSAGE_ARGS=%s", errorStr.c_str(), NULL);
 }
 
-static void
-    handleLastCountChange(std::shared_ptr<sdbusplus::asio::connection> conn,
-                          std::string eventName, uint8_t currentCount)
+static void handleLastCountChange(
+    std::shared_ptr<sdbusplus::asio::connection> conn, std::string eventName,
+    uint8_t currentCount)
 {
     sdbusplus::asio::setProperty(
         *conn, "xyz.openbmc_project.Settings",
@@ -241,8 +241,8 @@ static void
     return;
 }
 
-static void
-    checkAndLogEvents(std::shared_ptr<sdbusplus::asio::connection>& conn)
+static void checkAndLogEvents(
+    std::shared_ptr<sdbusplus::asio::connection>& conn)
 {
     sdbusplus::asio::getAllProperties(
         *conn, "xyz.openbmc_project.Settings",
