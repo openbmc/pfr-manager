@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c337852_d4408a46",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2025-05-13T04:42:14Z",
+      "side": 0,
+      "message": "Before doing this change, we should know why systemd setting finish timestamp as \u00270\u0027",
+      "revId": "60734ac984f657418f431f7a33623ae4d4908563",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
