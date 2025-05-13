@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efdd2338_7966b99d",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1000312
+      },
+      "writtenOn": "2025-05-13T04:52:53Z",
+      "side": 0,
+      "message": "why you think this check causing the issue? if you think, the bus num \u0026 pfr i2c addresses are hardcoded then its not, these are given with default values and then initialized to platform specific values retrieved from entity manager config.",
+      "revId": "60734ac984f657418f431f7a33623ae4d4908563",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
