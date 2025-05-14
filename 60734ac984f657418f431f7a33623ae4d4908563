@@ -52,6 +52,24 @@
       "parentUuid": "7dae205a_b8efd518",
       "revId": "60734ac984f657418f431f7a33623ae4d4908563",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d47dd50b_e962ab36",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1002108
+      },
+      "writtenOn": "2025-05-14T08:29:39Z",
+      "side": 0,
+      "message": "Currently, [pfr::monitorSignals](https://github.com/openbmc/pfr-manager/blob/eedbae776db69b033de23629310692aa3b780b41/service/src/mainapp.cpp#L668) is invoked by checkPFRandAddObjects(). Moreover, if the system is unprovisioned, pfr-manager exits at  [setBMCBootCompleteChkPoint](https://github.com/openbmc/pfr-manager/blob/eedbae776db69b033de23629310692aa3b780b41/libpfr/src/pfr.cpp#L539).\n(Personally, I don\u0027t prefer exiting in unprovisioned mode — but that’s another discussion.)\n\nI think we should avoid calling monitorSignals when PFR is unprovisioned, as that could lead to a crash.",
+      "parentUuid": "cd7539ec_787ea59d",
+      "revId": "60734ac984f657418f431f7a33623ae4d4908563",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
