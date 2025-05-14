@@ -16,6 +16,24 @@
       "message": "Before doing this change, we should know why systemd setting finish timestamp as \u00270\u0027",
       "revId": "60734ac984f657418f431f7a33623ae4d4908563",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dae205a_b8efd518",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1002108
+      },
+      "writtenOn": "2025-05-14T02:37:50Z",
+      "side": 0,
+      "message": "I found this problem at previous ASPEED pfr-mctp-i3c.service.\nhttps://github.com/AspeedTech-BMC/openbmc/blob/82fd23329b5f00c13e66eefd207b76327a7b3fe1/meta-aspeed-sdk/meta-aspeed-pfr/recipes-intel/pfr/pfr-mctp-i3c/pfr-mctp-i3c.service#L3\n\n\nI can also reproduce this issue by following steps:\n\nStep1: Remove network cable at the DCSCM board, systemd will wait for \u0027network-online\u0027, and the timestamp will stay at \u00270\u0027.\n\n```\nroot@ast2700-dcscm:~# systemctl list-jobs\nJOB UNIT                                    TYPE  STATE\n132 network-online.target                   start waiting\n133 systemd-networkd-wait-online.service    start running\n128 rsyslog.service                         start waiting\n127 xyz.openbmc_project.PFR.Manager.service start waiting\n1   multi-user.target                       start waiting\n123 obmc-led-group-start@bmc_booted.service start waiting\n\n6 jobs listed.\nroot@ast2700-dcscm:~# busctl get-property  org.freedesktop.systemd1 /org/freedesktop/systemd1 org.freedesktop.systemd1.Manager FinishTimestamp\nt 0\n```\n\nStep2: Remove rsyslog.service at /usr/lib/systemd/system/xyz.openbmc_project.PFR.Manager.service in the [Unit] section.\n\n```\n#Wants\u003drsyslog.service\n#After\u003drsyslog.service\n```\n\nStep3: Running at Unprovision \n\n```\nroot@ast2700-dcscm:~# aspeed-pfr-tool -u\nunprovision success\n```\n\nReboot the DCSCM board, the pfr-manager crash like below.\n\n```\nroot@ast2700-dcscm:~# [   49.732321] audit: type\u003d1701 audit(1747189215.560:2): auid\u003d4294967295 uid\u003d0 gid\u003d0 ses\u003d4294967295 pid\u003d625 comm\u003d\"pfr-manager\" exe\u003d\"/usr/bin/pfr-manager\" sig\u003d11 res\u003d1\n[   75.743076] audit: type\u003d1701 audit(1747189241.568:3): auid\u003d4294967295 uid\u003d0 gid\u003d0 ses\u003d4294967295 pid\u003d840 comm\u003d\"pfr-manager\" exe\u003d\"/usr/bin/pfr-manager\" sig\u003d11 res\u003d1\n[  101.737087] audit: type\u003d1701 audit(1747189267.564:4): auid\u003d4294967295 uid\u003d0 gid\u003d0 ses\u003d4294967295 pid\u003d988 comm\u003d\"pfr-manager\" exe\u003d\"/usr/bin/pfr-manager\" sig\u003d11 res\u003d1\n```",
+      "parentUuid": "2c337852_d4408a46",
+      "revId": "60734ac984f657418f431f7a33623ae4d4908563",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
