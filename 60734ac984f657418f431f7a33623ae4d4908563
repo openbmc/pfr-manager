@@ -34,6 +34,24 @@
       "parentUuid": "efdd2338_7966b99d",
       "revId": "60734ac984f657418f431f7a33623ae4d4908563",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf3657ab_e1571a3b",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1001213
+      },
+      "writtenOn": "2025-05-14T06:38:48Z",
+      "side": 0,
+      "message": "I have a doubt here - If the bus number and I2C address are not fetched, how is UfmSupport set to true? as per my understanding of the current code flow, if provisioning status detection fails, it might not only affect the postcode interface but also other interfaces. Could you clarify how these scenarios are handled in the code? Ensuring accurate provisioning status detection is crucial for the correct initialization and exposure of interfaces.",
+      "parentUuid": "a19861d3_a9866000",
+      "revId": "60734ac984f657418f431f7a33623ae4d4908563",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
