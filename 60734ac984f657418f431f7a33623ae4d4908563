@@ -52,6 +52,24 @@
       "parentUuid": "a19861d3_a9866000",
       "revId": "60734ac984f657418f431f7a33623ae4d4908563",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b38e876_ad8641e2",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1002108
+      },
+      "writtenOn": "2025-05-14T07:39:44Z",
+      "side": 0,
+      "message": "The `UfmSupport` is set based on the availability of interfaces. When the pfr-manager successfully retrieves the correct bus number and I2C address from the entity-manager, it can establish communication with the PFR. However, at that point, no one has created the postcode interface (xyz.openbmc_project.State.Boot.Platform).",
+      "parentUuid": "cf3657ab_e1571a3b",
+      "revId": "60734ac984f657418f431f7a33623ae4d4908563",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
