@@ -16,6 +16,24 @@
       "message": "why you think this check causing the issue? if you think, the bus num \u0026 pfr i2c addresses are hardcoded then its not, these are given with default values and then initialized to platform specific values retrieved from entity manager config.",
       "revId": "60734ac984f657418f431f7a33623ae4d4908563",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a19861d3_a9866000",
+        "filename": "service/src/mainapp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1002108
+      },
+      "writtenOn": "2025-05-14T03:20:18Z",
+      "side": 0,
+      "message": "On the AST2700 DCSCM, it\u0027s too late to retrieve the bus number and I2C address from the entity-manager. As a result, getPfrProvisioned fails, and the postcode interface is not created.\n\nAs you can see in my result, there is no xyz.openbmc_project.State.Boot.Platform Data interface.\n\n```\nroot@ast2700-dcscm:~# busctl introspect xyz.openbmc_project.PFR.Manager /xyz/openbmc_project/pfr\nNAME                                TYPE      SIGNATURE  RESULT/VALUE  FLAGS\norg.freedesktop.DBus.Introspectable interface -          -             -\n.Introspect                         method    -          s             -\norg.freedesktop.DBus.ObjectManager  interface -          -             -\n.GetManagedObjects                  method    -          a{oa{sa{sv}}} -\n.InterfacesAdded                    signal    oa{sa{sv}} -             -\n.InterfacesRemoved                  signal    oas        -             -\norg.freedesktop.DBus.Peer           interface -          -             -\n.GetMachineId                       method    -          s             -\n.Ping                               method    -          -             -\norg.freedesktop.DBus.Properties     interface -          -             -\n.Get                                method    ss         v             -\n.GetAll                             method    s          a{sv}         -\n.Set                                method    ssv        -             -\n.PropertiesChanged                  signal    sa{sv}as   -             -\nxyz.openbmc_project.PFR.Attributes  interface -          -             -\n.UfmLocked                          property  b          false         emits-change writable\n.UfmProvisioned                     property  b          true          emits-change writable\n.UfmSupport                         property  b          true          emits-change writable\nxyz.openbmc_project.PFR.Mailbox     interface -          -             -\n.InitiateBMCBusyPeriod              method    b          b             -\n.ReadMBRegister                     method    u          y             -\n```",
+      "parentUuid": "efdd2338_7966b99d",
+      "revId": "60734ac984f657418f431f7a33623ae4d4908563",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
